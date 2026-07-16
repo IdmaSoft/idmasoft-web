@@ -1,5 +1,6 @@
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { FeatureCard } from "@/components/ui/FeatureCard";
+import { FEATURES } from "@/lib/constants/features";
 import {
   Shield,
   TrendingUp,
@@ -9,44 +10,16 @@ import {
   HeartHandshake,
 } from "lucide-react";
 
-const features = [
-  {
-    title: "Clean Architecture",
-    description:
-      "Separation of concerns, clear domain boundaries, and patterns that make code readable and predictable months after it's written.",
-    icon: <Shield className="w-5 h-5" aria-hidden="true" />,
-  },
-  {
-    title: "Scalable Systems",
-    description:
-      "Designed to handle growth. We build systems with the headroom to scale horizontally without architectural rewrites.",
-    icon: <TrendingUp className="w-5 h-5" aria-hidden="true" />,
-  },
-  {
-    title: "Modern Stack",
-    description:
-      "We work with technologies that have strong ecosystems, active communities, and a proven track record in production.",
-    icon: <Wrench className="w-5 h-5" aria-hidden="true" />,
-  },
-  {
-    title: "Performance First",
-    description:
-      "Optimized databases, efficient queries, and lean frontend bundles. Fast applications are a requirement, not an afterthought.",
-    icon: <Zap className="w-5 h-5" aria-hidden="true" />,
-  },
-  {
-    title: "Maintainability",
-    description:
-      "Code that future developers can understand. Consistent patterns, good documentation, and a testing strategy that gives teams confidence.",
-    icon: <RefreshCw className="w-5 h-5" aria-hidden="true" />,
-  },
-  {
-    title: "Long-term Support",
-    description:
-      "We don't disappear after launch. We stay involved to monitor, improve, and extend the systems we build.",
-    icon: <HeartHandshake className="w-5 h-5" aria-hidden="true" />,
-  },
-];
+const iconMap = {
+  Shield,
+  TrendingUp,
+  Wrench,
+  Zap,
+  RefreshCw,
+  HeartHandshake,
+};
+
+const features = FEATURES;
 
 export function WhyIdmasoftSection() {
   return (
@@ -63,14 +36,17 @@ export function WhyIdmasoftSection() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature) => (
-            <FeatureCard
-              key={feature.title}
-              title={feature.title}
-              description={feature.description}
-              icon={feature.icon}
-            />
-          ))}
+          {features.map((feature) => {
+            const Icon = iconMap[feature.icon as keyof typeof iconMap] ?? Shield;
+            return (
+              <FeatureCard
+                key={feature.title}
+                title={feature.title}
+                description={feature.description}
+                icon={<Icon className="w-5 h-5" aria-hidden="true" />}
+              />
+            );
+          })}
         </div>
       </div>
     </section>
