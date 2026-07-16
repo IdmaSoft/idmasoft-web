@@ -4,6 +4,8 @@ interface SectionTitleProps {
   description?: string;
   align?: "left" | "center";
   className?: string;
+  titleClassName?: string;
+  descriptionClassName?: string;
 }
 
 export function SectionTitle({
@@ -12,6 +14,8 @@ export function SectionTitle({
   description,
   align = "center",
   className = "",
+  titleClassName = "",
+  descriptionClassName = "",
 }: SectionTitleProps) {
   const alignClasses =
     align === "center"
@@ -25,11 +29,11 @@ export function SectionTitle({
           {eyebrow}
         </span>
       )}
-      <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl leading-tight">
+      <h2 className={`text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl leading-tight ${titleClassName}`}>
         {title}
       </h2>
       {description && (
-        <p className="max-w-2xl text-lg text-slate-500 leading-relaxed">
+        <p className={`max-w-2xl text-lg text-slate-500 leading-relaxed ${descriptionClassName}`}>
           {description}
         </p>
       )}

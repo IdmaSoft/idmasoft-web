@@ -11,11 +11,11 @@ import { HomeFounderSection } from "@/components/sections/HomeFounderSection";
 import { CTASection } from "@/components/layout/CTASection";
 
 export const metadata: Metadata = {
-  title: "Idmasoft � Modern Software Products & Engineering",
+  title: "Idmasoft — Modern Software Products & Engineering",
   description:
     "Idmasoft builds modern software products, AI-powered solutions, backend systems, and enterprise applications that scale.",
   openGraph: {
-    title: "Idmasoft � Modern Software Products & Engineering",
+    title: "Idmasoft — Modern Software Products & Engineering",
     description:
       "Idmasoft builds modern software products, AI-powered solutions, backend systems, and enterprise applications that scale.",
     url: "https://idmasoft.com",
