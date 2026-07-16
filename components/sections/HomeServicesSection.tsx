@@ -70,11 +70,13 @@ export function HomeServicesSection() {
         </div>
 
         <div className="mt-12 text-center">
-          <Link href="/services">
-            <Button className="text-zinc-50 border-zinc-800 hover:bg-zinc-900">
-              See All Services
-            </Button>
-          </Link>
+          <Button
+            render={<Link href="/services" />}
+            nativeButton={false}
+            className="text-zinc-50 border-zinc-800 hover:bg-zinc-900"
+          >
+            See All Services
+          </Button>
         </div>
       </div>
     </section>

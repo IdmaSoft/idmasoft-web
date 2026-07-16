@@ -84,14 +84,14 @@ export function Navbar() {
 
             {/* Desktop CTA */}
             <div className="hidden md:flex items-center gap-3">
-              <Link href="/contact">
-                <Button
-                  size="sm"
-                  className="bg-zinc-50 text-zinc-950 hover:bg-zinc-200 transition-colors font-medium rounded-lg"
-                >
-                  Get in Touch
-                </Button>
-              </Link>
+              <Button
+                render={<Link href="/contact" />}
+                nativeButton={false}
+                size="sm"
+                className="bg-zinc-50 text-zinc-950 hover:bg-zinc-200 transition-colors font-medium rounded-lg"
+              >
+                Get in Touch
+              </Button> 
             </div>
 
             {/* Mobile toggle */}
@@ -163,15 +163,15 @@ export function Navbar() {
             );
           })}
           <div className="mt-4 pt-4 border-t border-zinc-900">
-            <Link href="/contact">
-              <Button
-                size="sm"
-                variant="default"
-                className="w-full bg-zinc-50 text-zinc-950 hover:bg-zinc-200 transition-colors font-medium rounded-lg"
-              >
-                Get in Touch
-              </Button>
-            </Link>
+            <Button
+              render={<Link href="/contact" />}
+              nativeButton={false}
+              size="sm"
+              variant="default"
+              className="w-full bg-zinc-50 text-zinc-950 hover:bg-zinc-200 transition-colors font-medium rounded-lg"
+            >
+              Get in Touch
+            </Button>
           </div>
         </nav>
       </div>

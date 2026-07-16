@@ -28,24 +28,24 @@ export function CTASection({
         <p className="mt-4 text-lg text-zinc-400 max-w-2xl mx-auto leading-relaxed">
           {description}
         </p>
-        <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href={primaryHref} >
-            <Button
-              size="lg"
-              className="bg-zinc-50 text-zinc-950 hover:bg-zinc-200 transition-colors"
-            >
-              {primaryLabel}
-            </Button>
-          </Link>
-          <Link href={primaryHref} >
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-zinc-800 text-zinc-300 hover:bg-zinc-900 hover:text-white transition-colors"
-            >
-              {secondaryLabel}
-            </Button>
-          </Link>
+        <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">   
+          <Button
+            render={<Link href={primaryHref} />}
+            nativeButton={false}
+            size="lg"
+            className="bg-zinc-50 text-zinc-950 hover:bg-zinc-200 transition-colors"
+          >
+            {primaryLabel}
+          </Button>
+          <Button
+            render={<Link href={secondaryHref} />}
+            nativeButton={false}
+            variant="outline"
+            size="lg"
+            className="border-zinc-800 text-zinc-300 hover:bg-zinc-900 hover:text-white transition-colors"
+          >
+            {secondaryLabel}
+          </Button>
         </div>
       </div>
     </section>

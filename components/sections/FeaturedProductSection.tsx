@@ -61,22 +61,22 @@ export function FeaturedProductSection() {
             </ul>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
-              <Link href="/products/sellerresponder" >
-                <Button
-                  className="bg-orange-600 text-white hover:bg-orange-500 transition-colors"
-                >
-                  View Product
-                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
-                </Button>
-              </Link>
-              <Link href="/products" >
-                <Button
+              <Button
+                render={<Link href="/products/sellerresponder" />}
+                nativeButton={false}
+                className="bg-orange-600 text-white hover:bg-orange-500 transition-colors"
+              >
+                View Product
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </Button>
+              <Button
+                render={<Link href="/products" />}
+                nativeButton={false}
                   variant="default"
                   className="border-zinc-800 text-zinc-100 hover:border-zinc-700"
-                >
-                  All Products
-                </Button>
-              </Link>
+              >
+                All Products
+              </Button>
             </div>
           </div>
 

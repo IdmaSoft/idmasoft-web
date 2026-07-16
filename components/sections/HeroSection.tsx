@@ -138,16 +138,16 @@ export function HeroSection() {
             </p>
 
             <div className="relative z-10 mt-10 flex flex-col gap-4 sm:flex-row">
-              <Link href="/products" className="w-full sm:w-auto block">
-                <Button 
-                  size="lg" 
-                  variant="default" 
-                  className="w-full"
-                >
-                  Explore Products
-                  <ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" /> 
-                </Button>
-              </Link>
+              <Button 
+                render={<Link href="/products" />}
+                nativeButton={false}
+                size="lg" 
+                variant="default" 
+                className="w-full sm:w-auto"
+              >
+                Explore Products
+                <ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" /> 
+              </Button>
             </div>
           </div>
 

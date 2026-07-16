@@ -25,13 +25,13 @@ export function HomeProductsSection() {
         </div>
 
         <div className="mt-12 text-center">
-          <Link href="/products">|
-            <Button
-              className="border-zinc-800 text-zinc-50 hover:bg-zinc-900"
-            >
-              View All Products
-            </Button>
-          </Link>
+          <Button
+            render={<Link href="/products" />}
+            nativeButton={false}
+            className="border-zinc-800 text-zinc-50 hover:bg-zinc-900"
+          >
+            View All Products
+          </Button>
         </div>
       </div>
     </section>
