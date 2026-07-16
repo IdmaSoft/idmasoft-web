@@ -1,5 +1,6 @@
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap } from "lucide-react";
+import Link from "next/link";
 
 function HeroVisual() {
   return (
@@ -136,14 +137,17 @@ export function HeroSection() {
               Native Android apps, secure backend APIs and real-time synchronization designed to keep mobile operations aligned with business metrics.
             </p>
 
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Button href="/products" size="lg" variant="default">
-                Explore Products
-                <ArrowRight className="w-4 h-4" aria-hidden="true" />
-              </Button>
-              <Button href="/contact" size="lg" variant="outline">
-                Work With Us
-              </Button>
+            <div className="relative z-10 mt-10 flex flex-col gap-4 sm:flex-row">
+              <Link href="/products" className="w-full sm:w-auto block">
+                <Button 
+                  size="lg" 
+                  variant="default" 
+                  className="w-full"
+                >
+                  Explore Products
+                  <ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" /> 
+                </Button>
+              </Link>
             </div>
           </div>
 

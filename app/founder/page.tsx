@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Code2, Server, Cloud, BrainCircuit } from "lucide-react";
 import { GitHubIcon, LinkedInIcon } from "@/components/ui/BrandIcons";
-import { Button } from "@/components/ui/Button";
 import { TechnologyBadge } from "@/components/ui/TechnologyBadge";
 import { CTASection } from "@/components/layout/CTASection";
 import { SITE } from "@/lib/constants/site";
@@ -175,7 +174,7 @@ export default function FounderPage() {
                   abstraction.
                 </p>
                 <p>
-                  Outside of client work, the founder builds Idmasoft's own
+                  Outside of client work, the founder builds Idmasoft&apos;s own
                   products — starting with SellerResponder. The goal is to build
                   a portfolio of software tools that solve specific, well-defined
                   problems and can operate independently at scale.

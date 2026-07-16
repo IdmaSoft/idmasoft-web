@@ -1,6 +1,7 @@
 import { ArrowRight, ShoppingBag, Bot, Smartphone, Check } from "lucide-react";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import Link from "next/link";
 
 const highlights = [
   {
@@ -60,22 +61,22 @@ export function FeaturedProductSection() {
             </ul>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
-              <Button
-                href="/products/sellerresponder"
-                size="md"
-                className="bg-orange-600 text-white hover:bg-orange-500 transition-colors"
-              >
-                View Product
-                <ArrowRight className="w-4 h-4" aria-hidden="true" />
-              </Button>
-              <Button
-                href="/products"
-                variant="outline"
-                size="md"
-                className="border-zinc-800 text-zinc-100 hover:border-zinc-700"
-              >
-                All Products
-              </Button>
+              <Link href="/products/sellerresponder" >
+                <Button
+                  className="bg-orange-600 text-white hover:bg-orange-500 transition-colors"
+                >
+                  View Product
+                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                </Button>
+              </Link>
+              <Link href="/products" >
+                <Button
+                  variant="default"
+                  className="border-zinc-800 text-zinc-100 hover:border-zinc-700"
+                >
+                  All Products
+                </Button>
+              </Link>
             </div>
           </div>
 

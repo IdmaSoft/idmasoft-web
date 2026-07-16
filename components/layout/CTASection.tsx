@@ -1,4 +1,5 @@
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 interface CTASectionProps {
   title?: string;
@@ -28,21 +29,23 @@ export function CTASection({
           {description}
         </p>
         <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-          <Button
-            href={primaryHref}
-            size="lg"
-            className="bg-zinc-50 text-zinc-950 hover:bg-zinc-200 transition-colors"
-          >
-            {primaryLabel}
-          </Button>
-          <Button
-            href={secondaryHref}
-            variant="outline"
-            size="lg"
-            className="border-zinc-800 text-zinc-300 hover:bg-zinc-900 hover:text-white transition-colors"
-          >
-            {secondaryLabel}
-          </Button>
+          <Link href={primaryHref} >
+            <Button
+              size="lg"
+              className="bg-zinc-50 text-zinc-950 hover:bg-zinc-200 transition-colors"
+            >
+              {primaryLabel}
+            </Button>
+          </Link>
+          <Link href={primaryHref} >
+            <Button
+              variant="outline"
+              size="lg"
+              className="border-zinc-800 text-zinc-300 hover:bg-zinc-900 hover:text-white transition-colors"
+            >
+              {secondaryLabel}
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

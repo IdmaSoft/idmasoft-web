@@ -1,7 +1,8 @@
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { ProductCard } from "@/components/ui/ProductCard";
 import { PRODUCTS } from "@/lib/constants/products";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export function HomeProductsSection() {
   return (
@@ -24,14 +25,13 @@ export function HomeProductsSection() {
         </div>
 
         <div className="mt-12 text-center">
-          <Button
-            href="/products"
-            variant="outline"
-            size="md"
-            className="border-zinc-800 text-zinc-50 hover:bg-zinc-900"
-          >
-            View All Products
-          </Button>
+          <Link href="/products">|
+            <Button
+              className="border-zinc-800 text-zinc-50 hover:bg-zinc-900"
+            >
+              View All Products
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

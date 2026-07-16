@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Send, CheckCircle } from "lucide-react";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 
 interface FormState {
   name: string;
@@ -144,7 +144,7 @@ export function ContactForm() {
         />
       </div>
 
-      <Button type="submit" size="lg" variant="primary" className="w-full sm:w-auto">
+      <Button type="submit" size="lg" variant="default" className="w-full sm:w-auto">
         Send Message
         <Send className="w-4 h-4" aria-hidden="true" />
       </Button>

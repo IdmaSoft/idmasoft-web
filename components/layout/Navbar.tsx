@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { NAV_LINKS } from "@/lib/constants/navigation";
 import { SITE } from "@/lib/constants/site";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -35,8 +35,8 @@ export function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm"
-            : "bg-white/80 backdrop-blur-sm"
+            ? "bg-zinc-950/80 backdrop-blur-md border-b border-zinc-900/80 shadow-2xl"
+            : "bg-transparent"
         }`}
       >
         <nav
@@ -50,10 +50,10 @@ export function Navbar() {
               className="flex items-center gap-2.5 group"
               aria-label={`${SITE.name} — Home`}
             >
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center shadow-sm">
-                <span className="text-white text-sm font-bold">I</span>
+              <div className="w-8 h-8 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center shadow-sm">
+                <span className="text-zinc-100 text-sm font-bold">I</span>
               </div>
-              <span className="text-slate-900 font-semibold text-lg tracking-tight group-hover:text-blue-600 transition-colors">
+              <span className="text-zinc-100 font-semibold text-lg tracking-tight group-hover:text-white transition-colors">
                 {SITE.name}
               </span>
             </Link>
@@ -71,8 +71,8 @@ export function Navbar() {
                     href={link.href}
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-150 ${
                       isActive
-                        ? "text-blue-600 bg-blue-50"
-                        : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
+                        ? "text-zinc-100 bg-zinc-900 border border-zinc-800/50"
+                        : "text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900/50"
                     }`}
                     aria-current={isActive ? "page" : undefined}
                   >
@@ -84,14 +84,19 @@ export function Navbar() {
 
             {/* Desktop CTA */}
             <div className="hidden md:flex items-center gap-3">
-              <Button href="/contact" size="sm" variant="primary">
-                Get in Touch
-              </Button>
+              <Link href="/contact">
+                <Button
+                  size="sm"
+                  className="bg-zinc-50 text-zinc-950 hover:bg-zinc-200 transition-colors font-medium rounded-lg"
+                >
+                  Get in Touch
+                </Button>
+              </Link>
             </div>
 
             {/* Mobile toggle */}
             <button
-              className="md:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors"
+              className="md:hidden p-2 rounded-lg text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900/50 transition-colors"
               onClick={() => setIsOpen((prev) => !prev)}
               aria-label={isOpen ? "Close menu" : "Open menu"}
               aria-expanded={isOpen}
@@ -110,7 +115,7 @@ export function Navbar() {
       {/* Mobile drawer overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm md:hidden"
+          className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden"
           aria-hidden="true"
           onClick={() => setIsOpen(false)}
         />
@@ -122,14 +127,14 @@ export function Navbar() {
         role="dialog"
         aria-label="Navigation menu"
         aria-modal="true"
-        className={`fixed top-0 right-0 bottom-0 z-50 w-72 bg-white shadow-2xl transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed top-0 right-0 bottom-0 z-50 w-72 bg-zinc-950 border-l border-zinc-900 backdrop-blur-md transition-transform duration-300 ease-in-out md:hidden ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between h-16 px-6 border-b border-slate-100">
-          <span className="font-semibold text-slate-900">{SITE.name}</span>
+        <div className="flex items-center justify-between h-16 px-6 border-b border-zinc-900">
+          <span className="font-semibold text-zinc-100">{SITE.name}</span>
           <button
-            className="p-2 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-colors"
+            className="p-2 rounded-lg text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900/50 transition-colors"
             onClick={() => setIsOpen(false)}
             aria-label="Close menu"
           >
@@ -148,8 +153,8 @@ export function Navbar() {
                 href={link.href}
                 className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
                   isActive
-                    ? "text-blue-600 bg-blue-50"
-                    : "text-slate-700 hover:text-slate-900 hover:bg-slate-100"
+                    ? "text-zinc-100 bg-zinc-900"
+                    : "text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900/50"
                 }`}
                 aria-current={isActive ? "page" : undefined}
               >
@@ -157,10 +162,16 @@ export function Navbar() {
               </Link>
             );
           })}
-          <div className="mt-4 pt-4 border-t border-slate-100">
-            <Button href="/contact" size="md" variant="primary" className="w-full">
-              Get in Touch
-            </Button>
+          <div className="mt-4 pt-4 border-t border-zinc-900">
+            <Link href="/contact">
+              <Button
+                size="sm"
+                variant="default"
+                className="w-full bg-zinc-50 text-zinc-950 hover:bg-zinc-200 transition-colors font-medium rounded-lg"
+              >
+                Get in Touch
+              </Button>
+            </Link>
           </div>
         </nav>
       </div>
