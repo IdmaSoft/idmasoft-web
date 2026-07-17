@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { HeroSection } from "@/components/sections/HeroSection";
+import { HeroSection } from "@/components/sections/hero/HeroSection";
 import { CompanySection } from "@/components/sections/CompanySection";
 import { HomeProductsSection } from "@/components/sections/HomeProductsSection";
 import { HomeServicesSection } from "@/components/sections/HomeServicesSection";
