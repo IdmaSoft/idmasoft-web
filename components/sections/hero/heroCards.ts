@@ -9,44 +9,49 @@ import {
 import { HeroCard } from "./types";
 
 export const heroCards: HeroCard[] = [
+  // Upper center
   {
     id: "dashboard",
     title: "Analytics Dashboard",
     description: "Business metrics and insights",
     icon: BarChart3,
-    x: "50%",
-    y: "18%",
+    x: "47%",
+    y: "38%",
   },
+  // Left
   {
     id: "android",
     title: "Android App",
     description: "Native mobile application",
     icon: Smartphone,
-    x: "12%",
-    y: "38%",
+    x: "26%",
+    y: "44%",
   },
+  // Right
   {
     id: "landing",
     title: "Next.js Landing",
     description: "Modern web experience",
     icon: Globe,
-    x: "88%",
-    y: "38%",
+    x: "70%",
+    y: "44%",
   },
+  // Lower left
   {
     id: "nestjs",
     title: "NestJS API",
     description: "Secure backend services",
     icon: Server,
-    x: "28%",
-    y: "74%",
+    x: "38%",
+    y: "60%",
   },
+  // Lower right
   {
     id: "sql",
     title: "SQL Database",
     description: "Reliable data storage",
     icon: Database,
-    x: "72%",
-    y: "74%",
+    x: "55%",
+    y: "60%",
   },
 ];

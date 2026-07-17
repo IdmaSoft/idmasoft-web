@@ -9,7 +9,13 @@ export default function HeroBackground() {
         alt=""
         fill
         priority
-        className="object-cover object-center select-none pointer-events-none"
+        className="
+          pointer-events-none
+          select-none
+          object-cover
+          object-center
+          translate-y-24
+        "
       />
 
       {/* Gradiente superior */}
