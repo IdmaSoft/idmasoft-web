@@ -1,21 +1,33 @@
-import Image from "next/image";
+"use client";
 
-export default function HeroBackground() {
+import Image from "next/image";
+import { MotionValue, motion, useTransform } from "framer-motion";
+
+interface HeroBackgroundProps {
+  progress: MotionValue<number>;
+}
+
+export default function HeroBackground({
+  progress,
+}: HeroBackgroundProps) {
+  const scale = useTransform(
+    progress,
+    [0, 0.5, 1],
+    [0.95, 1.0, 1.08]
+  );
+
   return (
-    <div className="absolute inset-0 -z-10 overflow-hidden bg-zinc-950">
+    <motion.div
+      style={{ scale }}
+      className="absolute inset-0 -z-10 overflow-hidden bg-zinc-950"
+    >
       {/* Imagen principal */}
       <Image
         src="/images/hero/hero-background.png"
         alt=""
         fill
         priority
-        className="
-          pointer-events-none
-          select-none
-          object-cover
-          object-center
-          translate-y-24
-        "
+        className="pointer-events-none select-none object-cover object-center translate-y-20"
       />
 
       {/* Gradiente superior */}
@@ -82,6 +94,6 @@ export default function HeroBackground() {
           blur-[120px]
         "
       />
-    </div>
+    </motion.div>
   );
 }

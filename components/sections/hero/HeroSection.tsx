@@ -20,7 +20,7 @@ export function HeroSection() {
       className="relative h-[240vh] bg-zinc-950"
     >
       <div className="sticky top-0 h-screen overflow-hidden">
-        <HeroBackground />
+        <HeroBackground progress={scrollYProgress} />
         <HeroScene progress={scrollYProgress} />
         <HeroContent progress={scrollYProgress} />
 
