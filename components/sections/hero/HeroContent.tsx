@@ -1,9 +1,24 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion, MotionValue, useTransform } from "framer-motion";
 
-export default function HeroContent() {
+interface HeroContentProps {
+  progress: MotionValue<number>;
+}
+
+export default function HeroContent({progress,}: HeroContentProps) {
+  const y = useTransform(progress, [0, 0.25, 1], [0, -80, -80]);
+
+  const opacity = useTransform(progress, [0, 0.25, 1], [1, 0, 0]);
+
   return (
-    <div className="absolute inset-0 z-20 pointer-events-none">
+    <motion.div 
+      style={{
+        y,
+        opacity,
+      }}
+      className="absolute inset-0 z-20 pointer-events-none"
+    >
       <div className="mx-auto flex h-full max-w-7xl flex-col items-center px-6">
         {/* Top content */}
         <div className="pt-24 flex max-w-3xl flex-col items-center text-center">
@@ -35,6 +50,6 @@ export default function HeroContent() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
