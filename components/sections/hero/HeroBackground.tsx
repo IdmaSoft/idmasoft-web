@@ -1,68 +1,40 @@
-"use client";
-
-import Image from "next/image";
-import { MotionValue, motion, useTransform } from "framer-motion";
-
-interface HeroBackgroundProps {
-  progress: MotionValue<number>;
-}
-
-export default function HeroBackground({
-  progress,
-}: HeroBackgroundProps) {
-  const scale = useTransform(
-    progress,
-    [0, 0.5, 1],
-    [0.95, 1.0, 1.08]
-  );
-
+export default function HeroBackground() {
   return (
-    <motion.div
-      style={{ scale }}
-      className="absolute inset-0 -z-10 overflow-hidden bg-zinc-950"
-    >
-      {/* Imagen principal */}
-      <Image
-        src="/images/hero/hero-background.png"
-        alt=""
-        fill
-        priority
-        className="pointer-events-none select-none object-cover object-center translate-y-20"
-      />
+    <div className="absolute inset-0 -z-20 overflow-hidden bg-zinc-950">
 
-      {/* Gradiente superior */}
+      {/* Upper gradient */}
       <div
         className="
           absolute inset-0
           bg-gradient-to-b
-          from-zinc-950/30
-          via-zinc-950/10
-          to-zinc-950/70
+          from-zinc-950/10
+          via-zinc-950/20
+          to-zinc-950
         "
       />
 
-      {/* Gradiente radial azul */}
+      {/* Central glow */}
       <div
         className="
           absolute
           left-1/2
-          top-[70%]
-          h-[700px]
-          w-[700px]
+          top-1/2
+          h-[900px]
+          w-[900px]
           -translate-x-1/2
           -translate-y-1/2
           rounded-full
-          bg-sky-400/10
-          blur-[180px]
+          bg-sky-500/10
+          blur-[220px]
         "
       />
 
-      {/* Glow violeta */}
+      {/* Violet glow */}
       <div
         className="
           absolute
           right-[15%]
-          top-[25%]
+          top-[20%]
           h-[500px]
           w-[500px]
           rounded-full
@@ -71,29 +43,14 @@ export default function HeroBackground({
         "
       />
 
-      {/* Viñeta */}
+      {/* Vignette */}
       <div
         className="
           absolute
           inset-0
-          bg-[radial-gradient(circle_at_center,transparent_45%,rgba(0,0,0,.55)_100%)]
+          bg-[radial-gradient(circle_at_center,transparent_45%,rgba(0,0,0,.65)_100%)]
         "
       />
-
-      {/* Glow inferior */}
-      <div
-        className="
-          absolute
-          bottom-[-120px]
-          left-1/2
-          h-[320px]
-          w-[900px]
-          -translate-x-1/2
-          rounded-full
-          bg-sky-400/10
-          blur-[120px]
-        "
-      />
-    </motion.div>
+    </div>
   );
 }

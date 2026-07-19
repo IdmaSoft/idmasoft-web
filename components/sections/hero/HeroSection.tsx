@@ -5,6 +5,7 @@ import HeroBackground from "./HeroBackground";
 import HeroContent from "./HeroContent";
 import HeroScene from "./HeroScene";
 import { useRef } from "react";
+import HeroCore from "./core/HeroCore";
 
 export function HeroSection() {
   const heroRef = useRef<HTMLElement>(null);
@@ -20,9 +21,10 @@ export function HeroSection() {
       className="relative h-[240vh] bg-zinc-950"
     >
       <div className="sticky top-0 h-screen overflow-hidden">
-        <HeroBackground progress={scrollYProgress} />
-        <HeroScene progress={scrollYProgress} />
+        <HeroBackground />
         <HeroContent progress={scrollYProgress} />
+        <HeroCore progress={scrollYProgress} />
+        <HeroScene progress={scrollYProgress} />
 
         {/* Próximamente */}
         {/* FloatingCards */}
