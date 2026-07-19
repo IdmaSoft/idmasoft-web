@@ -16,12 +16,12 @@ export default function Cube() {
         <CubeFace className="top" />
         <CubeFace className="bottom" />
 
-        {/* Energy core */}
-        <div className="cube-core" />
-
         {/* Reflection */}
-        <div className="cube-highlight" />
+    
       </div>
+
+              {/* Energy core */}
+        <div className="cube-core" />
 
       {/* Bottom glow */}
       <div className="cube-glow" />
