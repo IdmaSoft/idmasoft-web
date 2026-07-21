@@ -8,7 +8,9 @@
     perspective:1200px;
 }
 
-.cube{
+.cube {
+
+    --cube-depth: 90px;
 
     position:absolute;
 
@@ -20,6 +22,7 @@
     transform:
         rotateX(-28deg)
         rotateY(40deg);
+
 }
 
 .cube-face {
@@ -118,32 +121,32 @@
 
 .front{
 
-    transform:translateZ(90px);
+    transform:translateZ(var(--cube-depth));
 }
 
 .back{
 
-    transform:rotateY(180deg) translateZ(90px);
+    transform:rotateY(180deg) translateZ(var(--cube-depth));
 }
 
 .right{
 
-    transform:rotateY(90deg) translateZ(90px);
+    transform:rotateY(90deg) translateZ(var(--cube-depth));
 }
 
 .left{
 
-    transform:rotateY(-90deg) translateZ(90px);
+    transform:rotateY(-90deg) translateZ(var(--cube-depth));
 }
 
 .top{
 
-    transform:rotateX(90deg) translateZ(90px);
+    transform:rotateX(90deg) translateZ(var(--cube-depth));
 }
 
 .bottom{
 
-    transform:rotateX(-90deg) translateZ(90px);
+    transform:rotateX(-90deg) translateZ(var(--cube-depth));
 }
 
 .cube-glow{

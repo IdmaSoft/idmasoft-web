@@ -1,28 +1,37 @@
 "use client";
 
-import { MotionValue, motion } from "framer-motion";
+import { MotionValue, motion, useTransform } from "framer-motion";
 import "./cube.css";
+
 import CubeFace from "./CubeFace";
 import { cubeFaces } from "./cubeFaces";
 
 interface CubeProps {
-  open: MotionValue<number>;
+  explode: MotionValue<number>;
+  rotate: MotionValue<number>;
 }
 
-export default function Cube({ open }: CubeProps) {
+export default function Cube({ explode, rotate }: CubeProps) {
+  const cubeDepth = useTransform(
+      explode,
+      [0,1],
+      ["90px","140px"]
+  );
+
   return (
     <div className="cube-wrapper">
-
       <motion.div
         className="cube"
-        style={{
-        }}
+        style={
+          {
+            "--cube-depth": cubeDepth,
+          } as React.CSSProperties
+        }
       >
         {cubeFaces.map((face) => (
           <CubeFace
             key={face.id}
             face={face}
-            progress={open}
           />
         ))}
       </motion.div>
@@ -32,7 +41,6 @@ export default function Cube({ open }: CubeProps) {
 
       {/* Bottom glow */}
       <div className="cube-glow" />
-
     </div>
   );
 }

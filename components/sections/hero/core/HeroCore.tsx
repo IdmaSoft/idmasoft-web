@@ -10,13 +10,19 @@ interface HeroCoreProps {
 export default function HeroCore({ progress }: HeroCoreProps) {
   const scale = useTransform(
     progress,
-    [0, 0.45],
+    [0.0, 0.45],
     [1, 1.8]
   );
 
-  const open = useTransform(
+  const explode = useTransform(
     progress,
-    [0.45, 0.65],
+    [0.45, 0.60],
+    [0, 1]
+  );
+
+  const rotate = useTransform(
+    progress,
+    [0.60, 0.75],
     [0, 1]
   );
 
@@ -34,7 +40,10 @@ export default function HeroCore({ progress }: HeroCoreProps) {
         scale,
       }}
     >
-      <Cube open={open} />
+      <Cube
+        explode={explode}
+        rotate={rotate}
+      />
     </motion.div>
   );
 }
