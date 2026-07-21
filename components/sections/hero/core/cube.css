@@ -108,6 +108,14 @@
     pointer-events:none;
 }
 
+.cube-face-wrapper {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+
+    transform-style: preserve-3d;
+}
+
 .front{
 
     transform:translateZ(90px);
@@ -196,24 +204,24 @@
 
 @keyframes pulseCore {
 
-  0%{
-    transform:
-      translate(-50%,-50%)
-      scale(.88);
-    opacity:.75;
-  }
+    0%{
+        transform:
+        translate(-50%,-50%)
+        scale(.97);
+        opacity:.85;
+    }
 
-  50%{
-    transform:
-      translate(-50%,-50%)
-      scale(1.15);
-    opacity:1;
-  }
+    50%{
+        transform:
+        translate(-50%,-50%)
+        scale(1.03);
+        opacity:1;
+    }
 
-  100%{
-    transform:
-      translate(-50%,-50%)
-      scale(.88);
-    opacity:.75;
-  }
+    100%{
+        transform:
+        translate(-50%,-50%)
+        scale(.97);
+        opacity:.85;
+    }
 }

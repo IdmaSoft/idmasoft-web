@@ -1,30 +1,38 @@
 "use client";
 
+import { MotionValue, motion } from "framer-motion";
 import "./cube.css";
 import CubeFace from "./CubeFace";
+import { cubeFaces } from "./cubeFaces";
 
-export default function Cube() {
+interface CubeProps {
+  open: MotionValue<number>;
+}
+
+export default function Cube({ open }: CubeProps) {
   return (
     <div className="cube-wrapper">
-      <div className="cube">
-        <CubeFace className="front" />
-        <CubeFace className="back" />
 
-        <CubeFace className="left" />
-        <CubeFace className="right" />
+      <motion.div
+        className="cube"
+        style={{
+        }}
+      >
+        {cubeFaces.map((face) => (
+          <CubeFace
+            key={face.id}
+            face={face}
+            progress={open}
+          />
+        ))}
+      </motion.div>
 
-        <CubeFace className="top" />
-        <CubeFace className="bottom" />
-
-        {/* Reflection */}
-    
-      </div>
-
-              {/* Energy core */}
-        <div className="cube-core" />
+      {/* Energy core */}
+      <div className="cube-core" />
 
       {/* Bottom glow */}
       <div className="cube-glow" />
+
     </div>
   );
 }

@@ -1,9 +1,25 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, MotionValue, useTransform } from "framer-motion";
 import Cube from "./Cube";
 
-export default function HeroCore() {
+interface HeroCoreProps {
+  progress: MotionValue<number>;
+}
+
+export default function HeroCore({ progress }: HeroCoreProps) {
+  const scale = useTransform(
+    progress,
+    [0, 0.45],
+    [1, 1.8]
+  );
+
+  const open = useTransform(
+    progress,
+    [0.45, 0.65],
+    [0, 1]
+  );
+
   return (
     <motion.div
       className="
@@ -14,18 +30,11 @@ export default function HeroCore() {
         -translate-y-1/2
         z-10
       "
-      animate={{
-        rotateY: [0, 8, 0, -8, 0],
-        rotateX: [-2, 2, -2],
-        scale: [1, 1.02, 1],
-      }}
-      transition={{
-        duration: 12,
-        repeat: Infinity,
-        ease: "easeInOut",
+      style={{
+        scale,
       }}
     >
-      <Cube />
+      <Cube open={open} />
     </motion.div>
   );
 }

@@ -3,9 +3,9 @@
 import { useScroll } from "framer-motion";
 import HeroBackground from "./HeroBackground";
 import HeroContent from "./HeroContent";
-import HeroScene from "./HeroScene";
-import { useRef } from "react";
 import HeroCore from "./core/HeroCore";
+import { useRef } from "react";
+import HeroCards from './cards/HeroCards';
 
 export function HeroSection() {
   const heroRef = useRef<HTMLElement>(null);
@@ -24,12 +24,8 @@ export function HeroSection() {
         <HeroBackground />
         <HeroContent progress={scrollYProgress} />
         <HeroCore progress={scrollYProgress} />
-        <HeroScene progress={scrollYProgress} />
+        {/* <HeroCards progress={scrollYProgress} /> */}
 
-        {/* Próximamente */}
-        {/* FloatingCards */}
-        {/* Connections */}
-        {/* ScrollIndicator */}
       </div>
     </section>
   );

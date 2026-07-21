@@ -1,7 +1,15 @@
+import { MotionValue } from "framer-motion";
+import { CubeFaceData } from "./cubeFaces";
+
 interface CubeFaceProps {
-  className: string;
+  face: CubeFaceData;
+  progress: MotionValue<number>;
 }
 
-export default function CubeFace({ className }: CubeFaceProps) {
-  return <div className={`cube-face ${className}`} />;
+export default function CubeFace({ face }: CubeFaceProps) {
+  return (
+    <div className={`cube-face-wrapper ${face.side}`}>
+      <div className="cube-face" />
+    </div>
+  );
 }

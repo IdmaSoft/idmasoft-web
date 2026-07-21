@@ -1,5 +1,5 @@
 import FloatingCard from "./FloatingCard";
-import { heroCards } from "./heroCards";
+import { heroCards } from "./heroCardsData";
 
 export default function FloatingCards() {
   return (
