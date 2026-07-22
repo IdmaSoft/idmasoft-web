@@ -18,11 +18,6 @@
     height:100%;
 
     transform-style:preserve-3d;
-
-    transform:
-        rotateX(-28deg)
-        rotateY(40deg);
-
 }
 
 .cube-face {

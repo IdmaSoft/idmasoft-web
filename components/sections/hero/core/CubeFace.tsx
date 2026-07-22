@@ -13,7 +13,6 @@ export default function CubeFace({
   face,
   rotate,
   spread,
-  data,
 }: CubeFaceProps) {
   const rotateX = useTransform(
     rotate,
@@ -29,14 +28,26 @@ export default function CubeFace({
 
   const translateX = useTransform(
     spread,
-    [0, 1],
-    [0, face.spread.x]
+    [0, 0.5, 1],
+    ["0%", `${face.spread.x * 50}%`, `${face.spread.x * 100}%`]
   );
 
   const translateY = useTransform(
     spread,
-    [0, 1],
-    [0, face.spread.y]
+    [0, 0.5, 1],
+    ["0%", `${face.spread.y * 50}%`, `${face.spread.y * 100}%`]
+  );
+
+  const translateZ = useTransform(
+    spread,
+    [0, 0.7, 0.82, 0.92, 1],
+    [
+      "0px",
+      "0px",
+      `calc(var(--cube-depth) * ${face.spread.z * 0.15})`,
+      `calc(var(--cube-depth) * ${face.spread.z * 0.35})`,
+      `calc(var(--cube-depth) * ${face.spread.z})`,
+    ]
   );
 
   const Icon = face.icon;
@@ -50,6 +61,7 @@ export default function CubeFace({
           rotateY,
           translateX,
           translateY,
+          translateZ,
         }}
       >
         <div className="cube-face">

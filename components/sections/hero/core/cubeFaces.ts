@@ -29,8 +29,9 @@ export interface CubeFaceData {
   };
 
   spread: {
-    x: number;
-    y: number;
+    x: number; // relative fraction, 0..1 for percent movement
+    y: number; // relative fraction, 0..1 for percent movement
+    z: number; // relative fraction, 0..1 for cube depth movement
   };
 
 }
@@ -47,7 +48,8 @@ export const cubeFaces: CubeFaceData[] = [
 
     spread: {
       x: 0,
-      y: -40,
+      y: 0,
+      z: 0.5,
     },
 
     target: { x: -420, y: -180 },
@@ -64,7 +66,8 @@ export const cubeFaces: CubeFaceData[] = [
 
     spread: {
       x: 0,
-      y: 50,
+      y: -0.5,
+      z: 0.5,
     },
 
     target: { x: 420, y: -180 },
@@ -80,8 +83,9 @@ export const cubeFaces: CubeFaceData[] = [
     rotateToFront: { x: 0, y: 90 },
 
     spread: {
-      x: -70,
+      x: 0,
       y: 0,
+      z: 0.5,
     },
 
     target: { x: -420, y: 180 },
@@ -97,8 +101,9 @@ export const cubeFaces: CubeFaceData[] = [
     rotateToFront: { x: 0, y: -90 },
 
     spread: {
-      x: 70,
-      y: 0,
+      x: 0,
+      y: -0.5,
+      z: 0.5,
     },
 
     target: { x: 420, y: 180 },
@@ -115,7 +120,8 @@ export const cubeFaces: CubeFaceData[] = [
 
     spread: {
       x: 0,
-      y: -90,
+      y: 0,
+      z: 0,
     },
 
     target: { x: 0, y: -260 },
@@ -132,7 +138,8 @@ export const cubeFaces: CubeFaceData[] = [
 
     spread: {
       x: 0,
-      y: 90,
+      y: 0,
+      z: 0.5,
     },
 
     target: { x: 0, y: 260 },

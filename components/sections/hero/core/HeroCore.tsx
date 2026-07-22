@@ -22,14 +22,14 @@ export default function HeroCore({ progress }: HeroCoreProps) {
 
   const rotate = useTransform(
     progress,
-    [0.60, 0.75],
-    [0, 1]
+    [0.55, 0.62, 0.72, 0.85],
+    [0, 0.15, 0.5, 1]
   );
 
   const spread = useTransform(
     progress,
-    [0.75, 0.85],
-    [0, 1]
+    [0.68, 0.75, 0.82, 0.92],
+    [0, 0.2, 0.6, 1]
   );
 
   return (
