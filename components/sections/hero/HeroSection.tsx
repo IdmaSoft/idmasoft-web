@@ -5,7 +5,6 @@ import HeroBackground from "./HeroBackground";
 import HeroContent from "./HeroContent";
 import HeroCore from "./core/HeroCore";
 import { useRef } from "react";
-import HeroCards from './cards/HeroCards';
 
 export function HeroSection() {
   const heroRef = useRef<HTMLElement>(null);
@@ -24,8 +23,6 @@ export function HeroSection() {
         <HeroBackground />
         <HeroContent progress={scrollYProgress} />
         <HeroCore progress={scrollYProgress} />
-        {/* <HeroCards progress={scrollYProgress} /> */}
-
       </div>
     </section>
   );

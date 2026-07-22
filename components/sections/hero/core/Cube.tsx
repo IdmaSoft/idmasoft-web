@@ -5,6 +5,12 @@ import "./cube.css";
 
 import CubeFace from "./CubeFace";
 import { cubeFaces } from "./cubeFaces";
+import { heroCards } from "../cards/heroCardsData";
+import type { HeroCard } from "../cards/types";
+
+const heroCardMap: Record<string, HeroCard> = Object.fromEntries(
+  heroCards.map((card) => [card.id, card])
+);
 
 interface CubeProps {
   explode: MotionValue<number>;
@@ -14,9 +20,9 @@ interface CubeProps {
 
 export default function Cube({ explode, rotate, spread }: CubeProps) {
   const cubeDepth = useTransform(
-      explode,
-      [0,1],
-      ["90px","140px"]
+    explode,
+    [0, 1],
+    ["90px", "140px"]
   );
 
   return (
@@ -35,6 +41,7 @@ export default function Cube({ explode, rotate, spread }: CubeProps) {
             face={face}
             rotate={rotate}
             spread={spread}
+            data={heroCardMap[face.id]}
           />
         ))}
       </motion.div>

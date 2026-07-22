@@ -54,4 +54,12 @@ export const heroCards: HeroCard[] = [
     x: "55%",
     y: "60%",
   },
+  {
+    id: "automation",
+    title: "Automation Engine",
+    description: "Automated workflows and deployment pipelines",
+    icon: Server,
+    x: "50%",
+    y: "75%",
+  },
 ];

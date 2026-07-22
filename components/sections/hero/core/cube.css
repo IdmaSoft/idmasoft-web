@@ -53,6 +53,40 @@
     0 0 18px rgba(80, 180, 255, 0.20);
 
   overflow: hidden;
+  backface-visibility: hidden;
+}
+
+.cube-face-content {
+  position: absolute;
+  inset: 0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  color: #f8fafc;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+  backface-visibility: hidden;
+}
+
+.cube-face-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: rgba(56, 189, 248, 1);
+}
+
+.cube-face-title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.cube-face-description {
+  margin: 0.5rem 0 0;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: rgba(248, 250, 252, 0.78);
 }
 
 .cube-face-transform {

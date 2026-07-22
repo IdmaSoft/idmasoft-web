@@ -33,9 +33,9 @@ export interface CubeFaceData {
 
 export const cubeFaces: CubeFaceData[] = [
   {
-    id: "android",
+    id: "dashboard",
     side: "front",
-    title: "Android",
+    title: "Analytics Dashboard",
 
     rotateToFront: { x: 0, y: 0 },
 
@@ -48,9 +48,9 @@ export const cubeFaces: CubeFaceData[] = [
   },
 
   {
-    id: "api",
+    id: "sql",
     side: "back",
-    title: "API",
+    title: "SQL Database",
 
     rotateToFront: { x: 0, y: 180 },
 
@@ -63,9 +63,9 @@ export const cubeFaces: CubeFaceData[] = [
   },
 
   {
-    id: "dashboard",
+    id: "android",
     side: "left",
-    title: "Dashboard",
+    title: "Android App",
 
     rotateToFront: { x: 0, y: 90 },
 
@@ -78,9 +78,9 @@ export const cubeFaces: CubeFaceData[] = [
   },
 
   {
-    id: "website",
+    id: "landing",
     side: "right",
-    title: "Website",
+    title: "Next.js Landing",
 
     rotateToFront: { x: 0, y: -90 },
 
@@ -93,9 +93,9 @@ export const cubeFaces: CubeFaceData[] = [
   },
 
   {
-    id: "database",
+    id: "nestjs",
     side: "top",
-    title: "Database",
+    title: "NestJS API",
 
     rotateToFront: { x: -90, y: 0 },
 
@@ -110,7 +110,7 @@ export const cubeFaces: CubeFaceData[] = [
   {
     id: "automation",
     side: "bottom",
-    title: "Automation",
+    title: "Automation Engine",
 
     rotateToFront: { x: 90, y: 0 },
 
