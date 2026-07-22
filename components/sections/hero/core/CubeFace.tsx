@@ -3,13 +3,10 @@
 import { MotionValue, motion, useTransform } from "framer-motion";
 import { CubeFaceData } from "./cubeFaces";
 
-import type { HeroCard } from "../cards/types";
-
 interface CubeFaceProps {
   face: CubeFaceData;
   rotate: MotionValue<number>;
   spread: MotionValue<number>;
-  data?: HeroCard;
 }
 
 export default function CubeFace({
@@ -42,7 +39,7 @@ export default function CubeFace({
     [0, face.spread.y]
   );
 
-  const Icon = data?.icon;
+  const Icon = face.icon;
 
   return (
     <div className={`cube-face-wrapper ${face.side}`}>
@@ -57,14 +54,12 @@ export default function CubeFace({
       >
         <div className="cube-face">
           <div className="cube-face-content">
-            {Icon ? (
-              <Icon className="cube-face-icon" />
-            ) : null}
+            <Icon className="cube-face-icon" />
             <h3 className="cube-face-title">
-              {data?.title ?? face.title}
+              {face.title}
             </h3>
             <p className="cube-face-description">
-              {data?.description ?? ""}
+              {face.description}
             </p>
           </div>
         </div>

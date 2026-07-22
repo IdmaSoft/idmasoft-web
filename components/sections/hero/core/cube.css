@@ -53,7 +53,6 @@
     0 0 18px rgba(80, 180, 255, 0.20);
 
   overflow: hidden;
-  backface-visibility: hidden;
 }
 
 .cube-face-content {
