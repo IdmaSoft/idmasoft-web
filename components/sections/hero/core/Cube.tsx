@@ -9,9 +9,10 @@ import { cubeFaces } from "./cubeFaces";
 interface CubeProps {
   explode: MotionValue<number>;
   rotate: MotionValue<number>;
+  spread: MotionValue<number>;
 }
 
-export default function Cube({ explode, rotate }: CubeProps) {
+export default function Cube({ explode, rotate, spread }: CubeProps) {
   const cubeDepth = useTransform(
       explode,
       [0,1],
@@ -32,6 +33,8 @@ export default function Cube({ explode, rotate }: CubeProps) {
           <CubeFace
             key={face.id}
             face={face}
+            rotate={rotate}
+            spread={spread}
           />
         ))}
       </motion.div>

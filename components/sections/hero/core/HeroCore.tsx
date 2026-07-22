@@ -11,7 +11,7 @@ export default function HeroCore({ progress }: HeroCoreProps) {
   const scale = useTransform(
     progress,
     [0.0, 0.45],
-    [1, 1.8]
+    [0.7, 1.3]
   );
 
   const explode = useTransform(
@@ -26,6 +26,12 @@ export default function HeroCore({ progress }: HeroCoreProps) {
     [0, 1]
   );
 
+  const spread = useTransform(
+    progress,
+    [0.75, 0.85],
+    [0, 1]
+  );
+
   return (
     <motion.div
       className="
@@ -36,13 +42,12 @@ export default function HeroCore({ progress }: HeroCoreProps) {
         -translate-y-1/2
         z-10
       "
-      style={{
-        scale,
-      }}
+      style={{ scale }}
     >
       <Cube
         explode={explode}
         rotate={rotate}
+        spread={spread}
       />
     </motion.div>
   );

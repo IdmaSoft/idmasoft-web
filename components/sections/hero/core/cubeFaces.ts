@@ -23,6 +23,12 @@ export interface CubeFaceData {
     x: number;
     y: number;
   };
+
+  spread: {
+    x: number;
+    y: number;
+  };
+
 }
 
 export const cubeFaces: CubeFaceData[] = [
@@ -31,9 +37,11 @@ export const cubeFaces: CubeFaceData[] = [
     side: "front",
     title: "Android",
 
-    rotateToFront: {
+    rotateToFront: { x: 0, y: 0 },
+
+    spread: {
       x: 0,
-      y: 0,
+      y: -40,
     },
 
     target: { x: -420, y: -180 },
@@ -44,9 +52,11 @@ export const cubeFaces: CubeFaceData[] = [
     side: "back",
     title: "API",
 
-    rotateToFront: {
+    rotateToFront: { x: 0, y: 180 },
+
+    spread: {
       x: 0,
-      y: 180,
+      y: 50,
     },
 
     target: { x: 420, y: -180 },
@@ -57,9 +67,11 @@ export const cubeFaces: CubeFaceData[] = [
     side: "left",
     title: "Dashboard",
 
-    rotateToFront: {
-      x: 0,
-      y: 90,
+    rotateToFront: { x: 0, y: 90 },
+
+    spread: {
+      x: -70,
+      y: 0,
     },
 
     target: { x: -420, y: 180 },
@@ -70,9 +82,11 @@ export const cubeFaces: CubeFaceData[] = [
     side: "right",
     title: "Website",
 
-    rotateToFront: {
-      x: 0,
-      y: -90,
+    rotateToFront: { x: 0, y: -90 },
+
+    spread: {
+      x: 70,
+      y: 0,
     },
 
     target: { x: 420, y: 180 },
@@ -83,9 +97,11 @@ export const cubeFaces: CubeFaceData[] = [
     side: "top",
     title: "Database",
 
-    rotateToFront: {
-      x: -90,
-      y: 0,
+    rotateToFront: { x: -90, y: 0 },
+
+    spread: {
+      x: 0,
+      y: -90,
     },
 
     target: { x: 0, y: -260 },
@@ -96,9 +112,11 @@ export const cubeFaces: CubeFaceData[] = [
     side: "bottom",
     title: "Automation",
 
-    rotateToFront: {
-      x: 90,
-      y: 0,
+    rotateToFront: { x: 90, y: 0 },
+
+    spread: {
+      x: 0,
+      y: 90,
     },
 
     target: { x: 0, y: 260 },
