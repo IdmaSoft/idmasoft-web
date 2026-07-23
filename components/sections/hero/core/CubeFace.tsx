@@ -1,20 +1,33 @@
 "use client";
 
-import { type MotionValue, motion, useTransform } from "framer-motion";
-import { type CubeBreakpoint } from "./cubeLayout";
+import { type MotionValue, motion, useSpring, useTransform } from "framer-motion";
+import { type CubeBreakpoint, cubeMovementConfig } from "./cubeLayout";
 import { type CubeFaceData } from "./cubeFaces";
 
 interface CubeFaceProps {
   face: CubeFaceData;
+  faceSize: number;
   rotate: MotionValue<number>;
   spread: MotionValue<number>;
+  adjust: MotionValue<number>;
   breakpoint: CubeBreakpoint;
 }
 
+const faceDirections: Record<CubeFaceData["side"], { x: number; y: number }> = {
+  front: { x: 0, y: 0 },
+  back: { x: 0, y: 0 },
+  left: { x: -1, y: 0 },
+  right: { x: 1, y: 0 },
+  top: { x: 0, y: -1 },
+  bottom: { x: 0, y: 1 },
+};
+
 export default function CubeFace({
   face,
+  faceSize,
   rotate,
   spread,
+  adjust,
   breakpoint,
 }: CubeFaceProps) {
   const rotateX = useTransform(
@@ -29,16 +42,17 @@ export default function CubeFace({
     [0, face.rotateToFront.y]
   );
 
-  const resolvedSpread = face.spread[breakpoint];
-  const resolvedTarget = face.target[breakpoint];
+  const direction = faceDirections[face.side];
+  const movement = cubeMovementConfig[breakpoint];
+  const adjustment = face.adjustments?.[breakpoint] ?? { x: 0, y: 0, z: 0 };
 
   const translateX = useTransform(
     spread,
     [0, 0.62, 1],
     [
       "0px",
-      `calc(var(--face-size) * ${resolvedSpread.x * 0.35})`,
-      `calc(var(--face-size) * ${resolvedTarget.x})`,
+      `calc(var(--face-size) * ${direction.x * movement.spreadDistance * 0.35})`,
+      `calc(var(--face-size) * ${direction.x * movement.targetDistance})`,
     ]
   );
 
@@ -47,8 +61,8 @@ export default function CubeFace({
     [0, 0.62, 1],
     [
       "0px",
-      `calc(var(--face-size) * ${resolvedSpread.y * 0.35})`,
-      `calc(var(--face-size) * ${resolvedTarget.y})`,
+      `calc(var(--face-size) * ${direction.y * movement.spreadDistance * 0.35})`,
+      `calc(var(--face-size) * ${direction.y * movement.targetDistance})`,
     ]
   );
 
@@ -58,9 +72,42 @@ export default function CubeFace({
     [
       "0px",
       "0px",
-      `calc(var(--cube-depth) * ${resolvedSpread.z * 0.15})`,
-      `calc(var(--cube-depth) * ${resolvedSpread.z * 0.35})`,
-      `calc(var(--cube-depth) * ${resolvedSpread.z})`,
+      `calc(var(--cube-depth) * ${movement.depthFactor * 0.15})`,
+      `calc(var(--cube-depth) * ${movement.depthFactor * 0.35})`,
+      `calc(var(--cube-depth) * ${movement.depthFactor})`,
+    ]
+  );
+
+  const adjusted = useSpring(adjust, {
+    stiffness: 120,
+    damping: 24,
+    mass: 0.8,
+  });
+
+  const adjustX = useTransform(
+    adjusted,
+    [0, 1],
+    [
+      0,
+      faceSize * adjustment.x,
+    ]
+  );
+
+  const adjustY = useTransform(
+    adjusted,
+    [0, 1],
+    [
+      0,
+      faceSize * adjustment.y,
+    ]
+  );
+
+  const adjustZ = useTransform(
+    adjusted,
+    [0, 1],
+    [
+      0,
+      faceSize * adjustment.z,
     ]
   );
 
@@ -73,18 +120,33 @@ export default function CubeFace({
         style={{
           rotateX,
           rotateY,
-          translateX,
-          translateY,
-          translateZ,
         }}
       >
-        <div className="cube-face">
-          <div className="cube-face-content">
-            <Icon className="cube-face-icon" />
-            <h3 className="cube-face-title">{face.title}</h3>
-            <p className="cube-face-description">{face.description}</p>
-          </div>
-        </div>
+        <motion.div
+          className="cube-face-translate"
+          style={{
+            translateX,
+            translateY,
+            translateZ,
+          }}
+        >
+          <motion.div
+            className="cube-face-adjust"
+            style={{
+              translateX: adjustX,
+              translateY: adjustY,
+              translateZ: adjustZ,
+            }}
+          >
+            <div className="cube-face">
+              <div className="cube-face-content">
+                <Icon className="cube-face-icon" />
+                <h3 className="cube-face-title">{face.title}</h3>
+                <p className="cube-face-description">{face.description}</p>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
       </motion.div>
     </div>
   );

@@ -69,7 +69,8 @@
   color: rgba(248, 250, 252, 0.78);
 }
 
-.cube-face-transform {
+.cube-face-transform,
+.cube-face-translate {
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;

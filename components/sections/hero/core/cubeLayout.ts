@@ -24,6 +24,12 @@ export interface CubeLayoutConfig {
   lineHeight: string;
 }
 
+export interface CubeMovementConfig {
+  targetDistance: number;
+  spreadDistance: number;
+  depthFactor: number;
+}
+
 export const BREAKPOINTS = {
   mobile: 720,
   tablet: 1024,
@@ -95,5 +101,23 @@ export const cubeLayoutConfig: Record<CubeBreakpoint, CubeLayoutConfig> = {
     titleSize: "0.95rem",
     descriptionSize: "0.7rem",
     lineHeight: "1.4",
+  },
+};
+
+export const cubeMovementConfig: Record<CubeBreakpoint, CubeMovementConfig> = {
+  desktop: {
+    targetDistance: 0.48,
+    spreadDistance: 0.18,
+    depthFactor: 0.18,
+  },
+  tablet: {
+    targetDistance: 0.42,
+    spreadDistance: 0.16,
+    depthFactor: 0.16,
+  },
+  mobile: {
+    targetDistance: 0.34,
+    spreadDistance: 0.14,
+    depthFactor: 0.14,
   },
 };

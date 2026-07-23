@@ -11,9 +11,10 @@ interface CubeProps {
   explode: MotionValue<number>;
   rotate: MotionValue<number>;
   spread: MotionValue<number>;
+  adjust: MotionValue<number>;
 }
 
-export default function Cube({ explode, rotate, spread }: CubeProps) {
+export default function Cube({ explode, rotate, spread, adjust }: CubeProps) {
   const { layout, breakpoint } = useCubeLayout();
 
   const cubeDepth = useTransform(
@@ -52,8 +53,10 @@ export default function Cube({ explode, rotate, spread }: CubeProps) {
           <CubeFace
             key={face.id}
             face={face}
+            faceSize={layout.faceSize}
             rotate={rotate}
             spread={spread}
+            adjust={adjust}
             breakpoint={breakpoint}
           />
         ))}

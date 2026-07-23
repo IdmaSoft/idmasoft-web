@@ -1,4 +1,5 @@
 import { type LucideIcon, BarChart3, Database, Globe, Server, Smartphone } from "lucide-react";
+import { type CubeBreakpoint } from "./cubeLayout";
 
 export type CubeSide =
   | "front"
@@ -8,29 +9,11 @@ export type CubeSide =
   | "top"
   | "bottom";
 
-export type ResponsivePoint = {
-  desktop: { x: number; y: number };
-  tablet: { x: number; y: number };
-  mobile: { x: number; y: number };
-};
-
-export type ResponsiveSpread = {
-  desktop: {
-    x: number;
-    y: number;
-    z: number;
-  };
-  tablet: {
-    x: number;
-    y: number;
-    z: number;
-  };
-  mobile: {
-    x: number;
-    y: number;
-    z: number;
-  };
-};
+export interface CubeFaceAdjustment {
+  x: number;
+  y: number;
+  z: number;
+}
 
 export interface CubeFaceData {
   id: string;
@@ -45,8 +28,7 @@ export interface CubeFaceData {
     y: number;
   };
 
-  target: ResponsivePoint;
-  spread: ResponsiveSpread;
+  adjustments?: Partial<Record<CubeBreakpoint, CubeFaceAdjustment>>;
 }
 
 export const cubeFaces: CubeFaceData[] = [
@@ -59,17 +41,6 @@ export const cubeFaces: CubeFaceData[] = [
 
     rotateToFront: { x: 0, y: 0 },
 
-    spread: {
-      desktop: { x: 0, y: 0, z: 0 },
-      tablet: { x: 0, y: 0, z: 0 },
-      mobile: { x: 0, y: 0, z: 0 },
-    },
-
-    target: {
-      desktop: { x: -0.55, y: -0.32 },
-      tablet: { x: -0.5, y: -0.28 },
-      mobile: { x: -0.4, y: -0.22 },
-    },
   },
 
   {
@@ -80,18 +51,10 @@ export const cubeFaces: CubeFaceData[] = [
     icon: Database,
 
     rotateToFront: { x: 0, y: 180 },
-
-    spread: {
-      desktop: { x: 0, y: 0, z: 0 },
-      tablet: { x: 0, y: 0, z: 0 },
-      mobile: { x: 0, y: 0, z: 0 },
+    adjustments: {
+      mobile: { x: -0, y: -0.7, z: 0 },
     },
 
-    target: {
-      desktop: { x: 0.3, y: -0.32 },
-      tablet: { x: 0.26, y: -0.28 },
-      mobile: { x: 0.22, y: -0.22 },
-    },
   },
 
   {
@@ -102,18 +65,6 @@ export const cubeFaces: CubeFaceData[] = [
     icon: Smartphone,
 
     rotateToFront: { x: 0, y: 90 },
-
-    spread: {
-      desktop: { x: 0, y: 0, z: 0 },
-      tablet: { x: 0, y: 0, z: 0 },
-      mobile: { x: 0, y: 0, z: 0 },
-    },
-
-    target: {
-      desktop: { x: -0.45, y: 0.32 },
-      tablet: { x: -0.4, y: 0.28 },
-      mobile: { x: -0.3, y: 0.22 },
-    },
   },
 
   {
@@ -124,18 +75,6 @@ export const cubeFaces: CubeFaceData[] = [
     icon: Globe,
 
     rotateToFront: { x: 0, y: -90 },
-
-    spread: {
-      desktop: { x: 0, y: 0, z: 0 },
-      tablet: { x: 0, y: 0, z: 0 },
-      mobile: { x: 0, y: 0, z: 0 },
-    },
-
-    target: {
-      desktop: { x: 0.28, y: 0.32 },
-      tablet: { x: 0.24, y: 0.28 },
-      mobile: { x: 0.2, y: 0.22 },
-    },
   },
 
   {
@@ -146,18 +85,6 @@ export const cubeFaces: CubeFaceData[] = [
     icon: Server,
 
     rotateToFront: { x: -90, y: 0 },
-
-    spread: {
-      desktop: { x: 0, y: 0, z: 0 },
-      tablet: { x: 0, y: 0, z: 0 },
-      mobile: { x: 0, y: 0, z: 0 },
-    },
-
-    target: {
-      desktop: { x: 0, y: -0.75 },
-      tablet: { x: 0, y: -0.65 },
-      mobile: { x: 0, y: -0.55 },
-    },
   },
 
   {
@@ -169,16 +96,5 @@ export const cubeFaces: CubeFaceData[] = [
 
     rotateToFront: { x: 90, y: 0 },
 
-    spread: {
-      desktop: { x: 0, y: 0, z: 0 },
-      tablet: { x: 0, y: 0, z: 0 },
-      mobile: { x: 0, y: 0, z: 0 },
-    },
-
-    target: {
-      desktop: { x: 0, y: 0.75 },
-      tablet: { x: 0, y: 0.65 },
-      mobile: { x: 0, y: 0.55 },
-    },
   },
 ];
