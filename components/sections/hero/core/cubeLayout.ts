@@ -13,6 +13,7 @@ export interface CubeLayoutConfig {
   perspective: number;
   initialScale: number;
   zoomScale: number;
+  initialOffsetY: string;
   glowWidth: number;
   glowHeight: number;
   glowOffset: string;
@@ -43,14 +44,15 @@ export function getBreakpoint(width: number): CubeBreakpoint {
 export const cubeLayoutConfig: Record<CubeBreakpoint, CubeLayoutConfig> = {
   desktop: {
     breakpoint: "desktop",
-    cubeSize: 260,
-    faceSize: 260,
-    depth: { closed: 130, open: 210 },
+    cubeSize: 200,
+    faceSize: 200,
+    depth: { closed: 100, open: 170 },
     perspective: 1400,
-    initialScale: 0.75,
-    zoomScale: 1.3,
-    glowWidth: 500,
-    glowHeight: 240,
+    initialScale: 0.55,
+    zoomScale: 1.12,
+    initialOffsetY: "3.5rem",
+    glowWidth: 420,
+    glowHeight: 210,
     glowOffset: "-90px",
     facePadding: "1rem",
     iconSize: "1.35rem",
@@ -60,14 +62,15 @@ export const cubeLayoutConfig: Record<CubeBreakpoint, CubeLayoutConfig> = {
   },
   tablet: {
     breakpoint: "tablet",
-    cubeSize: 220,
-    faceSize: 220,
-    depth: { closed: 110, open: 180 },
+    cubeSize: 170,
+    faceSize: 170,
+    depth: { closed: 85, open: 145 },
     perspective: 1200,
-    initialScale: 0.8,
-    zoomScale: 1.2,
-    glowWidth: 430,
-    glowHeight: 210,
+    initialScale: 0.62,
+    zoomScale: 1.08,
+    initialOffsetY: "3.8rem",
+    glowWidth: 360,
+    glowHeight: 185,
     glowOffset: "-80px",
     facePadding: "0.95rem",
     iconSize: "1.2rem",
@@ -77,14 +80,15 @@ export const cubeLayoutConfig: Record<CubeBreakpoint, CubeLayoutConfig> = {
   },
   mobile: {
     breakpoint: "mobile",
-    cubeSize: 180,
-    faceSize: 180,
-    depth: { closed: 90, open: 140 },
+    cubeSize: 140,
+    faceSize: 140,
+    depth: { closed: 70, open: 120 },
     perspective: 1000,
-    initialScale: 0.92,
-    zoomScale: 1.08,
-    glowWidth: 320,
-    glowHeight: 170,
+    initialScale: 0.8,
+    zoomScale: 1.05,
+    initialOffsetY: "4.2rem",
+    glowWidth: 280,
+    glowHeight: 150,
     glowOffset: "-55px",
     facePadding: "0.85rem",
     iconSize: "1rem",

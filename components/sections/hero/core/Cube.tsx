@@ -26,6 +26,7 @@ export default function Cube({ explode, rotate, spread }: CubeProps) {
     <div
       className="cube-wrapper"
       style={{
+        transform: `translateY(${layout.initialOffsetY})`,
         "--cube-size": `${layout.cubeSize}px`,
         "--face-size": `${layout.faceSize}px`,
         "--cube-perspective": `${layout.perspective}px`,
