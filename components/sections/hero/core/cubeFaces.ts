@@ -40,6 +40,9 @@ export const cubeFaces: CubeFaceData[] = [
     icon: BarChart3,
 
     rotateToFront: { x: 0, y: 0 },
+    adjustments: {
+      mobile: { x: -0.5, y: 0.5, z: 0 },
+    }
 
   },
 
@@ -52,7 +55,7 @@ export const cubeFaces: CubeFaceData[] = [
 
     rotateToFront: { x: 0, y: 180 },
     adjustments: {
-      mobile: { x: -0, y: -0.7, z: 0 },
+      mobile: { x: 0, y: -1.4, z: -0.2 },
     },
 
   },
@@ -65,6 +68,9 @@ export const cubeFaces: CubeFaceData[] = [
     icon: Smartphone,
 
     rotateToFront: { x: 0, y: 90 },
+    adjustments: {
+      mobile: { x: 0.25, y: -0.25, z: -0.2 },
+    },
   },
 
   {
@@ -75,6 +81,9 @@ export const cubeFaces: CubeFaceData[] = [
     icon: Globe,
 
     rotateToFront: { x: 0, y: -90 },
+    adjustments: {
+      mobile: { x: -0.1, y: -0.4, z: 0.1 },
+    },
   },
 
   {
@@ -85,6 +94,9 @@ export const cubeFaces: CubeFaceData[] = [
     icon: Server,
 
     rotateToFront: { x: -90, y: 0 },
+    adjustments: {
+      mobile: { x: 0.3, y: -0.1, z: -0.3 },
+    },
   },
 
   {
@@ -95,6 +107,9 @@ export const cubeFaces: CubeFaceData[] = [
     icon: Server,
 
     rotateToFront: { x: 90, y: 0 },
+    adjustments: {
+      mobile: { x: -0.5, y: -0.4, z: 0 },
+    }
 
   },
 ];

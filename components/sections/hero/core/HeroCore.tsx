@@ -29,14 +29,19 @@ export default function HeroCore({ progress }: HeroCoreProps) {
     [0, 0.15, 0.5, 1]
   );
 
+  const clampedRotate = useTransform(
+    rotate,
+    (latest) => Math.min(1, Math.max(0, latest))
+  );
+
   const spread = useTransform(
-    progress,
-    [0.68, 0.75, 0.82, 0.92],
-    [0, 0.2, 0.6, 1]
+    clampedRotate,
+    [0.15, 0.5, 0.8, 1],
+    [0, 0.2, 0.45, 0.6]
   );
 
   const adjust = useTransform(
-    progress,
+    clampedRotate,
     [0.86, 0.9, 0.94, 0.98, 1],
     [0, 0.05, 0.18, 0.55, 1]
   );
