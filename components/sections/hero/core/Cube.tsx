@@ -1,10 +1,11 @@
 "use client";
 
-import { MotionValue, motion, useTransform } from "framer-motion";
+import { type MotionValue, motion, useTransform } from "framer-motion";
 import "./cube.css";
 
 import CubeFace from "./CubeFace";
 import { cubeFaces } from "./cubeFaces";
+import { useCubeLayout } from "./useCubeLayout";
 
 interface CubeProps {
   explode: MotionValue<number>;
@@ -13,14 +14,31 @@ interface CubeProps {
 }
 
 export default function Cube({ explode, rotate, spread }: CubeProps) {
+  const { layout, breakpoint } = useCubeLayout();
+
   const cubeDepth = useTransform(
     explode,
     [0, 1],
-    ["90px", "140px"]
+    [`${layout.depth.closed}px`, `${layout.depth.open}px`]
   );
 
   return (
-    <div className="cube-wrapper">
+    <div
+      className="cube-wrapper"
+      style={{
+        "--cube-size": `${layout.cubeSize}px`,
+        "--face-size": `${layout.faceSize}px`,
+        "--cube-perspective": `${layout.perspective}px`,
+        "--face-padding": layout.facePadding,
+        "--icon-size": layout.iconSize,
+        "--title-size": layout.titleSize,
+        "--description-size": layout.descriptionSize,
+        "--line-height": layout.lineHeight,
+        "--glow-width": `${layout.glowWidth}px`,
+        "--glow-height": `${layout.glowHeight}px`,
+        "--glow-offset": layout.glowOffset,
+      } as React.CSSProperties}
+    >
       <motion.div
         className="cube"
         style={
@@ -35,14 +53,12 @@ export default function Cube({ explode, rotate, spread }: CubeProps) {
             face={face}
             rotate={rotate}
             spread={spread}
+            breakpoint={breakpoint}
           />
         ))}
       </motion.div>
 
-      {/* Energy core */}
       <div className="cube-core" />
-
-      {/* Bottom glow */}
       <div className="cube-glow" />
     </div>
   );

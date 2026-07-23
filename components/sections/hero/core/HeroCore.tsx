@@ -2,21 +2,26 @@
 
 import { motion, MotionValue, useTransform } from "framer-motion";
 import Cube from "./Cube";
+import { useCubeBreakpoint } from "./useCubeBreakpoint";
+import { cubeLayoutConfig } from "./cubeLayout";
 
 interface HeroCoreProps {
   progress: MotionValue<number>;
 }
 
 export default function HeroCore({ progress }: HeroCoreProps) {
+  const breakpoint = useCubeBreakpoint();
+  const layout = cubeLayoutConfig[breakpoint];
+
   const scale = useTransform(
     progress,
     [0.0, 0.45],
-    [0.7, 1.3]
+    [layout.initialScale, layout.zoomScale]
   );
 
   const explode = useTransform(
     progress,
-    [0.45, 0.60],
+    [0.45, 0.6],
     [0, 1]
   );
 
@@ -33,22 +38,17 @@ export default function HeroCore({ progress }: HeroCoreProps) {
   );
 
   return (
-    <motion.div
-      className="
-        absolute
-        left-1/2
-        top-[60%]
-        -translate-x-1/2
-        -translate-y-1/2
-        z-10
-      "
-      style={{ scale }}
-    >
-      <Cube
-        explode={explode}
-        rotate={rotate}
-        spread={spread}
-      />
-    </motion.div>
+    <div className="absolute inset-0 overflow-hidden">
+      <motion.div
+        className="relative w-full h-full flex items-center justify-center"
+        style={{ scale }}
+      >
+        <Cube
+          explode={explode}
+          rotate={rotate}
+          spread={spread}
+        />
+      </motion.div>
+    </div>
   );
 }
