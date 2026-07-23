@@ -19,18 +19,6 @@ export default function Cube({ explode, rotate, spread }: CubeProps) {
     ["90px", "140px"]
   );
 
-  const cubeRotateX = useTransform(
-    rotate,
-    [0, 1],
-    ["-28deg", "-28deg"]
-  );
-
-  const cubeRotateY = useTransform(
-    rotate,
-    [0, 1],
-    ["40deg", "40deg"]
-  );
-
   return (
     <div className="cube-wrapper">
       <motion.div
@@ -38,8 +26,6 @@ export default function Cube({ explode, rotate, spread }: CubeProps) {
         style={
           {
             "--cube-depth": cubeDepth,
-            rotateX: cubeRotateX,
-            rotateY: cubeRotateY,
           } as React.CSSProperties
         }
       >
