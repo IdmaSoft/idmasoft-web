@@ -1,5 +1,5 @@
 import { SectionTitle } from "@/components/ui/SectionTitle";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { SERVICES } from "@/lib/constants/services";
 import { Layers, Server, Plug, Cloud, Cpu, RefreshCw } from "lucide-react";

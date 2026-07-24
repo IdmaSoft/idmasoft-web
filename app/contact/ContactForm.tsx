@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Send, CheckCircle } from "lucide-react";
-import { Button } from "../../components/ui/button";
+import { Button } from "@/components/ui/button";
 
 interface FormState {
   name: string;

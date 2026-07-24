@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { NAV_LINKS } from "@/lib/constants/navigation";
 import { SITE } from "@/lib/constants/site";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 
 export function Navbar() {
   const pathname = usePathname();
