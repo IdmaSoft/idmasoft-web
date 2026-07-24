@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   ExternalLink,
@@ -54,8 +55,8 @@ export default function SellerResponderPage() {
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-4">
                 <Button
-                  href="https://sellerresponder.com"
-                  external
+                  render={<Link href="https://sellerresponder.com" />}
+                  nativeButton={false}
                   size="lg"
                   className="bg-orange-500 text-white hover:bg-orange-600"
                 >
@@ -63,8 +64,8 @@ export default function SellerResponderPage() {
                   <ExternalLink className="w-4 h-4" aria-hidden="true" />
                 </Button>
                 <Button
-                  href="https://play.google.com"
-                  external
+                  render={<Link href="https://play.google.com" />}
+                  nativeButton={false}
                   size="lg"
                   className="border border-slate-600 text-slate-300 hover:border-slate-400 hover:text-white bg-transparent"
                 >
@@ -244,8 +245,8 @@ export default function SellerResponderPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
-              href="https://sellerresponder.com"
-              external
+              render={<Link href="https://sellerresponder.com" />}
+              nativeButton={false}
               size="lg"
               className="bg-white text-orange-600 hover:bg-orange-50"
             >
@@ -253,8 +254,8 @@ export default function SellerResponderPage() {
               <ExternalLink className="w-4 h-4" aria-hidden="true" />
             </Button>
             <Button
-              href="https://play.google.com"
-              external
+              render={<Link href="https://play.google.com" />}
+              nativeButton={false}
               size="lg"
               className="bg-orange-600 text-white hover:bg-orange-700 border border-orange-400"
             >

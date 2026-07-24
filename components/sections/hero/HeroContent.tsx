@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import { motion, MotionValue, useTransform } from "framer-motion";
 
 interface HeroContentProps {
@@ -35,12 +36,18 @@ export default function HeroContent({progress,}: HeroContentProps) {
 
           {/* Buttons */}
           <div className="pointer-events-auto mt-10 flex flex-wrap justify-center gap-4">
-            <Button size="lg">
+            <Button
+              render={<Link href="/contact" />}
+              nativeButton={false}
+              size="lg"
+            >
               Start a project
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
 
             <Button
+              render={<Link href="/services" />}
+              nativeButton={false}
               variant="outline"
               size="lg"
               className="border-zinc-700 bg-zinc-900/40 backdrop-blur"
