@@ -1,7 +1,7 @@
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { ProductCard } from "@/components/ui/ProductCard";
 import { PRODUCTS } from "@/lib/constants/products";
-import { Button } from "@/components/ui/button";
+import { Button } from "../ui/button";
 import Link from "next/link";
 
 export function HomeProductsSection() {

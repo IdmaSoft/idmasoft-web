@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "../../ui/button";
 import { motion, MotionValue, useTransform } from "framer-motion";
 
 interface HeroContentProps {
