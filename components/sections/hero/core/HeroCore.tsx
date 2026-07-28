@@ -9,7 +9,7 @@ interface HeroCoreProps {
 }
 
 export default function HeroCore({ progress }: HeroCoreProps) {
-  const { layout } = useCubeLayout();
+  const { layout, breakpoint } = useCubeLayout();
 
   const scale = useTransform(
     progress,
@@ -34,10 +34,12 @@ export default function HeroCore({ progress }: HeroCoreProps) {
     (latest) => Math.min(1, Math.max(0, latest))
   );
 
+  const spreadMax = breakpoint === "mobile" ? 0.6 : 1;
+
   const spread = useTransform(
     clampedRotate,
     [0.15, 0.5, 0.8, 1],
-    [0, 0.2, 0.45, 0.6]
+    [0, 0.2, 0.45, spreadMax]
   );
 
   const adjust = useTransform(

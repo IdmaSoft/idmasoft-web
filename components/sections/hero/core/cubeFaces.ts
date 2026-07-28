@@ -42,6 +42,8 @@ export const cubeFaces: CubeFaceData[] = [
     rotateToFront: { x: 0, y: 0 },
     adjustments: {
       mobile: { x: -0.5, y: 0.5, z: 0 },
+      tablet: { x: 0.7, y: 0.68, z: 0.1 },
+      desktop: { x: 0.7, y: 0.58, z: 0.1 },
     }
 
   },
@@ -56,6 +58,8 @@ export const cubeFaces: CubeFaceData[] = [
     rotateToFront: { x: 0, y: 180 },
     adjustments: {
       mobile: { x: 0, y: -1.4, z: -0.2 },
+      tablet: { x: -0.7, y: -1.1, z: -0.1 },
+      desktop: { x: -0.7, y: -0.9, z: -0.1 },
     },
 
   },
@@ -70,6 +74,8 @@ export const cubeFaces: CubeFaceData[] = [
     rotateToFront: { x: 0, y: 90 },
     adjustments: {
       mobile: { x: 0.25, y: -0.25, z: -0.2 },
+      tablet: { x: 0.15, y: -0.25, z: 0 },
+      desktop: { x: -0.1, y: -0.25, z: 0 },
     },
   },
 
@@ -96,6 +102,8 @@ export const cubeFaces: CubeFaceData[] = [
     rotateToFront: { x: -90, y: 0 },
     adjustments: {
       mobile: { x: 0.3, y: -0.1, z: -0.3 },
+      tablet: { x: 0, y: 0.15, z: 0.15 },
+      desktop: { x: 0, y: 0.15, z: 0.15 },
     },
   },
 
@@ -109,6 +117,8 @@ export const cubeFaces: CubeFaceData[] = [
     rotateToFront: { x: 90, y: 0 },
     adjustments: {
       mobile: { x: -0.5, y: -0.4, z: 0 },
+      tablet: { x: 0, y: -0.35, z: 0 },
+      desktop: { x: 0, y: -0.35, z: 0 },
     }
 
   },

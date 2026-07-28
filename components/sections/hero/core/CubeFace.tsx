@@ -1,7 +1,7 @@
 "use client";
 
 import { type MotionValue, motion, useSpring, useTransform } from "framer-motion";
-import { type CubeBreakpoint, cubeMovementConfig } from "./cubeLayout";
+import { type CubeBreakpoint, type CubeMovementConfig } from "./cubeLayout";
 import { type CubeFaceData } from "./cubeFaces";
 
 interface CubeFaceProps {
@@ -11,6 +11,7 @@ interface CubeFaceProps {
   spread: MotionValue<number>;
   adjust: MotionValue<number>;
   breakpoint: CubeBreakpoint;
+  movement: CubeMovementConfig;
 }
 
 const faceDirections: Record<CubeFaceData["side"], { x: number; y: number }> = {
@@ -29,6 +30,7 @@ export default function CubeFace({
   spread,
   adjust,
   breakpoint,
+  movement,
 }: CubeFaceProps) {
   const rotateX = useTransform(
     rotate,
@@ -43,7 +45,6 @@ export default function CubeFace({
   );
 
   const direction = faceDirections[face.side];
-  const movement = cubeMovementConfig[breakpoint];
   const adjustment = face.adjustments?.[breakpoint] ?? { x: 0, y: 0, z: 0 };
 
   const translateX = useTransform(
@@ -52,7 +53,7 @@ export default function CubeFace({
     [
       "0px",
       `calc(var(--face-size) * ${direction.x * movement.spreadDistance * 0.35})`,
-      `calc(var(--face-size) * ${direction.x * movement.targetDistance})`,
+      `calc(var(--face-size) * ${direction.x * movement.targetDistanceX})`,
     ]
   );
 
@@ -62,7 +63,7 @@ export default function CubeFace({
     [
       "0px",
       `calc(var(--face-size) * ${direction.y * movement.spreadDistance * 0.35})`,
-      `calc(var(--face-size) * ${direction.y * movement.targetDistance})`,
+      `calc(var(--face-size) * ${direction.y * movement.targetDistanceY})`,
     ]
   );
 
@@ -89,7 +90,7 @@ export default function CubeFace({
     [0, 1],
     [
       0,
-      faceSize * adjustment.x,
+      faceSize * adjustment.x * movement.scaleX,
     ]
   );
 
@@ -98,7 +99,7 @@ export default function CubeFace({
     [0, 1],
     [
       0,
-      faceSize * adjustment.y,
+      faceSize * adjustment.y * movement.scaleY,
     ]
   );
 

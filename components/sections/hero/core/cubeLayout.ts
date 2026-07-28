@@ -25,9 +25,12 @@ export interface CubeLayoutConfig {
 }
 
 export interface CubeMovementConfig {
-  targetDistance: number;
+  targetDistanceX: number;
+  targetDistanceY: number;
   spreadDistance: number;
   depthFactor: number;
+  scaleX: number;
+  scaleY: number;
 }
 
 export const BREAKPOINTS = {
@@ -104,20 +107,119 @@ export const cubeLayoutConfig: Record<CubeBreakpoint, CubeLayoutConfig> = {
   },
 };
 
-export const cubeMovementConfig: Record<CubeBreakpoint, CubeMovementConfig> = {
+interface CubeMovementBounds {
+  idealX: number;
+  refWidthAvail: number;
+  minScaleX: number;
+  maxScaleX: number;
+  cardHalfWidthRatio: number;
+  idealY: number;
+  refHeightAvail: number;
+  minScaleY: number;
+  cardHalfHeightRatio: number;
+  spreadDistance: number;
+  depthFactor: number;
+}
+
+// refWidthAvail / refHeightAvail are the "available space" (viewport minus
+// navbar/margins) measured at the viewport sizes where these layouts were
+// verified to look correct with no clipping and no overlap. Scale is 1 at
+// that reference and shrinks/grows from there as the real viewport differs.
+// cardHalf*Ratio (times faceSize) approximates the card's own half-size,
+// which doesn't shrink with scale, so it's subtracted before ratio-ing the
+// available space against the reference — otherwise short/narrow viewports
+// don't shrink enough because the fixed card size dominates the budget.
+const movementBounds: Record<CubeBreakpoint, CubeMovementBounds> = {
   desktop: {
-    targetDistance: 0.48,
+    idealX: 1.05,
+    refWidthAvail: 1440 - 32,
+    minScaleX: 0.4,
+    maxScaleX: 1.4,
+    cardHalfWidthRatio: 0.68,
+    idealY: 0.24,
+    refHeightAvail: 750 - 64 - 32,
+    minScaleY: 0.15,
+    cardHalfHeightRatio: 0.8,
     spreadDistance: 0.18,
-    depthFactor: 0.18,
+    depthFactor: 0.13,
   },
   tablet: {
-    targetDistance: 0.42,
+    idealX: 0.68,
+    refWidthAvail: 768 - 32,
+    minScaleX: 0.45,
+    maxScaleX: 1.25,
+    cardHalfWidthRatio: 0.68,
+    idealY: 0.22,
+    refHeightAvail: 700 - 64 - 32,
+    minScaleY: 0.15,
+    cardHalfHeightRatio: 0.85,
     spreadDistance: 0.16,
-    depthFactor: 0.16,
+    depthFactor: 0.12,
   },
   mobile: {
-    targetDistance: 0.34,
+    idealX: 0.34,
+    refWidthAvail: 375 - 24,
+    minScaleX: 0.7,
+    maxScaleX: 1.05,
+    cardHalfWidthRatio: 0.55,
+    idealY: 0.34,
+    refHeightAvail: 700 - 64 - 24,
+    minScaleY: 0.25,
+    cardHalfHeightRatio: 0.9,
     spreadDistance: 0.14,
     depthFactor: 0.14,
   },
 };
+
+const NAVBAR_HEIGHT = 64;
+const MIN_FACE_SCALE = 0.6;
+
+function clamp(value: number, min: number, max: number): number {
+  return Math.min(max, Math.max(min, value));
+}
+
+// The card's own box doesn't shrink with the position scale above — on very
+// short viewports (landscape phones, smart displays) the card alone can be
+// taller than the space available below the navbar, regardless of position.
+// This scales the face/card size itself down so it always fits.
+export function computeFaceScale(
+  breakpoint: CubeBreakpoint,
+  viewportHeight: number,
+  idealFaceSize: number
+): number {
+  const b = movementBounds[breakpoint];
+  const margin = breakpoint === "mobile" ? 12 : 16;
+  const rawAvailableHalfH = (viewportHeight - NAVBAR_HEIGHT - margin * 2) / 2;
+  const neededHalfH = idealFaceSize * b.cardHalfHeightRatio;
+
+  return clamp(rawAvailableHalfH / neededHalfH, MIN_FACE_SCALE, 1);
+}
+
+export function computeCubeMovement(
+  breakpoint: CubeBreakpoint,
+  viewportWidth: number,
+  viewportHeight: number,
+  faceSize: number
+): CubeMovementConfig {
+  const b = movementBounds[breakpoint];
+  const margin = breakpoint === "mobile" ? 12 : 16;
+
+  const cardHalfW = faceSize * b.cardHalfWidthRatio;
+  const availableHalfW = (viewportWidth - margin * 2) / 2 - cardHalfW;
+  const refHalfW = b.refWidthAvail / 2 - cardHalfW;
+  const scaleX = clamp(availableHalfW / refHalfW, b.minScaleX, b.maxScaleX);
+
+  const cardHalfH = faceSize * b.cardHalfHeightRatio;
+  const availableHalfH = (viewportHeight - NAVBAR_HEIGHT - margin * 2) / 2 - cardHalfH;
+  const refHalfH = b.refHeightAvail / 2 - cardHalfH;
+  const scaleY = clamp(availableHalfH / refHalfH, b.minScaleY, 1);
+
+  return {
+    targetDistanceX: b.idealX * scaleX,
+    targetDistanceY: b.idealY * scaleY,
+    spreadDistance: b.spreadDistance,
+    depthFactor: b.depthFactor * Math.max(0.65, scaleY),
+    scaleX,
+    scaleY,
+  };
+}

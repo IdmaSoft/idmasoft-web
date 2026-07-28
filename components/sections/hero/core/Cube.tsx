@@ -6,6 +6,8 @@ import "./cube.css";
 import CubeFace from "./CubeFace";
 import { cubeFaces } from "./cubeFaces";
 import { useCubeLayout } from "./useCubeLayout";
+import { useViewportSize } from "./useViewportSize";
+import { computeCubeMovement, computeFaceScale } from "./cubeLayout";
 
 interface CubeProps {
   explode: MotionValue<number>;
@@ -16,20 +18,28 @@ interface CubeProps {
 
 export default function Cube({ explode, rotate, spread, adjust }: CubeProps) {
   const { layout, breakpoint } = useCubeLayout();
+  const viewport = useViewportSize();
+  const faceScale = computeFaceScale(breakpoint, viewport.height, layout.faceSize);
+  const faceSize = layout.faceSize * faceScale;
+  const cubeSize = layout.cubeSize * faceScale;
+  const movement = computeCubeMovement(breakpoint, viewport.width, viewport.height, faceSize);
+  const depthScale = Math.max(0.65, movement.scaleY);
+  const openDepth = layout.depth.open * faceScale * depthScale;
+  const offsetY = parseFloat(layout.initialOffsetY) * 16 * Math.max(0.5, movement.scaleY);
 
   const cubeDepth = useTransform(
     explode,
     [0, 1],
-    [`${layout.depth.closed}px`, `${layout.depth.open}px`]
+    [`${layout.depth.closed * faceScale}px`, `${openDepth}px`]
   );
 
   return (
     <div
       className="cube-wrapper"
       style={{
-        transform: `translateY(${layout.initialOffsetY})`,
-        "--cube-size": `${layout.cubeSize}px`,
-        "--face-size": `${layout.faceSize}px`,
+        transform: `translateY(${offsetY}px)`,
+        "--cube-size": `${cubeSize}px`,
+        "--face-size": `${faceSize}px`,
         "--cube-perspective": `${layout.perspective}px`,
         "--face-padding": layout.facePadding,
         "--icon-size": layout.iconSize,
@@ -53,11 +63,12 @@ export default function Cube({ explode, rotate, spread, adjust }: CubeProps) {
           <CubeFace
             key={face.id}
             face={face}
-            faceSize={layout.faceSize}
+            faceSize={faceSize}
             rotate={rotate}
             spread={spread}
             adjust={adjust}
             breakpoint={breakpoint}
+            movement={movement}
           />
         ))}
       </motion.div>
