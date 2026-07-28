@@ -3,6 +3,7 @@
 import { motion, MotionValue, useTransform } from "framer-motion";
 import Cube from "./Cube";
 import { useCubeLayout } from "./useCubeLayout";
+import { useViewportSize } from "./useViewportSize";
 
 interface HeroCoreProps {
   progress: MotionValue<number>;
@@ -10,6 +11,14 @@ interface HeroCoreProps {
 
 export default function HeroCore({ progress }: HeroCoreProps) {
   const { layout, breakpoint } = useCubeLayout();
+  const viewport = useViewportSize();
+  // Mobile portrait was hand-tuned assuming the base spread stays small
+  // (capped) and lets the per-face adjustments do the separating. A rotated
+  // (landscape) phone is wide enough that it should reach the full spread
+  // instead, to actually use the extra width — capping it there was just
+  // wasting the space.
+  const isMobilePortrait = breakpoint === "mobile" && viewport.height >= viewport.width;
+  const spreadMax = isMobilePortrait ? 0.6 : 1;
 
   const scale = useTransform(
     progress,
@@ -34,8 +43,6 @@ export default function HeroCore({ progress }: HeroCoreProps) {
     (latest) => Math.min(1, Math.max(0, latest))
   );
 
-  const spreadMax = breakpoint === "mobile" ? 0.6 : 1;
-
   const spread = useTransform(
     clampedRotate,
     [0.15, 0.5, 0.8, 1],
@@ -49,7 +56,7 @@ export default function HeroCore({ progress }: HeroCoreProps) {
   );
 
   return (
-    <div className="absolute inset-0 overflow-hidden">
+    <div className="absolute inset-0 overflow-hidden z-0 isolate">
       <motion.div
         className="relative w-full h-full flex items-center justify-center"
         style={{ scale }}

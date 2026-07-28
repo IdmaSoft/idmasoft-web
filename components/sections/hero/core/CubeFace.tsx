@@ -7,6 +7,12 @@ import { type CubeFaceData } from "./cubeFaces";
 interface CubeFaceProps {
   face: CubeFaceData;
   faceSize: number;
+  // Unscaled faceSize, before the height-driven faceScale shrink. The X
+  // adjustment (front/back diagonal push) is meant to track available
+  // WIDTH, not the card's own height-compressed size — using the shrunk
+  // faceSize there would undercut the horizontal push exactly when a short,
+  // wide viewport needs it most.
+  idealFaceSize: number;
   rotate: MotionValue<number>;
   spread: MotionValue<number>;
   adjust: MotionValue<number>;
@@ -26,6 +32,7 @@ const faceDirections: Record<CubeFaceData["side"], { x: number; y: number }> = {
 export default function CubeFace({
   face,
   faceSize,
+  idealFaceSize,
   rotate,
   spread,
   adjust,
@@ -90,7 +97,7 @@ export default function CubeFace({
     [0, 1],
     [
       0,
-      faceSize * adjustment.x * movement.scaleX,
+      idealFaceSize * adjustment.x * movement.adjustScaleX,
     ]
   );
 

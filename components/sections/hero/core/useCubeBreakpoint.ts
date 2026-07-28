@@ -1,38 +1,34 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { BREAKPOINTS, type CubeBreakpoint } from "./cubeLayout";
+import { useLayoutEffect, useState } from "react";
+import { getBreakpoint, type CubeBreakpoint } from "./cubeLayout";
+
+function getCurrentBreakpoint(): CubeBreakpoint {
+  if (typeof window === "undefined") {
+    return "desktop";
+  }
+
+  return getBreakpoint(window.innerWidth);
+}
 
 export function useCubeBreakpoint(): CubeBreakpoint {
+  // Start from the same "desktop" default on server and client — reading
+  // the real breakpoint here would make the client's first render diverge
+  // from the server-rendered HTML and trigger a React hydration mismatch.
+  // useLayoutEffect corrects it before the browser's next paint instead.
   const [breakpoint, setBreakpoint] = useState<CubeBreakpoint>("desktop");
 
-  useEffect(() => {
-    const getBreakpoint = (width: number): CubeBreakpoint => {
-      if (width < BREAKPOINTS.mobile) {
-        return "mobile";
-      }
-
-      if (width < BREAKPOINTS.tablet) {
-        return "tablet";
-      }
-
-      return "desktop";
-    };
-
+  useLayoutEffect(() => {
     const update = () => {
-      setBreakpoint(getBreakpoint(window.innerWidth));
+      setBreakpoint(getCurrentBreakpoint());
     };
 
     update();
 
-    const resizeHandler = () => {
-      update();
-    };
-
-    window.addEventListener("resize", resizeHandler);
+    window.addEventListener("resize", update);
 
     return () => {
-      window.removeEventListener("resize", resizeHandler);
+      window.removeEventListener("resize", update);
     };
   }, []);
 

@@ -31,6 +31,11 @@ export interface CubeMovementConfig {
   depthFactor: number;
   scaleX: number;
   scaleY: number;
+  // Scale used only for per-face diagonal adjustments (front/back), capped
+  // relative to scaleY so those hand-tuned (x, y, z) vectors don't distort.
+  // scaleX itself is NOT capped this way — left/right/top/bottom have no
+  // such vector to distort, so they should freely use available width.
+  adjustScaleX: number;
 }
 
 export const BREAKPOINTS = {
@@ -119,6 +124,13 @@ interface CubeMovementBounds {
   cardHalfHeightRatio: number;
   spreadDistance: number;
   depthFactor: number;
+  // Per-face adjustments are tuned as a single (x, y, z) vector assuming
+  // scaleX and scaleY stay roughly in step. If one axis is far more
+  // compressed than the other (e.g. a phone rotated to landscape, where
+  // width is generous but height is very tight), the tuned vector gets
+  // stretched out of proportion and faces end up overlapping in a way that
+  // looks like they "mixed up". This caps how far scaleX can outrun scaleY.
+  maxXYRatio: number;
 }
 
 // refWidthAvail / refHeightAvail are the "available space" (viewport minus
@@ -142,6 +154,7 @@ const movementBounds: Record<CubeBreakpoint, CubeMovementBounds> = {
     cardHalfHeightRatio: 0.8,
     spreadDistance: 0.18,
     depthFactor: 0.13,
+    maxXYRatio: 2.5,
   },
   tablet: {
     idealX: 0.68,
@@ -155,12 +168,13 @@ const movementBounds: Record<CubeBreakpoint, CubeMovementBounds> = {
     cardHalfHeightRatio: 0.85,
     spreadDistance: 0.16,
     depthFactor: 0.12,
+    maxXYRatio: 7,
   },
   mobile: {
     idealX: 0.34,
     refWidthAvail: 375 - 24,
     minScaleX: 0.7,
-    maxScaleX: 1.05,
+    maxScaleX: 3.2,
     cardHalfWidthRatio: 0.55,
     idealY: 0.34,
     refHeightAvail: 700 - 64 - 24,
@@ -168,6 +182,7 @@ const movementBounds: Record<CubeBreakpoint, CubeMovementBounds> = {
     cardHalfHeightRatio: 0.9,
     spreadDistance: 0.14,
     depthFactor: 0.14,
+    maxXYRatio: 3.5,
   },
 };
 
@@ -190,9 +205,20 @@ export function computeFaceScale(
   const b = movementBounds[breakpoint];
   const margin = breakpoint === "mobile" ? 12 : 16;
   const rawAvailableHalfH = (viewportHeight - NAVBAR_HEIGHT - margin * 2) / 2;
-  const neededHalfH = idealFaceSize * b.cardHalfHeightRatio;
+  const cardHalfH = idealFaceSize * b.cardHalfHeightRatio;
 
-  return clamp(rawAvailableHalfH / neededHalfH, MIN_FACE_SCALE, 1);
+  // Does the card fit at all, on its own, regardless of position?
+  const fitScale = clamp(rawAvailableHalfH / cardHalfH, MIN_FACE_SCALE, 1);
+
+  // How compressed does the position spacing (scaleY) end up? If it's very
+  // compressed, the fixed-size card needs to shrink too, or 6 of them can't
+  // stay apart from each other even though each one individually "fits".
+  const availableHalfH = rawAvailableHalfH - cardHalfH;
+  const refHalfH = b.refHeightAvail / 2 - cardHalfH;
+  const prelimScaleY = clamp(availableHalfH / refHalfH, b.minScaleY, 1);
+  const coupledScale = 0.4 + 0.6 * prelimScaleY;
+
+  return clamp(Math.min(fitScale, coupledScale), MIN_FACE_SCALE, 1);
 }
 
 export function computeCubeMovement(
@@ -204,15 +230,16 @@ export function computeCubeMovement(
   const b = movementBounds[breakpoint];
   const margin = breakpoint === "mobile" ? 12 : 16;
 
-  const cardHalfW = faceSize * b.cardHalfWidthRatio;
-  const availableHalfW = (viewportWidth - margin * 2) / 2 - cardHalfW;
-  const refHalfW = b.refWidthAvail / 2 - cardHalfW;
-  const scaleX = clamp(availableHalfW / refHalfW, b.minScaleX, b.maxScaleX);
-
   const cardHalfH = faceSize * b.cardHalfHeightRatio;
   const availableHalfH = (viewportHeight - NAVBAR_HEIGHT - margin * 2) / 2 - cardHalfH;
   const refHalfH = b.refHeightAvail / 2 - cardHalfH;
   const scaleY = clamp(availableHalfH / refHalfH, b.minScaleY, 1);
+
+  const cardHalfW = faceSize * b.cardHalfWidthRatio;
+  const availableHalfW = (viewportWidth - margin * 2) / 2 - cardHalfW;
+  const refHalfW = b.refWidthAvail / 2 - cardHalfW;
+  const scaleX = clamp(availableHalfW / refHalfW, b.minScaleX, b.maxScaleX);
+  const adjustScaleX = Math.min(scaleX, scaleY * b.maxXYRatio);
 
   return {
     targetDistanceX: b.idealX * scaleX,
@@ -221,5 +248,32 @@ export function computeCubeMovement(
     depthFactor: b.depthFactor * Math.max(0.65, scaleY),
     scaleX,
     scaleY,
+    adjustScaleX,
   };
+}
+
+// Estimated bottom edge of the hero's title/description/button block, and
+// the gap we want below it, per breakpoint. These are rough constants (not
+// measured live) — good enough to keep the closed cube a roughly consistent
+// distance under the text on any device height, instead of just sitting at
+// dead-center of the viewport (which is what "flex items-center" alone
+// gives you, and which drifts wildly between short and tall screens).
+const INITIAL_GAP_TUNING: Record<CubeBreakpoint, { textBottom: number; gap: number }> = {
+  desktop: { textBottom: 320, gap: 48 },
+  tablet: { textBottom: 300, gap: 40 },
+  mobile: { textBottom: 370, gap: 28 },
+};
+
+export function computeInitialNudge(
+  breakpoint: CubeBreakpoint,
+  viewportHeight: number,
+  cubeSize: number,
+  initialScale: number
+): number {
+  const { textBottom, gap } = INITIAL_GAP_TUNING[breakpoint];
+  const cubeHalfHeight = (cubeSize * initialScale) / 2;
+  const desiredCubeTop = textBottom + gap;
+  const centeredCubeTop = viewportHeight / 2 - cubeHalfHeight;
+
+  return desiredCubeTop - centeredCubeTop;
 }
