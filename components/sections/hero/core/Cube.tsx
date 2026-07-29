@@ -12,6 +12,7 @@ import { computeCubeMovement, computeFaceScale, computeInitialNudge } from "./cu
 
 interface CubeProps {
   explode: MotionValue<number>;
+  settle: MotionValue<number>;
   rotate: MotionValue<number>;
   spread: MotionValue<number>;
   adjust: MotionValue<number>;
@@ -27,7 +28,7 @@ function scaleRem(value: string, factor: number): string {
   return `${parseFloat(value) * factor}rem`;
 }
 
-export default function Cube({ explode, rotate, spread, adjust, textBottom }: CubeProps) {
+export default function Cube({ explode, settle, rotate, spread, adjust, textBottom }: CubeProps) {
   const { layout, breakpoint } = useCubeLayout();
   const viewport = useViewportSize();
 
@@ -57,7 +58,11 @@ export default function Cube({ explode, rotate, spread, adjust, textBottom }: Cu
   // real difference in text height was only moving the cube ~41px on
   // screen before this correction).
   const initialNudge = computeInitialNudge(breakpoint, viewport.height, layout.cubeSize, layout.initialScale, textBottom) / layout.initialScale;
-  const wrapperY = useTransform(explode, [0, 1], [offsetY + initialNudge, offsetY]);
+  // Tied to `settle` (progress 0.1-0.4), not `explode` (0.45-0.54) — the
+  // move from resting-near-text to centered-for-rotation needs to happen
+  // right as the text fades out, not left parked until the explode/rotate
+  // phase starts. See the comment on `settle` in HeroCore.tsx.
+  const wrapperY = useTransform(settle, [0, 1], [offsetY + initialNudge, offsetY]);
 
   const cubeDepth = useTransform(
     explode,
