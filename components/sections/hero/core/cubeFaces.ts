@@ -74,8 +74,8 @@ export const cubeFaces: CubeFaceData[] = [
     rotateToFront: { x: 0, y: 90 },
     adjustments: {
       mobile: { x: 0.25, y: -0.25, z: -0.2 },
-      tablet: { x: 0.15, y: -0.25, z: 0 },
-      desktop: { x: -0.1, y: -0.25, z: 0 },
+      tablet: { x: 0.2, y: -0.02, z: 0 },
+      desktop: { x: 0.2, y: 0.05, z: 0 },
     },
   },
 
@@ -111,7 +111,7 @@ export const cubeFaces: CubeFaceData[] = [
     id: "automation",
     side: "bottom",
     title: "Automation Engine",
-    description: "Automated workflows and deployment pipelines",
+    description: "Automated workflows & deploys",
     icon: Server,
 
     rotateToFront: { x: 90, y: 0 },

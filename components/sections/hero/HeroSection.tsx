@@ -33,7 +33,7 @@ export function HeroSection() {
   return (
     <section
       ref={heroRef}
-      className="relative h-[240vh] bg-zinc-950"
+      className="relative h-[150vh] bg-zinc-950"
     >
       <div className="sticky top-0 h-screen overflow-hidden">
         <HeroBackground />

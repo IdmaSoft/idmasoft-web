@@ -31,6 +31,8 @@ El diseño original solo tenía 3 configs fijas (mobile/tablet/desktop, por **an
 
 6. **Servidor vs. cliente**: el servidor no puede saber el viewport real, así que `useCubeBreakpoint`/`useViewportSize` siempre arrancan con el fallback de desktop (1440×900) — leer `window` directamente en el estado inicial causa un *hydration mismatch* real (React lo detectó y se quedó pegado en los valores del servidor). El patrón correcto: mismo estado inicial en servidor y cliente, corregir en `useLayoutEffect`. Y para que el cubo no aparezca "mal" y luego salte a su lugar correcto, `Cube.tsx` lo mantiene en `opacity: 0` hasta que `useIsHydrated()` (basado en `useSyncExternalStore`, el hook que React recomienda para esto — no un `useState`+`useLayoutEffect` a mano, el linter lo marca como anti-patrón) confirma que ya hidrató.
 
+7. **Al medir overlaps en el navegador, hay que esperar a que el `useSpring` de `adjust` (en `CubeFace.tsx`) se asiente antes de leer `getBoundingClientRect()`.** Medir inmediatamente después de `scrollTo`/resize captura el cubo a mitad de la transición del spring — da falsos negativos (0 overlaps) o valores absurdos (una tarjeta de 17px de ancho). Se descubrió que varias verificaciones "limpias" de esta matriz (incluyendo el caso base mobile portrait 375×812) en realidad tenían overlaps reales una vez medidas con una espera de ~1s después del scroll. Método correcto: `scrollTo` → esperar ~1s → recién ahí medir.
+
 ## Matriz de verificación
 
 Cada vez que se toquen `cubeLayout.ts` o los `adjustments` de `cubeFaces.ts`, volver a probar (sin overlap entre caras, sin clipping contra navbar/bordes) en:
