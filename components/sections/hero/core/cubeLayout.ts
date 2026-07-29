@@ -268,9 +268,18 @@ export function computeInitialNudge(
   breakpoint: CubeBreakpoint,
   viewportHeight: number,
   cubeSize: number,
-  initialScale: number
+  initialScale: number,
+  // Real measured bottom edge of the hero text block (title + subtitle +
+  // buttons), in px from the viewport top. Text length varies by locale
+  // (Spanish wraps to more lines than English for the same content), so a
+  // fixed per-breakpoint guess drifts once translated — measuring the
+  // actual DOM keeps the cube's resting gap correct for any language.
+  // Falls back to the hand-tuned guess (English-shaped) until the first
+  // measurement lands, so there's no hydration mismatch.
+  measuredTextBottom?: number | null
 ): number {
-  const { textBottom, gap } = INITIAL_GAP_TUNING[breakpoint];
+  const { textBottom: fallbackTextBottom, gap } = INITIAL_GAP_TUNING[breakpoint];
+  const textBottom = measuredTextBottom ?? fallbackTextBottom;
   const cubeHalfHeight = (cubeSize * initialScale) / 2;
   const desiredCubeTop = textBottom + gap;
   const centeredCubeTop = viewportHeight / 2 - cubeHalfHeight;

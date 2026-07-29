@@ -3,7 +3,15 @@
     "title": "Construimos software que crece con vos.",
     "subtitle": "Diseñamos plataformas a medida, aplicaciones móviles, sistemas en la nube y soluciones de IA que ayudan a las empresas a automatizar, crecer y evolucionar.",
     "primaryCta": "Iniciar un proyecto",
-    "secondaryCta": "Ver servicios"
+    "secondaryCta": "Ver servicios",
+    "cube": {
+      "dashboard": { "title": "Panel Analítico", "description": "Métricas de negocio" },
+      "sql": { "title": "Base SQL", "description": "Almacenamiento seguro" },
+      "android": { "title": "App Android", "description": "Aplicación móvil nativa" },
+      "landing": { "title": "Landing Next.js", "description": "Sitio web moderno" },
+      "nestjs": { "title": "API NestJS", "description": "Backend seguro" },
+      "automation": { "title": "Automatización", "description": "Flujos y despliegues" }
+    }
   },
   "company": {
     "eyebrow": "Qué hacemos",

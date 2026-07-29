@@ -7,9 +7,10 @@ import { useViewportSize } from "./useViewportSize";
 
 interface HeroCoreProps {
   progress: MotionValue<number>;
+  textBottom: number | null;
 }
 
-export default function HeroCore({ progress }: HeroCoreProps) {
+export default function HeroCore({ progress, textBottom }: HeroCoreProps) {
   const { layout, breakpoint } = useCubeLayout();
   const viewport = useViewportSize();
   // Mobile portrait was hand-tuned assuming the base spread stays small
@@ -66,6 +67,7 @@ export default function HeroCore({ progress }: HeroCoreProps) {
           rotate={rotate}
           spread={spread}
           adjust={adjust}
+          textBottom={textBottom}
         />
       </motion.div>
     </div>

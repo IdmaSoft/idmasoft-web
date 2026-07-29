@@ -3,7 +3,15 @@
     "title": "Build software that scales.",
     "subtitle": "We design custom platforms, mobile applications, cloud systems and AI solutions that help businesses automate, grow and scale.",
     "primaryCta": "Start a project",
-    "secondaryCta": "Explore services"
+    "secondaryCta": "Explore services",
+    "cube": {
+      "dashboard": { "title": "Analytics Dashboard", "description": "Business metrics and insights" },
+      "sql": { "title": "SQL Database", "description": "Reliable data storage" },
+      "android": { "title": "Android App", "description": "Native mobile application" },
+      "landing": { "title": "Next.js Landing", "description": "Modern web experience" },
+      "nestjs": { "title": "NestJS API", "description": "Secure backend services" },
+      "automation": { "title": "Automation Engine", "description": "Automated workflows & deploys" }
+    }
   },
   "company": {
     "eyebrow": "What We Do",

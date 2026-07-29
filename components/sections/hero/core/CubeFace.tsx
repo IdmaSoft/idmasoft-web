@@ -1,6 +1,7 @@
 "use client";
 
 import { type MotionValue, motion, useSpring, useTransform } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { type CubeBreakpoint, type CubeMovementConfig } from "./cubeLayout";
 import { type CubeFaceData } from "./cubeFaces";
 
@@ -39,6 +40,7 @@ export default function CubeFace({
   breakpoint,
   movement,
 }: CubeFaceProps) {
+  const t = useTranslations("home.hero.cube");
   const rotateX = useTransform(
     rotate,
     [0, 1],
@@ -149,8 +151,8 @@ export default function CubeFace({
             <div className="cube-face">
               <div className="cube-face-content">
                 <Icon className="cube-face-icon" />
-                <h3 className="cube-face-title">{face.title}</h3>
-                <p className="cube-face-description">{face.description}</p>
+                <h3 className="cube-face-title">{t(`${face.id}.title`)}</h3>
+                <p className="cube-face-description">{t(`${face.id}.description`)}</p>
               </div>
             </div>
           </motion.div>

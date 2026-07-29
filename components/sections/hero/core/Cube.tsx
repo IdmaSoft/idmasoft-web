@@ -15,6 +15,7 @@ interface CubeProps {
   rotate: MotionValue<number>;
   spread: MotionValue<number>;
   adjust: MotionValue<number>;
+  textBottom: number | null;
 }
 
 // Card content is bottom-anchored (see .cube-face-content in cube.css), so
@@ -26,7 +27,7 @@ function scaleRem(value: string, factor: number): string {
   return `${parseFloat(value) * factor}rem`;
 }
 
-export default function Cube({ explode, rotate, spread, adjust }: CubeProps) {
+export default function Cube({ explode, rotate, spread, adjust, textBottom }: CubeProps) {
   const { layout, breakpoint } = useCubeLayout();
   const viewport = useViewportSize();
 
@@ -34,8 +35,11 @@ export default function Cube({ explode, rotate, spread, adjust }: CubeProps) {
   // with the desktop fallback. Rather than show that wrong size/position and
   // have it visibly snap into place once the client corrects it, the cube
   // stays invisible until that correction has already happened — it should
-  // only ever appear already in its right spot, never move into it.
-  const ready = useIsHydrated();
+  // only ever appear already in its right spot, never move into it. That now
+  // also includes the measured hero-text height (see HeroContent), so a
+  // longer translation doesn't briefly render at the English-tuned gap
+  // before snapping down.
+  const ready = useIsHydrated() && textBottom !== null;
   const faceScale = computeFaceScale(breakpoint, viewport.height, layout.faceSize);
   const faceSize = layout.faceSize * faceScale;
   const cubeSize = layout.cubeSize * faceScale;
@@ -43,7 +47,16 @@ export default function Cube({ explode, rotate, spread, adjust }: CubeProps) {
   const depthScale = Math.max(0.65, movement.scaleY);
   const openDepth = layout.depth.open * faceScale * depthScale;
   const offsetY = parseFloat(layout.initialOffsetY) * 16 * Math.max(0.5, movement.scaleY);
-  const initialNudge = computeInitialNudge(breakpoint, viewport.height, layout.cubeSize, layout.initialScale);
+  // HeroCore scales the whole flex container that centers this wrapper down
+  // to `layout.initialScale` at rest (the pre-scroll "zoomed out" cube), and
+  // that scale's transform-origin sits near the same point this offset is
+  // measured from — so any raw pixel offset applied here only lands on
+  // screen at `initialScale` of its intended size. Dividing by it here
+  // keeps the *visual* gap equal to the real, measured distance instead of
+  // silently shrinking it (most visible with longer translations: a 75px
+  // real difference in text height was only moving the cube ~41px on
+  // screen before this correction).
+  const initialNudge = computeInitialNudge(breakpoint, viewport.height, layout.cubeSize, layout.initialScale, textBottom) / layout.initialScale;
   const wrapperY = useTransform(explode, [0, 1], [offsetY + initialNudge, offsetY]);
 
   const cubeDepth = useTransform(

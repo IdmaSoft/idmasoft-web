@@ -19,8 +19,10 @@ export interface CubeFaceData {
   id: string;
   side: CubeSide;
 
-  title: string;
-  description: string;
+  // title/description live in messages/*/home.json under hero.cube.<id> —
+  // not here, so there's only one place to edit per language instead of an
+  // English copy nobody reads once translations exist (see cubeFaces.ts
+  // history for why that split invites confusion).
   icon: LucideIcon;
 
   rotateToFront: {
@@ -35,8 +37,6 @@ export const cubeFaces: CubeFaceData[] = [
   {
     id: "dashboard",
     side: "front",
-    title: "Analytics Dashboard",
-    description: "Business metrics and insights",
     icon: BarChart3,
 
     rotateToFront: { x: 0, y: 0 },
@@ -51,8 +51,6 @@ export const cubeFaces: CubeFaceData[] = [
   {
     id: "sql",
     side: "back",
-    title: "SQL Database",
-    description: "Reliable data storage",
     icon: Database,
 
     rotateToFront: { x: 0, y: 180 },
@@ -67,8 +65,6 @@ export const cubeFaces: CubeFaceData[] = [
   {
     id: "android",
     side: "left",
-    title: "Android App",
-    description: "Native mobile application",
     icon: Smartphone,
 
     rotateToFront: { x: 0, y: 90 },
@@ -82,8 +78,6 @@ export const cubeFaces: CubeFaceData[] = [
   {
     id: "landing",
     side: "right",
-    title: "Next.js Landing",
-    description: "Modern web experience",
     icon: Globe,
 
     rotateToFront: { x: 0, y: -90 },
@@ -95,8 +89,6 @@ export const cubeFaces: CubeFaceData[] = [
   {
     id: "nestjs",
     side: "top",
-    title: "NestJS API",
-    description: "Secure backend services",
     icon: Server,
 
     rotateToFront: { x: -90, y: 0 },
@@ -110,8 +102,6 @@ export const cubeFaces: CubeFaceData[] = [
   {
     id: "automation",
     side: "bottom",
-    title: "Automation Engine",
-    description: "Automated workflows & deploys",
     icon: Server,
 
     rotateToFront: { x: 90, y: 0 },
