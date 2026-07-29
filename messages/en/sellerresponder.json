@@ -1,0 +1,47 @@
+{
+  "badge": "E-commerce Automation",
+  "title": "SellerResponder",
+  "subtitle": "Automate your marketplace communication. AI-powered responses that sound human, delivered at scale.",
+  "visitLandingCta": "Visit Landing Page",
+  "googlePlayCta": "Google Play",
+  "downloadGooglePlayCta": "Download on Google Play",
+  "statusCard": {
+    "statusLabel": "Status",
+    "status": "Available",
+    "categoryLabel": "Category",
+    "category": "E-commerce Automation",
+    "platformLabel": "Platform",
+    "platform": "Web + Android",
+    "developerLabel": "Developer"
+  },
+  "problem": {
+    "title": "The Problem",
+    "description": "E-commerce sellers spend hours every day manually responding to buyer questions, negative feedback, and support requests across marketplaces. This takes time away from growing the business and causes inconsistent, delayed responses that hurt seller ratings."
+  },
+  "solution": {
+    "title": "The Solution",
+    "description": "SellerResponder uses AI to generate accurate, on-brand responses to common buyer interactions. Sellers review, customize, and send with a single tap — cutting response time from hours to seconds while maintaining a personal, professional tone."
+  },
+  "result": {
+    "title": "The Result",
+    "description": "Sellers get their time back. Buyers receive faster, higher quality responses. Marketplace ratings improve. The product handles the repetitive communication work so sellers can focus on inventory, pricing, and growth."
+  },
+  "featuresHeading": "What SellerResponder does",
+  "features": [
+    "AI-generated response suggestions based on message context",
+    "One-tap send workflow for fast response times",
+    "Support for multiple marketplace accounts",
+    "Response history and analytics",
+    "Android mobile app for managing on the go",
+    "Customizable response templates and tone settings"
+  ],
+  "technologyHeading": "Technology",
+  "technologyDescription": "SellerResponder is built on a modern, scalable stack. The mobile app is built with React Native for cross-platform support. The backend runs on NestJS with PostgreSQL, deployed on Azure with full CI/CD automation.",
+  "platformsHeading": "Platforms",
+  "platformsDescription": "SellerResponder integrates with the major e-commerce marketplaces where sellers operate. Additional marketplace integrations are added based on user demand.",
+  "platformsList": ["Marketplace A", "Marketplace B", "Marketplace C"],
+  "finalCta": {
+    "title": "Ready to save hours every week?",
+    "description": "Visit the SellerResponder landing page to learn more and get started."
+  }
+}

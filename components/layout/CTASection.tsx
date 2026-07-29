@@ -1,22 +1,22 @@
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 interface CTASectionProps {
-  title?: string;
-  description?: string;
-  primaryLabel?: string;
-  primaryHref?: string;
-  secondaryLabel?: string;
-  secondaryHref?: string;
+  title: string;
+  description: string;
+  primaryLabel: string;
+  primaryHref: string;
+  secondaryLabel: string;
+  secondaryHref: string;
 }
 
 export function CTASection({
-  title = "Ready to build something great?",
-  description = "Whether you need a product built from scratch or want to scale an existing system, let's talk.",
-  primaryLabel = "Get in Touch",
-  primaryHref = "/contact",
-  secondaryLabel = "Explore Products",
-  secondaryHref = "/products",
+  title,
+  description,
+  primaryLabel,
+  primaryHref,
+  secondaryLabel,
+  secondaryHref,
 }: CTASectionProps) {
   return (
     <section className="relative py-24 bg-zinc-950 border-t border-zinc-900 overflow-hidden">

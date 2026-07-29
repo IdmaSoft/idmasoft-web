@@ -1,0 +1,34 @@
+{
+  "eyebrow": "Contacto",
+  "title": "Hablemos",
+  "description": "Ya sea que tengas un proyecto en mente, quieras discutir un desafío técnico, o simplemente explorar qué es posible — escribinos.",
+  "contactInfoHeading": "Información de Contacto",
+  "emailLabel": "Correo",
+  "locationLabel": "Ubicación",
+  "socialHeading": "Redes",
+  "githubLabel": "GitHub",
+  "linkedinLabel": "LinkedIn",
+  "responseTimeLabel": "Tiempo de respuesta:",
+  "responseTimeText": "Normalmente respondemos dentro de un día hábil. Para asuntos urgentes, escribinos directamente por correo.",
+  "formHeading": "Envianos un mensaje",
+  "form": {
+    "nameLabel": "Nombre Completo",
+    "namePlaceholder": "Tu nombre",
+    "emailLabel": "Correo Electrónico",
+    "emailPlaceholder": "tucorreo@ejemplo.com",
+    "subjectLabel": "Asunto",
+    "subjectPlaceholder": "Seleccioná un asunto",
+    "subjectOptions": {
+      "project": "Iniciar un proyecto",
+      "consulting": "Consultoría de software",
+      "product": "Consulta sobre un producto",
+      "other": "Otro"
+    },
+    "messageLabel": "Mensaje",
+    "messagePlaceholder": "Contanos sobre tu proyecto o tu consulta...",
+    "submit": "Enviar Mensaje",
+    "successTitle": "Mensaje recibido",
+    "successDescription": "Gracias por escribirnos. Te responderemos lo antes posible.",
+    "sendAnother": "Enviar otro mensaje"
+  }
+}

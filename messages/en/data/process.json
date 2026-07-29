@@ -1,0 +1,26 @@
+{
+  "1": {
+    "title": "Discovery",
+    "description": "Understanding the business context, technical requirements, and success criteria before writing a single line of code."
+  },
+  "2": {
+    "title": "Architecture",
+    "description": "Designing the system structure, data models, and integration patterns that will support the product at scale."
+  },
+  "3": {
+    "title": "Development",
+    "description": "Building iteratively with clean code standards, code reviews, and continuous integration from day one."
+  },
+  "4": {
+    "title": "Testing",
+    "description": "Automated testing at unit, integration, and end-to-end levels to ensure correctness and prevent regressions."
+  },
+  "5": {
+    "title": "Deployment",
+    "description": "Reliable production deployments with CI/CD pipelines, environment configuration, and rollback strategies."
+  },
+  "6": {
+    "title": "Support",
+    "description": "Ongoing monitoring, maintenance, and iterative improvements after launch to keep systems healthy."
+  }
+}

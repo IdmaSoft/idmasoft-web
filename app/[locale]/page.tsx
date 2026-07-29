@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { HeroSection } from "@/components/sections/hero/HeroSection";
 import { CompanySection } from "@/components/sections/CompanySection";
 import { HomeProductsSection } from "@/components/sections/HomeProductsSection";
@@ -9,20 +8,17 @@ import { TechnologiesSection } from "@/components/sections/TechnologiesSection";
 import { FeaturedProductSection } from "@/components/sections/FeaturedProductSection";
 import { HomeFounderSection } from "@/components/sections/HomeFounderSection";
 import { CTASection } from "@/components/layout/CTASection";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Idmasoft — Modern Software Products & Engineering",
-  description:
-    "Idmasoft builds modern software products, AI-powered solutions, backend systems, and enterprise applications that scale.",
-  openGraph: {
-    title: "Idmasoft — Modern Software Products & Engineering",
-    description:
-      "Idmasoft builds modern software products, AI-powered solutions, backend systems, and enterprise applications that scale.",
-    url: "https://idmasoft.com",
-  },
-};
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("home.cta");
 
-export default function Home() {
   return (
     <>
       <HeroSection />
@@ -34,7 +30,14 @@ export default function Home() {
       <TechnologiesSection />
       <FeaturedProductSection />
       <HomeFounderSection />
-      <CTASection />
+      <CTASection
+        title={t("title")}
+        description={t("description")}
+        primaryLabel={t("primaryLabel")}
+        primaryHref="/contact"
+        secondaryLabel={t("secondaryLabel")}
+        secondaryHref="/products"
+      />
     </>
   );
 }

@@ -1,0 +1,26 @@
+{
+  "clean-architecture": {
+    "title": "Arquitectura Limpia",
+    "description": "Separación de responsabilidades, límites de dominio claros y patrones que hacen el código legible y predecible meses después de haberlo escrito."
+  },
+  "scalable-systems": {
+    "title": "Sistemas Robustos",
+    "description": "Diseñados para acompañar el crecimiento. Construimos sistemas con margen para escalar horizontalmente sin necesidad de reescribir la arquitectura."
+  },
+  "modern-stack": {
+    "title": "Stack Moderno",
+    "description": "Trabajamos con tecnologías que tienen ecosistemas sólidos, comunidades activas y un historial comprobado en producción."
+  },
+  "performance-first": {
+    "title": "Rendimiento Primero",
+    "description": "Bases de datos optimizadas, consultas eficientes y bundles de frontend livianos. Las aplicaciones rápidas son un requisito, no un detalle secundario."
+  },
+  "maintainability": {
+    "title": "Mantenibilidad",
+    "description": "Código que los futuros desarrolladores pueden entender. Patrones consistentes, buena documentación y una estrategia de pruebas que da confianza al equipo."
+  },
+  "long-term-support": {
+    "title": "Soporte a Largo Plazo",
+    "description": "No desaparecemos después del lanzamiento. Seguimos involucrados para monitorear, mejorar y extender los sistemas que construimos."
+  }
+}

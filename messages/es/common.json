@@ -1,0 +1,18 @@
+{
+  "siteTagline": "Software que crece con tu negocio",
+  "founderRole": "Fundador e Ingeniero Principal",
+  "location": "Disponibles en todo el mundo",
+  "getInTouch": "Contáctanos",
+  "learnMore": "Ver más",
+  "github": "GitHub",
+  "linkedin": "LinkedIn",
+  "email": "Correo",
+  "githubProfile": "Perfil de GitHub",
+  "linkedinProfile": "Perfil de LinkedIn",
+  "languageSelector": "Selector de idioma",
+  "productStatus": {
+    "Available": "Disponible",
+    "Beta": "Beta",
+    "Coming Soon": "Próximamente"
+  }
+}

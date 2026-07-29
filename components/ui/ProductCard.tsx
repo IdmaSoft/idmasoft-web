@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 import type { Product } from "@/lib/types";
 
 const statusStyles: Record<Product["status"], string> = {
@@ -10,6 +11,8 @@ const statusStyles: Record<Product["status"], string> = {
 };
 
 export function ProductCard({ product }: { product: Product }) {
+  const t = useTranslations("common");
+
   return (
     <div className="group flex flex-col rounded-3xl border border-zinc-800 bg-zinc-950/80 shadow-sm transition-all duration-300 p-8 hover:-translate-y-0.5 hover:shadow-[0_24px_80px_rgba(15,23,42,0.45)]">
       <div className="w-12 h-12 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center mb-6 shadow-sm">
@@ -21,7 +24,7 @@ export function ProductCard({ product }: { product: Product }) {
         <span
           className={`text-xs font-medium px-2.5 py-1 rounded-full ${statusStyles[product.status]}`}
         >
-          {product.status}
+          {t(`productStatus.${product.status}`)}
         </span>
       </div>
 
@@ -35,7 +38,7 @@ export function ProductCard({ product }: { product: Product }) {
           href={product.href}
           className="inline-flex items-center text-sm font-semibold text-sky-300 hover:text-zinc-50 gap-1.5 group/link"
         >
-          Learn More
+          {t("learnMore")}
           <svg
             className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5"
             fill="none"

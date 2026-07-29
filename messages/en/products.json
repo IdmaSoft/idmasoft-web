@@ -1,0 +1,11 @@
+{
+  "eyebrow": "Products",
+  "title": "Software we've built and ship",
+  "description": "Each product solves a specific real-world problem. Built with modern technology, designed for reliability, and ready to scale.",
+  "cta": {
+    "title": "Have a product idea?",
+    "description": "We partner with businesses to design and build software products from the ground up.",
+    "primaryLabel": "Start a Conversation",
+    "secondaryLabel": "View Services"
+  }
+}

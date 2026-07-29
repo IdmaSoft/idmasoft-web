@@ -1,0 +1,47 @@
+{
+  "badge": "Automatización de E-commerce",
+  "title": "SellerResponder",
+  "subtitle": "Automatizá la comunicación en tus marketplaces. Respuestas con IA que suenan humanas, entregadas a gran escala.",
+  "visitLandingCta": "Visitar Sitio",
+  "googlePlayCta": "Google Play",
+  "downloadGooglePlayCta": "Descargar en Google Play",
+  "statusCard": {
+    "statusLabel": "Estado",
+    "status": "Disponible",
+    "categoryLabel": "Categoría",
+    "category": "Automatización de E-commerce",
+    "platformLabel": "Plataforma",
+    "platform": "Web + Android",
+    "developerLabel": "Desarrollador"
+  },
+  "problem": {
+    "title": "El Problema",
+    "description": "Los vendedores de e-commerce pasan horas cada día respondiendo manualmente preguntas de compradores, reseñas negativas y solicitudes de soporte en distintos marketplaces. Esto les quita tiempo para hacer crecer el negocio y provoca respuestas inconsistentes y demoradas que perjudican su reputación."
+  },
+  "solution": {
+    "title": "La Solución",
+    "description": "SellerResponder usa IA para generar respuestas precisas y coherentes con la marca ante las interacciones más comunes con compradores. Los vendedores revisan, ajustan y envían con un solo toque — reduciendo el tiempo de respuesta de horas a segundos, sin perder un tono personal y profesional."
+  },
+  "result": {
+    "title": "El Resultado",
+    "description": "Los vendedores recuperan su tiempo. Los compradores reciben respuestas más rápidas y de mejor calidad. La reputación en los marketplaces mejora. El producto se encarga del trabajo repetitivo de comunicación para que los vendedores puedan enfocarse en inventario, precios y crecimiento."
+  },
+  "featuresHeading": "Qué hace SellerResponder",
+  "features": [
+    "Sugerencias de respuesta generadas por IA según el contexto del mensaje",
+    "Flujo de envío con un solo toque para respuestas rápidas",
+    "Soporte para múltiples cuentas de marketplace",
+    "Historial de respuestas y estadísticas",
+    "App móvil para Android para gestionar desde cualquier lugar",
+    "Plantillas de respuesta y tono personalizables"
+  ],
+  "technologyHeading": "Tecnología",
+  "technologyDescription": "SellerResponder está construido sobre un stack moderno y robusto. La app móvil está hecha con React Native para soporte multiplataforma. El backend corre en NestJS con PostgreSQL, desplegado en Azure con automatización completa de CI/CD.",
+  "platformsHeading": "Plataformas",
+  "platformsDescription": "SellerResponder se integra con los principales marketplaces de e-commerce donde operan los vendedores. Se agregan nuevas integraciones según la demanda de los usuarios.",
+  "platformsList": ["Marketplace A", "Marketplace B", "Marketplace C"],
+  "finalCta": {
+    "title": "¿Listo para ahorrar horas cada semana?",
+    "description": "Visitá el sitio de SellerResponder para conocer más y empezar."
+  }
+}

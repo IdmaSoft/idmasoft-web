@@ -1,0 +1,58 @@
+{
+  "eyebrow": "Nosotros",
+  "title": "Una empresa de software construida sobre valores de ingeniería",
+  "description": "Idmasoft existe para construir software que funciona bien, dura en el tiempo y entrega valor real a las empresas que confían en él.",
+  "mission": {
+    "eyebrow": "Misión",
+    "title": "Construir software que resuelve problemas reales y sigue funcionando",
+    "description": "La misión de Idmasoft es diseñar e implementar sistemas de software que entreguen valor duradero. Nos enfocamos en calidad, claridad y confiabilidad — no en la novedad por sí misma. Cada producto y servicio que entregamos debe hacer más efectivas y capaces a las empresas con las que trabajamos."
+  },
+  "vision": {
+    "eyebrow": "Visión",
+    "title": "Un socio de software confiable para empresas que toman en serio la tecnología",
+    "description": "Queremos que Idmasoft sea reconocida como una empresa que entrega software excepcional — de forma consistente, honesta y con un entendimiento profundo de los problemas que resuelve. Con el tiempo, nuestro portafolio de productos crecerá junto a nuestra área de servicios, formando una empresa que construye tanto para clientes como para sí misma."
+  },
+  "values": {
+    "eyebrow": "Valores",
+    "title": "Lo que guía nuestra forma de trabajar",
+    "items": {
+      "technicalExcellence": {
+        "title": "Excelencia Técnica",
+        "description": "Mantenemos un estándar alto en calidad de código, decisiones de arquitectura y diseño de sistemas. Lo suficientemente bueno no es suficiente."
+      },
+      "purposeDriven": {
+        "title": "Construcción con Propósito",
+        "description": "No agregamos funciones por agregarlas. Cada línea de código tiene un propósito claro, ligado a un resultado real de negocio."
+      },
+      "longTermThinking": {
+        "title": "Visión de Largo Plazo",
+        "description": "Construimos pensando en los próximos dos años, no solo en el siguiente sprint. La mantenibilidad y la extensibilidad son requisitos de diseño."
+      },
+      "transparency": {
+        "title": "Transparencia",
+        "description": "Comunicamos con claridad, señalamos los problemas a tiempo y tratamos a los clientes como socios en el proceso de construcción — no como simples solicitantes de tickets."
+      }
+    }
+  },
+  "philosophy": {
+    "eyebrow": "Filosofía",
+    "title": "La ingeniería de software como oficio",
+    "paragraph1": "El buen software no ocurre por accidente. Surge de decisiones deliberadas — sobre arquitectura, sobre elección de tecnología, sobre cómo estructurar el código para que el próximo desarrollador (o el mismo, seis meses después) pueda entenderlo rápido.",
+    "paragraph2": "En Idmasoft abordamos cada proyecto con la mentalidad de quien tendrá que mantenerlo. Eso significa tomar decisiones que priorizan la claridad a largo plazo por sobre la velocidad inmediata. Significa escribir pruebas que nos den confianza para hacer cambios. Significa documentar el por qué, no solo el qué.",
+    "paragraph3": "Esta filosofía aplica por igual a los productos que construimos para clientes y a los que construimos para nosotros mismos. No tenemos estándares distintos según quién paga — tenemos un solo estándar: hacerlo bien.",
+    "principles": [
+      "Las decisiones de arquitectura se toman pensando en el sistema completo",
+      "El código se escribe para ser leído, no solo para funcionar",
+      "Las pruebas son una herramienta de diseño, no un simple trámite",
+      "La documentación refleja el estado actual del sistema",
+      "El monitoreo en producción es parte de la definición de terminado",
+      "La deuda técnica se registra y se gestiona, no se acumula ni se ignora"
+    ]
+  },
+  "cta": {
+    "title": "Construí con una empresa que se toma en serio el oficio",
+    "description": "Ya sea que necesites construir un producto o mejorar un sistema existente, aportamos el mismo nivel de rigor y compromiso en cada proyecto.",
+    "primaryLabel": "Iniciar una Conversación",
+    "secondaryLabel": "Conocer al Fundador"
+  }
+}

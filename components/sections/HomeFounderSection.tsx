@@ -1,9 +1,14 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
 import { GitHubIcon, LinkedInIcon } from "@/components/ui/BrandIcons";
 import { SITE } from "@/lib/constants/site";
+import { FOUNDER } from "@/lib/constants/founder";
+import { useTranslations } from "next-intl";
 
 export function HomeFounderSection() {
+  const t = useTranslations("home.founder");
+  const tc = useTranslations("common");
+
   return (
     <section className="py-24 bg-zinc-950 border-b border-zinc-900">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -13,15 +18,15 @@ export function HomeFounderSection() {
             <div className="relative">
               <div className="w-64 h-64 rounded-3xl bg-gradient-to-br from-zinc-900 to-zinc-950 border border-zinc-800 flex items-center justify-center shadow-lg">
                 <div className="w-24 h-24 rounded-full bg-gradient-to-br from-zinc-800 to-zinc-900 border border-zinc-700/50 flex items-center justify-center">
-                  <span className="font-mono text-zinc-400 text-3xl font-semibold">F</span>
+                  <span className="font-mono text-zinc-400 text-3xl font-semibold">{FOUNDER.initials}</span>
                 </div>
               </div>
               {/* Decorative badge */}
               <div className="absolute -bottom-4 -right-4 bg-zinc-900/85 backdrop-blur-md border border-zinc-800 text-zinc-50 rounded-2xl shadow-lg px-4 py-3">
-                <p className="text-xs text-zinc-400 font-medium">Founder &</p>
                 <p className="text-sm text-zinc-100 font-semibold">
-                  Lead Engineer
+                  {FOUNDER.name}
                 </p>
+                <p className="text-xs text-zinc-400 font-medium">{tc("founderRole")}</p>
               </div>
             </div>
           </div>
@@ -29,21 +34,16 @@ export function HomeFounderSection() {
           {/* Text */}
           <div>
             <span className="inline-flex items-center text-xs font-semibold tracking-widest text-zinc-400 uppercase bg-zinc-900 border border-zinc-800 px-3 py-1.5 rounded-full">
-              The Founder
+              {t("eyebrow")}
             </span>
             <h2 className="mt-5 text-3xl font-bold tracking-tight text-zinc-50 sm:text-4xl">
-              Engineering-driven leadership
+              {t("title")}
             </h2>
             <p className="mt-5 text-zinc-400 leading-relaxed">
-              Idmasoft was founded by a software engineer with deep experience
-              across full stack development, backend architecture, and cloud
-              systems. The company reflects a personal belief that great
-              software comes from technical rigor and a long-term perspective.
+              {t("paragraph1")}
             </p>
             <p className="mt-4 text-zinc-400 leading-relaxed">
-              Every product and service offered through Idmasoft is backed by
-              hands-on engineering involvement at the architecture and
-              implementation level.
+              {t("paragraph2")}
             </p>
 
             <div className="mt-8 flex items-center gap-4">
@@ -51,7 +51,7 @@ export function HomeFounderSection() {
                 href="/founder"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-zinc-300 hover:text-white group"
               >
-                Meet the Founder
+                {t("cta")}
                 <ArrowRight
                   className="w-4 h-4 transition-transform group-hover:translate-x-0.5"
                   aria-hidden="true"
@@ -63,7 +63,7 @@ export function HomeFounderSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900 border border-transparent hover:border-zinc-800 transition-all"
-                aria-label="GitHub"
+                aria-label={tc("github")}
               >
                 <GitHubIcon className="w-4 h-4" />
               </a>
@@ -72,7 +72,7 @@ export function HomeFounderSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900 border border-transparent hover:border-zinc-800 transition-all"
-                aria-label="LinkedIn"
+                aria-label={tc("linkedin")}
               >
                 <LinkedInIcon className="w-4 h-4" />
               </a>

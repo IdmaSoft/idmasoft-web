@@ -1,0 +1,28 @@
+{
+  "defaultTitle": "Idmasoft — Productos e Ingeniería de Software",
+  "defaultDescription": "Idmasoft es una empresa de software que construye productos modernos, soluciones con IA, sistemas backend y aplicaciones empresariales.",
+  "about": {
+    "title": "Nosotros",
+    "description": "Idmasoft es una empresa de software enfocada en construir productos y sistemas modernos que resuelven problemas reales y perduran en el tiempo."
+  },
+  "contact": {
+    "title": "Contacto",
+    "description": "Ponete en contacto con Idmasoft. Ya sea que tengas un proyecto en mente o simplemente quieras explorar posibilidades, nos encantaría escucharte."
+  },
+  "founder": {
+    "title": "Fundador",
+    "description": "Conocé al fundador de Idmasoft — un ingeniero de software enfocado en arquitectura limpia, sistemas robustos y software que perdura."
+  },
+  "products": {
+    "title": "Productos",
+    "description": "Explorá los productos de software creados por Idmasoft — desde automatización de e-commerce hasta herramientas de negocio con IA."
+  },
+  "sellerresponder": {
+    "title": "SellerResponder",
+    "description": "SellerResponder es una plataforma con IA que automatiza la comunicación de vendedores en marketplaces de e-commerce. Ahorrá tiempo, mejorá tus tiempos de respuesta y hacé crecer tu operación."
+  },
+  "services": {
+    "title": "Servicios",
+    "description": "Idmasoft ofrece desarrollo full stack, arquitectura backend, desarrollo de APIs, despliegue en la nube, integración de IA y consultoría de software."
+  }
+}

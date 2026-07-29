@@ -1,0 +1,14 @@
+{
+  "ariaLabel": "Navegación principal",
+  "mobileMenuLabel": "Menú de navegación",
+  "openMenu": "Abrir menú",
+  "closeMenu": "Cerrar menú",
+  "links": {
+    "home": "Inicio",
+    "products": "Productos",
+    "services": "Servicios",
+    "founder": "Fundador",
+    "about": "Nosotros",
+    "contact": "Contacto"
+  }
+}

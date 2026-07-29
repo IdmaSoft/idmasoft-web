@@ -1,0 +1,25 @@
+{
+  "eyebrow": "Services",
+  "title": "Engineering services for your business",
+  "description": "From building a product from scratch to modernizing legacy systems, we bring the full stack depth and architectural experience to deliver results.",
+  "approach": {
+    "eyebrow": "Our Approach",
+    "title": "Quality over shortcuts",
+    "paragraph1": "Every engagement starts with understanding the business problem before touching the technology. We ask the hard questions up front — what does success look like, what are the constraints, and what does the system need to handle six months from now?",
+    "paragraph2": "We write code that teams can maintain. We document decisions. We test thoroughly. And we stay involved after deployment to ensure systems run reliably in production.",
+    "highlights": [
+      "Clean, readable code",
+      "Strong typing throughout",
+      "Tested at every layer",
+      "Production-ready CI/CD",
+      "Documented architecture",
+      "Post-launch support"
+    ]
+  },
+  "cta": {
+    "title": "Let's discuss your project",
+    "description": "Tell us what you're building and we'll figure out the best way to help.",
+    "primaryLabel": "Contact Us",
+    "secondaryLabel": "View Products"
+  }
+}

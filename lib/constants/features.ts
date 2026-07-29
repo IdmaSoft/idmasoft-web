@@ -2,36 +2,42 @@ import type { Feature } from "@/lib/types";
 
 export const FEATURES: Feature[] = [
   {
+    id: "clean-architecture",
     title: "Clean Architecture",
     description:
       "Separation of concerns, clear domain boundaries, and patterns that make code readable and predictable months after it's written.",
     icon: "Shield",
   },
   {
+    id: "scalable-systems",
     title: "Scalable Systems",
     description:
       "Designed to handle growth. We build systems with the headroom to scale horizontally without architectural rewrites.",
     icon: "TrendingUp",
   },
   {
+    id: "modern-stack",
     title: "Modern Stack",
     description:
       "We work with technologies that have strong ecosystems, active communities, and a proven track record in production.",
     icon: "Wrench",
   },
   {
+    id: "performance-first",
     title: "Performance First",
     description:
       "Optimized databases, efficient queries, and lean frontend bundles. Fast applications are a requirement, not an afterthought.",
     icon: "Zap",
   },
   {
+    id: "maintainability",
     title: "Maintainability",
     description:
       "Code that future developers can understand. Consistent patterns, good documentation, and a testing strategy that gives teams confidence.",
     icon: "RefreshCw",
   },
   {
+    id: "long-term-support",
     title: "Long-term Support",
     description:
       "We don't disappear after launch. We stay involved to monitor, improve, and extend the systems we build.",

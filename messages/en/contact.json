@@ -1,0 +1,34 @@
+{
+  "eyebrow": "Contact",
+  "title": "Let's talk",
+  "description": "Whether you have a project in mind, want to discuss a technical challenge, or just want to explore what's possible — reach out.",
+  "contactInfoHeading": "Contact Information",
+  "emailLabel": "Email",
+  "locationLabel": "Location",
+  "socialHeading": "Social",
+  "githubLabel": "GitHub",
+  "linkedinLabel": "LinkedIn",
+  "responseTimeLabel": "Response time:",
+  "responseTimeText": "We typically respond within one business day. For urgent matters, email directly.",
+  "formHeading": "Send a message",
+  "form": {
+    "nameLabel": "Full Name",
+    "namePlaceholder": "Your name",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "you@example.com",
+    "subjectLabel": "Subject",
+    "subjectPlaceholder": "Select a subject",
+    "subjectOptions": {
+      "project": "Start a project",
+      "consulting": "Software consulting",
+      "product": "Product inquiry",
+      "other": "Other"
+    },
+    "messageLabel": "Message",
+    "messagePlaceholder": "Describe your project or question...",
+    "submit": "Send Message",
+    "successTitle": "Message received",
+    "successDescription": "Thanks for reaching out. We'll get back to you as soon as possible.",
+    "sendAnother": "Send another message"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "eyebrow": "Servicios",
+  "title": "Servicios de ingeniería para tu negocio",
+  "description": "Desde construir un producto desde cero hasta modernizar sistemas heredados, aportamos la profundidad técnica y experiencia en arquitectura para lograr resultados.",
+  "approach": {
+    "eyebrow": "Nuestro Enfoque",
+    "title": "Calidad por sobre los atajos",
+    "paragraph1": "Cada proyecto empieza por entender el problema de negocio antes de tocar la tecnología. Hacemos las preguntas difíciles desde el principio — cómo se ve el éxito, cuáles son las restricciones y qué tendrá que soportar el sistema dentro de seis meses.",
+    "paragraph2": "Escribimos código que los equipos pueden mantener. Documentamos las decisiones. Probamos a fondo. Y seguimos involucrados después del despliegue para asegurar que los sistemas funcionen de forma confiable en producción.",
+    "highlights": [
+      "Código limpio y legible",
+      "Tipado fuerte en todo el proyecto",
+      "Pruebas en cada capa",
+      "CI/CD listo para producción",
+      "Arquitectura documentada",
+      "Soporte post-lanzamiento"
+    ]
+  },
+  "cta": {
+    "title": "Hablemos de tu proyecto",
+    "description": "Contanos qué estás construyendo y encontraremos la mejor forma de ayudarte.",
+    "primaryLabel": "Contáctanos",
+    "secondaryLabel": "Ver Productos"
+  }
+}

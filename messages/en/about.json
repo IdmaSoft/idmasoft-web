@@ -1,0 +1,58 @@
+{
+  "eyebrow": "About",
+  "title": "A software company built on engineering values",
+  "description": "Idmasoft exists to build software that works well, lasts long, and delivers real value to the businesses that rely on it.",
+  "mission": {
+    "eyebrow": "Mission",
+    "title": "Build software that solves real problems and keeps working",
+    "description": "Idmasoft's mission is to design and engineer software systems that deliver lasting value. We focus on quality, clarity, and reliability — not novelty for its own sake. Every product and service we produce should make the businesses we work with more effective and more capable."
+  },
+  "vision": {
+    "eyebrow": "Vision",
+    "title": "A trusted software partner for businesses that take technology seriously",
+    "description": "We want Idmasoft to be known as a company that ships exceptional software — consistently, honestly, and with a deep understanding of the problems being solved. Over time, our product portfolio will grow alongside our services business, creating a company that builds both for clients and for itself."
+  },
+  "values": {
+    "eyebrow": "Values",
+    "title": "What guides how we work",
+    "items": {
+      "technicalExcellence": {
+        "title": "Technical Excellence",
+        "description": "We hold a high bar for code quality, architectural decisions, and system design. Good enough is not good enough."
+      },
+      "purposeDriven": {
+        "title": "Purpose-Driven Building",
+        "description": "We don't add features for the sake of it. Every line of code serves a clear purpose tied to a real business outcome."
+      },
+      "longTermThinking": {
+        "title": "Long-Term Thinking",
+        "description": "We build for the next two years, not just the next sprint. Maintainability and extensibility are design requirements."
+      },
+      "transparency": {
+        "title": "Transparency",
+        "description": "We communicate clearly, flag problems early, and treat clients as partners in the building process — not as ticket requesters."
+      }
+    }
+  },
+  "philosophy": {
+    "eyebrow": "Philosophy",
+    "title": "Software engineering as a craft",
+    "paragraph1": "Good software doesn't happen by accident. It comes from deliberate choices — about architecture, about technology selection, about how to structure code so that the next developer (or the same developer six months later) can understand it quickly.",
+    "paragraph2": "At Idmasoft, we approach every project with the mindset of an engineer who will have to maintain it. That means making decisions that optimize for long-term clarity, not short-term speed. It means writing tests that give us confidence to change things. It means documenting the why, not just the what.",
+    "paragraph3": "This philosophy applies equally to the products we build for clients and the products we build for ourselves. We don't have different standards depending on who's paying — we have one standard: build it right.",
+    "principles": [
+      "Architecture decisions are made with the whole system in mind",
+      "Code is written to be read, not just to work",
+      "Tests are a design tool, not a checkbox",
+      "Documentation reflects the current state of the system",
+      "Production monitoring is part of the definition of done",
+      "Technical debt is tracked and managed, not accumulated and ignored"
+    ]
+  },
+  "cta": {
+    "title": "Build with a company that cares about the craft",
+    "description": "Whether you need a product built or a system improved, we bring the same level of rigor and involvement to every engagement.",
+    "primaryLabel": "Start a Conversation",
+    "secondaryLabel": "Meet the Founder"
+  }
+}

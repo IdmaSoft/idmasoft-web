@@ -1,0 +1,10 @@
+{
+  "headings": {
+    "company": "Empresa",
+    "products": "Productos",
+    "services": "Servicios",
+    "contact": "Contacto"
+  },
+  "rights": "Todos los derechos reservados.",
+  "builtWith": "Hecho con Next.js y Tailwind CSS"
+}

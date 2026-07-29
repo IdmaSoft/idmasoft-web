@@ -1,0 +1,28 @@
+{
+  "defaultTitle": "Idmasoft — Modern Software Products & Engineering",
+  "defaultDescription": "Idmasoft is a software company that builds modern products, AI-powered solutions, backend systems, and enterprise applications.",
+  "about": {
+    "title": "About",
+    "description": "Idmasoft is a software company focused on building modern products and systems that solve real problems and stand the test of time."
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Get in touch with Idmasoft. Whether you have a project in mind or just want to explore possibilities, we'd love to hear from you."
+  },
+  "founder": {
+    "title": "Founder",
+    "description": "Meet the founder of Idmasoft — a software engineer focused on clean architecture, scalable systems, and building software that lasts."
+  },
+  "products": {
+    "title": "Products",
+    "description": "Explore the software products built by Idmasoft — from e-commerce automation to AI-powered business tools."
+  },
+  "sellerresponder": {
+    "title": "SellerResponder",
+    "description": "SellerResponder is an AI-powered platform that automates seller communication on e-commerce marketplaces. Save time, improve response rates, and scale your seller operations."
+  },
+  "services": {
+    "title": "Services",
+    "description": "Idmasoft offers full stack development, backend architecture, API development, cloud deployment, AI integration, and software consulting services."
+  }
+}

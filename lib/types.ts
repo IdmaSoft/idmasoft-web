@@ -27,12 +27,14 @@ export interface ProcessStep {
 }
 
 export interface Feature {
+  id: string;
   title: string;
   description: string;
   icon: string;
 }
 
 export interface NavLink {
+  id: string;
   label: string;
   href: string;
 }

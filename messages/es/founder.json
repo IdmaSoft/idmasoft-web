@@ -1,0 +1,68 @@
+{
+  "expertiseHeading": "Áreas de Experiencia",
+  "expertise": {
+    "fullstack": {
+      "title": "Ingeniería Full Stack",
+      "description": "Amplia experiencia construyendo aplicaciones de punta a punta — desde el diseño del esquema de base de datos hasta la arquitectura de componentes en el frontend."
+    },
+    "backend": {
+      "title": "Arquitectura Backend",
+      "description": "Diseño de APIs robustas, sistemas orientados a eventos y pipelines de datos capaces de manejar carga real de producción."
+    },
+    "cloud": {
+      "title": "Nube y DevOps",
+      "description": "Despliegues de producción en Azure y AWS. Orquestación de contenedores, pipelines de CI/CD y automatización de infraestructura."
+    },
+    "ai": {
+      "title": "Integración de IA",
+      "description": "Integración práctica de capacidades de IA en productos de software — desde modelos de lenguaje hasta flujos de automatización inteligente."
+    }
+  },
+  "skillsHeading": "Habilidades Técnicas",
+  "aboutEyebrow": "Sobre el Fundador",
+  "title": "Enfoque en ingeniería,",
+  "titleLine2": "visión de negocio",
+  "paragraph1": "Idmasoft fue fundada por un ingeniero de software con experiencia construyendo sistemas en distintas industrias — desde plataformas empresariales hasta aplicaciones móviles para consumidores. La empresa existe por la convicción de que el buen software requiere tanto profundidad técnica como una comprensión clara del problema que se busca resolver.",
+  "paragraph2": "El fundador se involucra directamente en cada proyecto — no como un gerente que delega, sino como un ingeniero que diseña la arquitectura, programa, revisa y despliega. Esto significa que los clientes tienen acceso directo a quien toma las decisiones técnicas, sin capas intermedias.",
+  "paragraph3": "Fuera del trabajo con clientes, el fundador construye los productos propios de Idmasoft — empezando por SellerResponder. El objetivo es desarrollar un portafolio de herramientas de software que resuelvan problemas específicos y bien definidos, y que puedan operar de forma independiente a gran escala.",
+  "timelineHeading": "Trayectoria",
+  "timeline": {
+    "present": {
+      "period": "Actualidad",
+      "role": "Fundador e Ingeniero Principal",
+      "org": "Idmasoft",
+      "description": "Construyendo el portafolio de productos de Idmasoft y entregando servicios de ingeniería de software a clientes de distintas industrias."
+    },
+    "previous": {
+      "period": "Anterior",
+      "role": "Ingeniero de Software Senior",
+      "org": "Software Empresarial",
+      "description": "Diseñó e implementó sistemas backend, APIs REST y aplicaciones de negocio para entornos empresariales de gran escala."
+    },
+    "earlier": {
+      "period": "Antes",
+      "role": "Desarrollador Full Stack",
+      "org": "Empresas de Producto",
+      "description": "Construyó aplicaciones web y herramientas internas en todo el stack. Trabajó de cerca con equipos de producto para entregar funciones rápido sin sacrificar calidad."
+    }
+  },
+  "projectsHeading": "Proyectos Destacados",
+  "projects": {
+    "sellerresponder": {
+      "name": "SellerResponder",
+      "description": "Plataforma de automatización para e-commerce impulsada por IA. Construyó el producto completo, desde la arquitectura hasta el despliegue en producción en Azure.",
+      "status": "En producción"
+    },
+    "enterprise": {
+      "name": "Plataforma de Negocio Empresarial",
+      "description": "Sistema de gestión empresarial a gran escala con reportes complejos, arquitectura multi-tenant e integración con SQL Server.",
+      "status": "Entregado"
+    }
+  },
+  "cta": {
+    "title": "Trabajá directamente con el fundador",
+    "description": "Todos los proyectos con clientes incluyen comunicación directa e involucramiento técnico del fundador.",
+    "primaryLabel": "Contáctanos",
+    "secondaryLabel": "Ver Servicios"
+  }
+}

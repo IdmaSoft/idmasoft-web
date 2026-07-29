@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Send, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTranslations } from "next-intl";
 
 interface FormState {
   name: string;
@@ -19,6 +20,7 @@ const initialForm: FormState = {
 };
 
 export function ContactForm() {
+  const t = useTranslations("contact.form");
   const [form, setForm] = useState<FormState>(initialForm);
   const [submitted, setSubmitted] = useState(false);
 
@@ -40,9 +42,9 @@ export function ContactForm() {
         <div className="w-16 h-16 rounded-full bg-emerald-50 flex items-center justify-center">
           <CheckCircle className="w-8 h-8 text-emerald-600" aria-hidden="true" />
         </div>
-        <h3 className="text-xl font-semibold text-slate-900">Message received</h3>
+        <h3 className="text-xl font-semibold text-slate-900">{t("successTitle")}</h3>
         <p className="text-slate-500 max-w-xs text-sm">
-          Thanks for reaching out. We'll get back to you as soon as possible.
+          {t("successDescription")}
         </p>
         <button
           onClick={() => {
@@ -51,7 +53,7 @@ export function ContactForm() {
           }}
           className="mt-2 text-sm font-medium text-blue-600 hover:text-blue-700 underline underline-offset-2"
         >
-          Send another message
+          {t("sendAnother")}
         </button>
       </div>
     );
@@ -65,7 +67,7 @@ export function ContactForm() {
             htmlFor="name"
             className="block text-sm font-medium text-slate-700 mb-1.5"
           >
-            Full Name <span className="text-red-500" aria-hidden="true">*</span>
+            {t("nameLabel")} <span className="text-red-500" aria-hidden="true">*</span>
           </label>
           <input
             id="name"
@@ -75,7 +77,7 @@ export function ContactForm() {
             autoComplete="name"
             value={form.name}
             onChange={handleChange}
-            placeholder="Your name"
+            placeholder={t("namePlaceholder")}
             className="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 bg-white text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition"
           />
         </div>
@@ -84,7 +86,7 @@ export function ContactForm() {
             htmlFor="email"
             className="block text-sm font-medium text-slate-700 mb-1.5"
           >
-            Email Address <span className="text-red-500" aria-hidden="true">*</span>
+            {t("emailLabel")} <span className="text-red-500" aria-hidden="true">*</span>
           </label>
           <input
             id="email"
@@ -94,7 +96,7 @@ export function ContactForm() {
             autoComplete="email"
             value={form.email}
             onChange={handleChange}
-            placeholder="you@example.com"
+            placeholder={t("emailPlaceholder")}
             className="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 bg-white text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition"
           />
         </div>
@@ -105,7 +107,7 @@ export function ContactForm() {
           htmlFor="subject"
           className="block text-sm font-medium text-slate-700 mb-1.5"
         >
-          Subject <span className="text-red-500" aria-hidden="true">*</span>
+          {t("subjectLabel")} <span className="text-red-500" aria-hidden="true">*</span>
         </label>
         <select
           id="subject"
@@ -116,12 +118,12 @@ export function ContactForm() {
           className="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition"
         >
           <option value="" disabled>
-            Select a subject
+            {t("subjectPlaceholder")}
           </option>
-          <option value="project">Start a project</option>
-          <option value="consulting">Software consulting</option>
-          <option value="product">Product inquiry</option>
-          <option value="other">Other</option>
+          <option value="project">{t("subjectOptions.project")}</option>
+          <option value="consulting">{t("subjectOptions.consulting")}</option>
+          <option value="product">{t("subjectOptions.product")}</option>
+          <option value="other">{t("subjectOptions.other")}</option>
         </select>
       </div>
 
@@ -130,7 +132,7 @@ export function ContactForm() {
           htmlFor="message"
           className="block text-sm font-medium text-slate-700 mb-1.5"
         >
-          Message <span className="text-red-500" aria-hidden="true">*</span>
+          {t("messageLabel")} <span className="text-red-500" aria-hidden="true">*</span>
         </label>
         <textarea
           id="message"
@@ -139,13 +141,13 @@ export function ContactForm() {
           rows={6}
           value={form.message}
           onChange={handleChange}
-          placeholder="Describe your project or question..."
+          placeholder={t("messagePlaceholder")}
           className="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 bg-white text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition resize-none"
         />
       </div>
 
       <Button type="submit" size="lg" variant="default" className="w-full sm:w-auto">
-        Send Message
+        {t("submit")}
         <Send className="w-4 h-4" aria-hidden="true" />
       </Button>
     </form>

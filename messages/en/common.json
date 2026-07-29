@@ -1,0 +1,18 @@
+{
+  "siteTagline": "Building Software That Scales",
+  "founderRole": "Founder & Lead Engineer",
+  "location": "Available Worldwide",
+  "getInTouch": "Get in Touch",
+  "learnMore": "Learn More",
+  "github": "GitHub",
+  "linkedin": "LinkedIn",
+  "email": "Email",
+  "githubProfile": "GitHub profile",
+  "linkedinProfile": "LinkedIn profile",
+  "languageSelector": "Language selector",
+  "productStatus": {
+    "Available": "Available",
+    "Beta": "Beta",
+    "Coming Soon": "Coming Soon"
+  }
+}

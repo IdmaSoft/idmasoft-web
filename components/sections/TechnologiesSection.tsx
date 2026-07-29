@@ -2,6 +2,7 @@ import { SectionTitle } from "@/components/ui/SectionTitle";
 import { TechnologyBadge } from "@/components/ui/TechnologyBadge";
 import { TECHNOLOGIES } from "@/lib/constants/technologies";
 import type { Technology } from "@/lib/types";
+import { useTranslations } from "next-intl";
 
 const categories: Technology["category"][] = [
   "Frontend",
@@ -11,23 +12,18 @@ const categories: Technology["category"][] = [
   "DevOps",
 ];
 
-const categoryLabels: Record<Technology["category"], string> = {
-  Frontend: "Frontend",
-  Backend: "Backend",
-  Database: "Databases",
-  Cloud: "Cloud",
-  DevOps: "DevOps & Tooling",
-};
-
 export function TechnologiesSection() {
+  const t = useTranslations("home.technologies");
+  const tData = useTranslations("data.technologies");
+
   return (
     <section className="py-24 bg-zinc-950 border-b border-zinc-900">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center mb-14">
           <SectionTitle
-            eyebrow="Stack"
-            title="Technologies we work with"
-            description="A curated selection of modern, battle-tested tools chosen for reliability, performance, and developer experience."
+            eyebrow={t("eyebrow")}
+            title={t("title")}
+            description={t("description")}
             titleClassName="text-zinc-50"
             descriptionClassName="text-zinc-400"
           />
@@ -44,7 +40,7 @@ export function TechnologiesSection() {
                 className="border-t border-zinc-900/60 pt-8 first:border-0 first:pt-0"
               >
                 <h3 className="text-xs font-semibold text-zinc-500 uppercase tracking-widest mb-4">
-                  {categoryLabels[category]}
+                  {tData(category)}
                 </h3>
                 <div className="flex flex-wrap gap-3">
                   {techs.map((tech) => (

@@ -1,20 +1,22 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { Mail } from "lucide-react";
 import { GitHubIcon, LinkedInIcon } from "@/components/ui/BrandIcons";
 import { SITE } from "@/lib/constants/site";
-import { NAV_LINKS } from "@/lib/constants/navigation";
-import { PRODUCTS } from "@/lib/constants/products";
-
-const SERVICES_LINKS = [
-  { label: "Full Stack Development", href: "/services#fullstack" },
-  { label: "Backend Architecture", href: "/services#backend" },
-  { label: "API Development", href: "/services#api" },
-  { label: "Cloud Deployment", href: "/services#cloud" },
-  { label: "AI Integration", href: "/services#ai" },
-];
+import { useTranslations } from "next-intl";
+import {
+  useLocalizedNavLinks,
+  useLocalizedProducts,
+  useLocalizedServices,
+} from "@/lib/i18n/localize";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const t = useTranslations("footer");
+  const tc = useTranslations("common");
+  const tm = useTranslations("metadata");
+  const navLinks = useLocalizedNavLinks();
+  const products = useLocalizedProducts();
+  const services = useLocalizedServices();
 
   return (
     <footer className="bg-slate-900 text-slate-400">
@@ -35,8 +37,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-slate-400">
-              Building modern software products, AI-powered solutions, and
-              enterprise applications that scale.
+              {tm("defaultDescription")}
             </p>
             <div className="mt-6 flex items-center gap-3">
               <a
@@ -44,7 +45,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
-                aria-label="GitHub"
+                aria-label={tc("github")}
               >
                 <GitHubIcon className="w-4 h-4" />
               </a>
@@ -53,14 +54,14 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
-                aria-label="LinkedIn"
+                aria-label={tc("linkedin")}
               >
                 <LinkedInIcon className="w-4 h-4" />
               </a>
               <a
                 href={`mailto:${SITE.email}`}
                 className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
-                aria-label="Email"
+                aria-label={tc("email")}
               >
                 <Mail className="w-4 h-4" aria-hidden="true" />
               </a>
@@ -70,10 +71,10 @@ export function Footer() {
           {/* Navigation */}
           <div>
             <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
-              Company
+              {t("headings.company")}
             </h3>
             <ul className="space-y-3">
-              {NAV_LINKS.map((link) => (
+              {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -89,10 +90,10 @@ export function Footer() {
           {/* Products */}
           <div>
             <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
-              Products
+              {t("headings.products")}
             </h3>
             <ul className="space-y-3">
-              {PRODUCTS.map((product) => (
+              {products.map((product) => (
                 <li key={product.id}>
                   <Link
                     href={product.href}
@@ -105,16 +106,16 @@ export function Footer() {
             </ul>
 
             <h3 className="text-sm font-semibold text-white uppercase tracking-wider mt-8 mb-4">
-              Services
+              {t("headings.services")}
             </h3>
             <ul className="space-y-3">
-              {SERVICES_LINKS.map((link) => (
-                <li key={link.href}>
+              {services.map((service) => (
+                <li key={service.id}>
                   <Link
-                    href={link.href}
+                    href={`/services#${service.id}`}
                     className="text-sm hover:text-white transition-colors"
                   >
-                    {link.label}
+                    {service.title}
                   </Link>
                 </li>
               ))}
@@ -124,7 +125,7 @@ export function Footer() {
           {/* Contact */}
           <div>
             <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
-              Contact
+              {t("headings.contact")}
             </h3>
             <ul className="space-y-3">
               <li>
@@ -136,7 +137,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <span className="text-sm">{SITE.location}</span>
+                <span className="text-sm">{tc("location")}</span>
               </li>
             </ul>
           </div>
@@ -144,10 +145,10 @@ export function Footer() {
 
         <div className="mt-14 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-slate-500">
-            &copy; {currentYear} {SITE.name}. All rights reserved.
+            &copy; {currentYear} {SITE.name}. {t("rights")}
           </p>
           <p className="text-xs text-slate-500">
-            Built with Next.js &amp; Tailwind CSS
+            {t("builtWith")}
           </p>
         </div>
       </div>

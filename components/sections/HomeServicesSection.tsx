@@ -1,11 +1,10 @@
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { SERVICES } from "@/lib/constants/services";
 import { Layers, Server, Plug, Cloud, Cpu, RefreshCw } from "lucide-react";
-import Link from "next/link";
-
-const featured = SERVICES.slice(0, 6);
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
+import { useLocalizedServices } from "@/lib/i18n/localize";
 
 const iconMap = {
   Layers,
@@ -35,14 +34,17 @@ const layoutClasses = [
 ];
 
 export function HomeServicesSection() {
+  const t = useTranslations("home.services");
+  const featured = useLocalizedServices().slice(0, 6);
+
   return (
     <section className="py-24 bg-zinc-950 border-b border-zinc-900">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center mb-14">
           <SectionTitle
-            eyebrow="Services"
-            title="How we work with clients"
-            description="From greenfield projects to system modernization, we bring the technical depth to move fast and build things right."
+            eyebrow={t("eyebrow")}
+            title={t("title")}
+            description={t("description")}
             titleClassName="text-zinc-50"
             descriptionClassName="text-zinc-400"
           />
@@ -75,7 +77,7 @@ export function HomeServicesSection() {
             nativeButton={false}
             className="text-zinc-50 border-zinc-800 hover:bg-zinc-900"
           >
-            See All Services
+            {t("viewAllCta")}
           </Button>
         </div>
       </div>

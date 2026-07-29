@@ -1,15 +1,19 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { NAV_LINKS } from "@/lib/constants/navigation";
+import { useTranslations } from "next-intl";
+import { useLocalizedNavLinks } from "@/lib/i18n/localize";
 import { SITE } from "@/lib/constants/site";
 import { Button } from "@/components/ui/button";
+import { LocaleSwitcher } from "@/components/layout/LocaleSwitcher";
 
 export function Navbar() {
   const pathname = usePathname();
+  const t = useTranslations("nav");
+  const tc = useTranslations("common");
+  const navLinks = useLocalizedNavLinks();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -41,7 +45,7 @@ export function Navbar() {
       >
         <nav
           className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
-          aria-label="Main navigation"
+          aria-label={t("ariaLabel")}
         >
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -60,7 +64,7 @@ export function Navbar() {
 
             {/* Desktop nav */}
             <div className="hidden md:flex items-center gap-1">
-              {NAV_LINKS.map((link) => {
+              {navLinks.map((link) => {
                 const isActive =
                   link.href === "/"
                     ? pathname === "/"
@@ -84,21 +88,22 @@ export function Navbar() {
 
             {/* Desktop CTA */}
             <div className="hidden md:flex items-center gap-3">
+              <LocaleSwitcher />
               <Button
                 render={<Link href="/contact" />}
                 nativeButton={false}
                 size="sm"
                 className="bg-zinc-50 text-zinc-950 hover:bg-zinc-200 transition-colors font-medium rounded-lg"
               >
-                Get in Touch
-              </Button> 
+                {tc("getInTouch")}
+              </Button>
             </div>
 
             {/* Mobile toggle */}
             <button
               className="md:hidden p-2 rounded-lg text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900/50 transition-colors"
               onClick={() => setIsOpen((prev) => !prev)}
-              aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-label={isOpen ? t("closeMenu") : t("openMenu")}
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
             >
@@ -125,7 +130,7 @@ export function Navbar() {
       <div
         id="mobile-menu"
         role="dialog"
-        aria-label="Navigation menu"
+        aria-label={t("mobileMenuLabel")}
         aria-modal="true"
         className={`fixed top-0 right-0 bottom-0 z-50 w-72 bg-zinc-950 border-l border-zinc-900 backdrop-blur-md transition-transform duration-300 ease-in-out md:hidden ${
           isOpen ? "translate-x-0" : "translate-x-full"
@@ -136,13 +141,13 @@ export function Navbar() {
           <button
             className="p-2 rounded-lg text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900/50 transition-colors"
             onClick={() => setIsOpen(false)}
-            aria-label="Close menu"
+            aria-label={t("closeMenu")}
           >
             <X className="w-5 h-5" aria-hidden="true" />
           </button>
         </div>
         <nav className="flex flex-col p-4 gap-1">
-          {NAV_LINKS.map((link) => {
+          {navLinks.map((link) => {
             const isActive =
               link.href === "/"
                 ? pathname === "/"
@@ -162,7 +167,8 @@ export function Navbar() {
               </Link>
             );
           })}
-          <div className="mt-4 pt-4 border-t border-zinc-900">
+          <div className="mt-4 pt-4 border-t border-zinc-900 space-y-4">
+            <LocaleSwitcher className="w-fit" />
             <Button
               render={<Link href="/contact" />}
               nativeButton={false}
@@ -170,7 +176,7 @@ export function Navbar() {
               variant="default"
               className="w-full bg-zinc-50 text-zinc-950 hover:bg-zinc-200 transition-colors font-medium rounded-lg"
             >
-              Get in Touch
+              {tc("getInTouch")}
             </Button>
           </div>
         </nav>

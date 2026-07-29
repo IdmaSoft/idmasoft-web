@@ -1,0 +1,34 @@
+{
+  "fullstack": {
+    "title": "Full Stack Development",
+    "description": "End-to-end web and mobile applications built with modern frameworks, clean architecture, and scalable patterns."
+  },
+  "backend": {
+    "title": "Backend Architecture",
+    "description": "Robust server-side systems designed for performance, reliability, and long-term maintainability."
+  },
+  "api": {
+    "title": "API Development",
+    "description": "RESTful and GraphQL APIs built with strong typing, proper documentation, and security best practices."
+  },
+  "cloud": {
+    "title": "Cloud Deployment",
+    "description": "Infrastructure setup and cloud deployment on AWS and Azure with CI/CD pipelines and monitoring."
+  },
+  "ai": {
+    "title": "AI Integration",
+    "description": "Integration of AI and machine learning capabilities into existing products and business workflows."
+  },
+  "modernization": {
+    "title": "System Modernization",
+    "description": "Migration and modernization of legacy systems to current technology stacks without disrupting operations."
+  },
+  "database": {
+    "title": "Database Design",
+    "description": "Relational and document database design, optimization, and migration strategies for production systems."
+  },
+  "consulting": {
+    "title": "Software Consulting",
+    "description": "Technical consulting on architecture decisions, technology selection, and software engineering strategy."
+  }
+}

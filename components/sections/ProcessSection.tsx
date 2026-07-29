@@ -1,23 +1,27 @@
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { PROCESS_STEPS } from "@/lib/constants/process";
+import { useTranslations } from "next-intl";
+import { useLocalizedProcessSteps } from "@/lib/i18n/localize";
 
 export function ProcessSection() {
+  const t = useTranslations("home.process");
+  const steps = useLocalizedProcessSteps();
+
   return (
     <section className="py-24 bg-zinc-950 border-b border-zinc-900">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center mb-16">
           <SectionTitle
-            eyebrow="Development Process"
-            title="How we take ideas to production"
-            description="A structured, iterative process that keeps quality high and stakeholders informed at every stage."
+            eyebrow={t("eyebrow")}
+            title={t("title")}
+            description={t("description")}
             titleClassName="text-zinc-50"
             descriptionClassName="text-zinc-400"
           />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {PROCESS_STEPS.map((step) => (
+          {steps.map((step) => (
             <Card
               key={step.step}
               className="overflow-hidden hover:border-zinc-700 hover:bg-zinc-900/80 transition-all duration-300"

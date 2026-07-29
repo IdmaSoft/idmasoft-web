@@ -1,0 +1,14 @@
+{
+  "ariaLabel": "Main navigation",
+  "mobileMenuLabel": "Navigation menu",
+  "openMenu": "Open menu",
+  "closeMenu": "Close menu",
+  "links": {
+    "home": "Home",
+    "products": "Products",
+    "services": "Services",
+    "founder": "Founder",
+    "about": "About",
+    "contact": "Contact"
+  }
+}

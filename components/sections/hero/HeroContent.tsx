@@ -1,13 +1,15 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { motion, MotionValue, useTransform } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 interface HeroContentProps {
   progress: MotionValue<number>;
 }
 
 export default function HeroContent({progress,}: HeroContentProps) {
+  const t = useTranslations("home.hero");
   const y = useTransform(progress, [0, 0.25, 1], [0, -80, -80]);
 
   const opacity = useTransform(progress, [0, 0.25, 1], [1, 0, 0]);
@@ -26,12 +28,12 @@ export default function HeroContent({progress,}: HeroContentProps) {
 
           {/* Títle */}
           <h1 className="mx-auto max-w-3xl text-4xl font-bold leading-tight tracking-tight text-zinc-50 md:text-5xl lg:text-6xl">
-            Build software that scales.
+            {t("title")}
           </h1>
 
           {/* Description */}
           <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-zinc-400 md:text-lg">
-            We design custom platforms, mobile applications, cloud systems and AI solutions that help businesses automate, grow and scale.
+            {t("subtitle")}
           </p>
 
           {/* Buttons */}
@@ -41,7 +43,7 @@ export default function HeroContent({progress,}: HeroContentProps) {
               nativeButton={false}
               size="lg"
             >
-              Start a project
+              {t("primaryCta")}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
 
@@ -52,7 +54,7 @@ export default function HeroContent({progress,}: HeroContentProps) {
               size="lg"
               className="border-zinc-700 bg-zinc-900/40 backdrop-blur"
             >
-              Explore services
+              {t("secondaryCta")}
             </Button>
           </div>
         </div>

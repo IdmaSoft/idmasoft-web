@@ -1,0 +1,68 @@
+{
+  "expertiseHeading": "Core Expertise",
+  "expertise": {
+    "fullstack": {
+      "title": "Full Stack Engineering",
+      "description": "Deep experience building end-to-end applications — from database schema design to frontend component architecture."
+    },
+    "backend": {
+      "title": "Backend Architecture",
+      "description": "Designing scalable APIs, event-driven systems, and data pipelines that handle real-world production load."
+    },
+    "cloud": {
+      "title": "Cloud & DevOps",
+      "description": "Production deployments on Azure and AWS. Container orchestration, CI/CD pipelines, and infrastructure automation."
+    },
+    "ai": {
+      "title": "AI Integration",
+      "description": "Practical integration of AI capabilities into software products — from language models to intelligent automation workflows."
+    }
+  },
+  "skillsHeading": "Technical Skills",
+  "aboutEyebrow": "About the Founder",
+  "title": "Engineering-first,",
+  "titleLine2": "business-minded",
+  "paragraph1": "Idmasoft was founded by a software engineer with experience building systems across industries — from enterprise business platforms to consumer mobile applications. The company exists because of a belief that great software requires both technical depth and a clear understanding of the problem being solved.",
+  "paragraph2": "The founder brings hands-on involvement to every project — not as a manager who delegates, but as an engineer who architects, codes, reviews, and ships. This means clients get direct access to the person making technical decisions, not a layer of abstraction.",
+  "paragraph3": "Outside of client work, the founder builds Idmasoft's own products — starting with SellerResponder. The goal is to build a portfolio of software tools that solve specific, well-defined problems and can operate independently at scale.",
+  "timelineHeading": "Career Timeline",
+  "timeline": {
+    "present": {
+      "period": "Present",
+      "role": "Founder & Lead Engineer",
+      "org": "Idmasoft",
+      "description": "Building Idmasoft's product portfolio and delivering software engineering services to clients across different industries."
+    },
+    "previous": {
+      "period": "Previous",
+      "role": "Senior Software Engineer",
+      "org": "Enterprise Software",
+      "description": "Designed and implemented backend systems, REST APIs, and business applications for large-scale enterprise environments."
+    },
+    "earlier": {
+      "period": "Earlier",
+      "role": "Full Stack Developer",
+      "org": "Product Companies",
+      "description": "Built web applications and internal tools across the full stack. Worked closely with product teams to ship features quickly without sacrificing quality."
+    }
+  },
+  "projectsHeading": "Featured Projects",
+  "projects": {
+    "sellerresponder": {
+      "name": "SellerResponder",
+      "description": "AI-powered e-commerce automation platform. Built the full product from architecture to production deployment on Azure.",
+      "status": "Live"
+    },
+    "enterprise": {
+      "name": "Enterprise Business Platform",
+      "description": "Large-scale business management system with complex reporting, multi-tenant architecture, and SQL Server integration.",
+      "status": "Delivered"
+    }
+  },
+  "cta": {
+    "title": "Work directly with the founder",
+    "description": "All client engagements involve direct communication and technical involvement from the founder.",
+    "primaryLabel": "Get in Touch",
+    "secondaryLabel": "View Services"
+  }
+}

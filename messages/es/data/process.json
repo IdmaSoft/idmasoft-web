@@ -1,0 +1,26 @@
+{
+  "1": {
+    "title": "Descubrimiento",
+    "description": "Entender el contexto de negocio, los requerimientos técnicos y los criterios de éxito antes de escribir una sola línea de código."
+  },
+  "2": {
+    "title": "Arquitectura",
+    "description": "Diseñar la estructura del sistema, los modelos de datos y los patrones de integración que sostendrán el producto a gran escala."
+  },
+  "3": {
+    "title": "Desarrollo",
+    "description": "Construir de forma iterativa con estándares de código limpio, revisiones de código e integración continua desde el primer día."
+  },
+  "4": {
+    "title": "Pruebas",
+    "description": "Pruebas automatizadas a nivel unitario, de integración y end-to-end para garantizar la correctitud y prevenir regresiones."
+  },
+  "5": {
+    "title": "Despliegue",
+    "description": "Despliegues de producción confiables con pipelines de CI/CD, configuración de entornos y estrategias de rollback."
+  },
+  "6": {
+    "title": "Soporte",
+    "description": "Monitoreo continuo, mantenimiento y mejoras iterativas después del lanzamiento para mantener los sistemas saludables."
+  }
+}
