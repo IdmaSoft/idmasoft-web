@@ -1,7 +1,7 @@
-import type { ProcessStep } from "@/lib/types";
+import type { LocalizedProcessStep } from "@/lib/types";
 
 interface TimelineProps {
-  steps: ProcessStep[];
+  steps: LocalizedProcessStep[];
 }
 
 export function Timeline({ steps }: TimelineProps) {

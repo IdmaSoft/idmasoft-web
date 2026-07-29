@@ -36,10 +36,10 @@ export function useLocalizedFeatures() {
 
 export function useLocalizedProcessSteps() {
   const t = useTranslations("data.process");
-  return PROCESS_STEPS.map((processStep) => ({
-    ...processStep,
-    title: t(`${processStep.step}.title`),
-    description: t(`${processStep.step}.description`),
+  return PROCESS_STEPS.map((step) => ({
+    step,
+    title: t(`${step}.title`),
+    description: t(`${step}.description`),
   }));
 }
 

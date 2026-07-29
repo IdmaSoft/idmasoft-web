@@ -1,6 +1,6 @@
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
-import type { Product } from "@/lib/types";
+import type { LocalizedProduct, Product } from "@/lib/types";
 
 const statusStyles: Record<Product["status"], string> = {
   Available:
@@ -10,7 +10,7 @@ const statusStyles: Record<Product["status"], string> = {
     "bg-zinc-800 text-zinc-300 ring-1 ring-inset ring-zinc-700",
 };
 
-export function ProductCard({ product }: { product: Product }) {
+export function ProductCard({ product }: { product: LocalizedProduct }) {
   const t = useTranslations("common");
 
   return (

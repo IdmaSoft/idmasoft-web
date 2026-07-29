@@ -1,8 +1,8 @@
-import type { Feature } from "@/lib/types";
-
-export type FeatureCardProps = Pick<Feature, "title" | "description"> & {
+export interface FeatureCardProps {
+  title: string;
+  description: string;
   icon: React.ReactNode;
-};
+}
 
 export function FeatureCard({ title, description, icon }: FeatureCardProps) {
   return (
