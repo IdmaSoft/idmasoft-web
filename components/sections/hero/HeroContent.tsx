@@ -66,6 +66,7 @@ export default function HeroContent({ progress, onTextBottomChange }: HeroConten
               render={<Link href="/contact" />}
               nativeButton={false}
               size="lg"
+              className="bg-zinc-50 text-zinc-950 hover:bg-zinc-200 transition-colors"
             >
               {t("primaryCta")}
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -76,7 +77,7 @@ export default function HeroContent({ progress, onTextBottomChange }: HeroConten
               nativeButton={false}
               variant="outline"
               size="lg"
-              className="border-zinc-700 bg-zinc-900/40 backdrop-blur"
+              className="border-zinc-700 bg-zinc-900/40 text-zinc-100 backdrop-blur hover:bg-zinc-900/70 hover:text-white transition-colors"
             >
               {t("secondaryCta")}
             </Button>
