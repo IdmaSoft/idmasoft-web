@@ -25,6 +25,13 @@ export function LocaleSwitcher({ className = "" }: LocaleSwitcherProps) {
 
   useEffect(() => {
     if (!pendingLocale) return;
+    // next-intl's middleware (proxy.ts) has localeDetection enabled, which
+    // reads this cookie to decide the locale on the next request. Its own
+    // router.replace() keeps this in sync automatically, but a raw
+    // window.location navigation doesn't — without this, the middleware
+    // would see the stale cookie and redirect straight back to the locale
+    // we're trying to leave.
+    document.cookie = `NEXT_LOCALE=${pendingLocale}; path=/; SameSite=lax`;
     window.location.href = getPathname({ href: pathname, locale: pendingLocale });
   }, [pendingLocale, pathname]);
 
