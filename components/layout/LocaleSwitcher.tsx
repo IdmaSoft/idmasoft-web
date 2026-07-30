@@ -1,8 +1,9 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
-import { usePathname, useRouter } from "@/i18n/navigation";
+import { usePathname, getPathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
+import { useEffect, useState } from "react";
 
 interface LocaleSwitcherProps {
   className?: string;
@@ -11,8 +12,21 @@ interface LocaleSwitcherProps {
 export function LocaleSwitcher({ className = "" }: LocaleSwitcherProps) {
   const locale = useLocale();
   const pathname = usePathname();
-  const router = useRouter();
   const t = useTranslations("common");
+  // A client-side transition (router.replace) keeps the whole scroll-jacked
+  // hero mounted across the locale switch, but framer-motion's useScroll only
+  // remeasures the hero's position on an actual `scroll`/`resize` event —
+  // never merely because translated text reflowed the layout (no reload, no
+  // resize fires). That leaves the cube's scroll-driven position stuck with
+  // the previous locale's geometry until the next real scroll, overlapping
+  // the (now differently-sized) text/buttons. A full navigation sidesteps
+  // this category of staleness entirely by remounting everything fresh.
+  const [pendingLocale, setPendingLocale] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!pendingLocale) return;
+    window.location.href = getPathname({ href: pathname, locale: pendingLocale });
+  }, [pendingLocale, pathname]);
 
   return (
     <div
@@ -24,7 +38,7 @@ export function LocaleSwitcher({ className = "" }: LocaleSwitcherProps) {
         <button
           key={l}
           type="button"
-          onClick={() => router.replace(pathname, { locale: l })}
+          onClick={() => setPendingLocale(l)}
           aria-current={l === locale ? "true" : undefined}
           className={`px-2.5 py-1 rounded-md text-xs font-semibold uppercase transition-colors ${
             l === locale
