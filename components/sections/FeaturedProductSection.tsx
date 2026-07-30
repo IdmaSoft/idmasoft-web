@@ -1,6 +1,7 @@
 import { ArrowRight, ShoppingBag, Bot, Smartphone, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Reveal } from "@/components/ui/Reveal";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { useLocalizedProducts } from "@/lib/i18n/localize";
@@ -65,8 +66,8 @@ export function FeaturedProductSection() {
               <Button
                 render={<Link href="/products" />}
                 nativeButton={false}
-                  variant="default"
-                  className="border-zinc-800 text-zinc-100 hover:border-zinc-700"
+                variant="outline"
+                className="bg-transparent border-zinc-800 text-zinc-100 hover:border-zinc-700 hover:bg-zinc-900"
               >
                 {t("allProductsCta")}
               </Button>
@@ -75,25 +76,24 @@ export function FeaturedProductSection() {
 
           {/* Visual */}
           <div className="flex flex-col gap-5">
-            {highlightIds.map((id) => (
-              <Card
-                key={id}
-                className="hover:border-zinc-700 hover:bg-zinc-900/80 transition-colors duration-300"
-              >
-                <CardHeader className="flex items-center gap-5 p-5">
-                  <div className={`w-11 h-11 rounded-xl bg-zinc-950 border border-zinc-800 flex items-center justify-center ${highlightColors[id]}`}>
-                    {highlightIcons[id]}
-                  </div>
-                  <div>
-                    <CardTitle className="text-zinc-50 text-sm font-semibold">
-                      {t(`highlights.${id}.label`)}
-                    </CardTitle>
-                    <CardDescription className="text-zinc-400 text-xs mt-1">
-                      {t(`highlights.${id}.detail`)}
-                    </CardDescription>
-                  </div>
-                </CardHeader>
-              </Card>
+            {highlightIds.map((id, index) => (
+              <Reveal key={id} delay={index * 0.1}>
+                <Card className="hover:border-zinc-700 hover:bg-zinc-900/80 transition-colors duration-300">
+                  <CardHeader className="flex items-center gap-5 p-5">
+                    <div className={`w-11 h-11 rounded-xl bg-zinc-950 border border-zinc-800 flex items-center justify-center ${highlightColors[id]}`}>
+                      {highlightIcons[id]}
+                    </div>
+                    <div>
+                      <CardTitle className="text-zinc-50 text-sm font-semibold">
+                        {t(`highlights.${id}.label`)}
+                      </CardTitle>
+                      <CardDescription className="text-zinc-400 text-xs mt-1">
+                        {t(`highlights.${id}.detail`)}
+                      </CardDescription>
+                    </div>
+                  </CardHeader>
+                </Card>
+              </Reveal>
             ))}
           </div>
         </div>

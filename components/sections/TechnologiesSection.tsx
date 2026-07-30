@@ -1,5 +1,6 @@
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { TechnologyBadge } from "@/components/ui/TechnologyBadge";
+import { Reveal } from "@/components/ui/Reveal";
 import { TECHNOLOGIES } from "@/lib/constants/technologies";
 import type { Technology } from "@/lib/types";
 import { useTranslations } from "next-intl";
@@ -30,13 +31,14 @@ export function TechnologiesSection() {
         </div>
 
         <div className="space-y-10">
-          {categories.map((category) => {
+          {categories.map((category, index) => {
             const techs = TECHNOLOGIES.filter((t) => t.category === category);
             if (techs.length === 0) return null;
 
             return (
-              <div
+              <Reveal
                 key={category}
+                delay={Math.min(index, 6) * 0.07}
                 className="border-t border-zinc-900/60 pt-8 first:border-0 first:pt-0"
               >
                 <h3 className="text-xs font-semibold text-zinc-500 uppercase tracking-widest mb-4">
@@ -47,7 +49,7 @@ export function TechnologiesSection() {
                     <TechnologyBadge key={tech.name} technology={tech} />
                   ))}
                 </div>
-              </div>
+              </Reveal>
             );
           })}
         </div>

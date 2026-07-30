@@ -1,6 +1,7 @@
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Reveal } from "@/components/ui/Reveal";
 import { Layers, Server, Plug, Cloud, Cpu, RefreshCw } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
@@ -55,18 +56,17 @@ export function HomeServicesSection() {
             const Icon = iconMap[service.icon as keyof typeof iconMap] ?? Layers;
             const accent = accentMap[service.id] ?? "text-sky-300";
             return (
-              <Card
-                key={service.id}
-                className={`${layoutClasses[index]} hover:border-zinc-700 hover:bg-zinc-900/80 transition-all duration-300`}
-              >
-                <CardHeader>
-                  <div className={`inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white/5 border border-zinc-800 ${accent}`}>
-                    <Icon className="h-5 w-5" aria-hidden="true" />
-                  </div>
-                  <CardTitle>{service.title}</CardTitle>
-                  <CardDescription>{service.description}</CardDescription>
-                </CardHeader>
-              </Card>
+              <Reveal key={service.id} delay={Math.min(index, 6) * 0.07} className={layoutClasses[index]}>
+                <Card className="h-full hover:border-zinc-700 hover:bg-zinc-900/80 transition-all duration-300">
+                  <CardHeader>
+                    <div className={`inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white/5 border border-zinc-800 ${accent}`}>
+                      <Icon className="h-5 w-5" aria-hidden="true" />
+                    </div>
+                    <CardTitle>{service.title}</CardTitle>
+                    <CardDescription>{service.description}</CardDescription>
+                  </CardHeader>
+                </Card>
+              </Reveal>
             );
           })}
         </div>
@@ -75,7 +75,8 @@ export function HomeServicesSection() {
           <Button
             render={<Link href="/services" />}
             nativeButton={false}
-            className="text-zinc-50 border-zinc-800 hover:bg-zinc-900"
+            variant="outline"
+            className="bg-transparent text-zinc-50 border-zinc-800 hover:bg-zinc-900"
           >
             {t("viewAllCta")}
           </Button>

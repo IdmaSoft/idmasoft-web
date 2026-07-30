@@ -19,7 +19,7 @@ export function Footer() {
   const services = useLocalizedServices();
 
   return (
-    <footer className="bg-slate-900 text-slate-400">
+    <footer className="bg-zinc-950 border-t border-zinc-900 text-zinc-400">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
@@ -36,7 +36,7 @@ export function Footer() {
                 {SITE.name}
               </span>
             </Link>
-            <p className="mt-4 text-sm leading-relaxed text-slate-400">
+            <p className="mt-4 text-sm leading-relaxed text-zinc-400">
               {tm("defaultDescription")}
             </p>
             <div className="mt-6 flex items-center gap-3">
@@ -44,7 +44,7 @@ export function Footer() {
                 href={SITE.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+                className="p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-900 transition-colors"
                 aria-label={tc("github")}
               >
                 <GitHubIcon className="w-4 h-4" />
@@ -53,14 +53,14 @@ export function Footer() {
                 href={SITE.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+                className="p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-900 transition-colors"
                 aria-label={tc("linkedin")}
               >
                 <LinkedInIcon className="w-4 h-4" />
               </a>
               <a
                 href={`mailto:${SITE.email}`}
-                className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+                className="p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-900 transition-colors"
                 aria-label={tc("email")}
               >
                 <Mail className="w-4 h-4" aria-hidden="true" />
@@ -143,11 +143,11 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-slate-500">
+        <div className="mt-14 pt-8 border-t border-zinc-900 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-zinc-500">
             &copy; {currentYear} {SITE.name}. {t("rights")}
           </p>
-          <p className="text-xs text-slate-500">
+          <p className="text-xs text-zinc-500">
             {t("builtWith")}
           </p>
         </div>

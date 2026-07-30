@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ServiceCard } from "@/components/ui/ServiceCard";
 import { SectionTitle } from "@/components/ui/SectionTitle";
+import { Reveal } from "@/components/ui/Reveal";
 import { TechnologiesSection } from "@/components/sections/TechnologiesSection";
 import { CTASection } from "@/components/layout/CTASection";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -46,7 +47,7 @@ export default async function ServicesPage({
   return (
     <>
       {/* Header */}
-      <div className="pt-28 pb-16 bg-gradient-to-b from-slate-50 to-white">
+      <div className="pt-28 pb-16 bg-zinc-950">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
             eyebrow={t("eyebrow")}
@@ -57,24 +58,26 @@ export default async function ServicesPage({
       </div>
 
       {/* Services grid */}
-      <section id="services" className="py-16 bg-white">
+      <section id="services" className="py-16 bg-zinc-950 border-t border-zinc-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {services.map((service) => (
-              <div key={service.id} id={service.id}>
-                <ServiceCard
-                  title={service.title}
-                  description={service.description}
-                  icon={service.icon}
-                />
-              </div>
+            {services.map((service, index) => (
+              <Reveal key={service.id} delay={Math.min(index, 6) * 0.07}>
+                <div id={service.id}>
+                  <ServiceCard
+                    title={service.title}
+                    description={service.description}
+                    icon={service.icon}
+                  />
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
       {/* Approach */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-20 bg-zinc-950 border-t border-zinc-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <div>
@@ -83,22 +86,22 @@ export default async function ServicesPage({
                 title={t("approach.title")}
                 align="left"
               />
-              <p className="mt-6 text-slate-500 leading-relaxed">
+              <p className="mt-6 text-zinc-400 leading-relaxed">
                 {t("approach.paragraph1")}
               </p>
-              <p className="mt-4 text-slate-500 leading-relaxed">
+              <p className="mt-4 text-zinc-400 leading-relaxed">
                 {t("approach.paragraph2")}
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {highlights.map((label, index) => {
                 const colors = [
-                  "bg-blue-50 text-blue-700",
-                  "bg-violet-50 text-violet-700",
-                  "bg-emerald-50 text-emerald-700",
-                  "bg-orange-50 text-orange-700",
-                  "bg-sky-50 text-sky-700",
-                  "bg-rose-50 text-rose-700",
+                  "bg-sky-500/10 text-sky-300 ring-1 ring-inset ring-sky-500/20",
+                  "bg-violet-500/10 text-violet-300 ring-1 ring-inset ring-violet-500/20",
+                  "bg-emerald-500/10 text-emerald-300 ring-1 ring-inset ring-emerald-500/20",
+                  "bg-orange-500/10 text-orange-300 ring-1 ring-inset ring-orange-500/20",
+                  "bg-sky-500/10 text-sky-300 ring-1 ring-inset ring-sky-500/20",
+                  "bg-rose-500/10 text-rose-300 ring-1 ring-inset ring-rose-500/20",
                 ];
                 return (
                   <div

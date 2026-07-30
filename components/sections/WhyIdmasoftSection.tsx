@@ -1,5 +1,6 @@
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { FeatureCard } from "@/components/ui/FeatureCard";
+import { Reveal } from "@/components/ui/Reveal";
 import {
   Shield,
   TrendingUp,
@@ -38,15 +39,16 @@ export function WhyIdmasoftSection() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature) => {
+          {features.map((feature, index) => {
             const Icon = iconMap[feature.icon as keyof typeof iconMap] ?? Shield;
             return (
-              <FeatureCard
-                key={feature.id}
-                title={feature.title}
-                description={feature.description}
-                icon={<Icon className="w-5 h-5" aria-hidden="true" />}
-              />
+              <Reveal key={feature.id} delay={Math.min(index, 6) * 0.07}>
+                <FeatureCard
+                  title={feature.title}
+                  description={feature.description}
+                  icon={<Icon className="w-5 h-5" aria-hidden="true" />}
+                />
+              </Reveal>
             );
           })}
         </div>

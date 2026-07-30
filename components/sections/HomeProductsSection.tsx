@@ -1,5 +1,6 @@
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { ProductCard } from "@/components/ui/ProductCard";
+import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
@@ -23,8 +24,10 @@ export function HomeProductsSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
+          {products.map((product, index) => (
+            <Reveal key={product.id} delay={Math.min(index, 6) * 0.07}>
+              <ProductCard product={product} />
+            </Reveal>
           ))}
         </div>
 
@@ -32,7 +35,8 @@ export function HomeProductsSection() {
           <Button
             render={<Link href="/products" />}
             nativeButton={false}
-            className="border-zinc-800 text-zinc-50 hover:bg-zinc-900"
+            variant="outline"
+            className="bg-transparent border-zinc-800 text-zinc-50 hover:bg-zinc-900"
           >
             {t("viewAllCta")}
           </Button>

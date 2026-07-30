@@ -1,6 +1,7 @@
 import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
 import { GitHubIcon, LinkedInIcon } from "@/components/ui/BrandIcons";
+import { Reveal } from "@/components/ui/Reveal";
 import { SITE } from "@/lib/constants/site";
 import { FOUNDER } from "@/lib/constants/founder";
 import { useTranslations } from "next-intl";
@@ -12,7 +13,7 @@ export function HomeFounderSection() {
   return (
     <section className="py-24 bg-zinc-950 border-b border-zinc-900">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <Reveal className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Photo placeholder */}
           <div className="flex justify-center lg:justify-start">
             <div className="relative">
@@ -78,7 +79,7 @@ export function HomeFounderSection() {
               </a>
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

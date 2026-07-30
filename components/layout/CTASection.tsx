@@ -42,7 +42,7 @@ export function CTASection({
             nativeButton={false}
             variant="outline"
             size="lg"
-            className="border-zinc-800 text-zinc-300 hover:bg-zinc-900 hover:text-white transition-colors"
+            className="bg-transparent border-zinc-800 text-zinc-300 hover:bg-zinc-900 hover:text-white transition-colors"
           >
             {secondaryLabel}
           </Button>

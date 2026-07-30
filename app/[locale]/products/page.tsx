@@ -46,7 +46,7 @@ export default async function ProductsPage({
   return (
     <>
       {/* Header */}
-      <div className="pt-28 pb-16 bg-gradient-to-b from-slate-50 to-white">
+      <div className="pt-28 pb-16 bg-zinc-950">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
             eyebrow={t("eyebrow")}
@@ -57,7 +57,7 @@ export default async function ProductsPage({
       </div>
 
       {/* Product list */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-zinc-950 border-t border-zinc-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {products.map((product) => (

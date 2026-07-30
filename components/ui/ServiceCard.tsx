@@ -33,12 +33,12 @@ export function ServiceCard({ title, description, icon }: ServiceCardProps) {
   const Icon = iconMap[icon] ?? Layers;
 
   return (
-    <div className="flex flex-col bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-200 p-7 hover:-translate-y-0.5">
-      <div className="w-11 h-11 rounded-xl bg-blue-50 flex items-center justify-center mb-5">
-        <Icon className="w-5 h-5 text-blue-600" aria-hidden="true" />
+    <div className="flex flex-col bg-zinc-950/80 rounded-2xl border border-zinc-800 shadow-sm hover:shadow-md hover:border-zinc-700 hover:bg-zinc-900/80 transition-all duration-200 p-7 hover:-translate-y-0.5">
+      <div className="w-11 h-11 rounded-xl bg-white/5 border border-zinc-800 flex items-center justify-center mb-5">
+        <Icon className="w-5 h-5 text-sky-300" aria-hidden="true" />
       </div>
-      <h3 className="text-base font-semibold text-slate-900 mb-2">{title}</h3>
-      <p className="text-sm text-slate-500 leading-relaxed">{description}</p>
+      <h3 className="text-base font-semibold text-zinc-50 mb-2">{title}</h3>
+      <p className="text-sm text-zinc-400 leading-relaxed">{description}</p>
     </div>
   );
 }

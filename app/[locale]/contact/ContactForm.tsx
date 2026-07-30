@@ -39,11 +39,11 @@ export function ContactForm() {
   if (submitted) {
     return (
       <div className="flex flex-col items-center justify-center gap-4 py-16 text-center">
-        <div className="w-16 h-16 rounded-full bg-emerald-50 flex items-center justify-center">
-          <CheckCircle className="w-8 h-8 text-emerald-600" aria-hidden="true" />
+        <div className="w-16 h-16 rounded-full bg-emerald-500/10 flex items-center justify-center">
+          <CheckCircle className="w-8 h-8 text-emerald-400" aria-hidden="true" />
         </div>
-        <h3 className="text-xl font-semibold text-slate-900">{t("successTitle")}</h3>
-        <p className="text-slate-500 max-w-xs text-sm">
+        <h3 className="text-xl font-semibold text-zinc-50">{t("successTitle")}</h3>
+        <p className="text-zinc-400 max-w-xs text-sm">
           {t("successDescription")}
         </p>
         <button
@@ -51,7 +51,7 @@ export function ContactForm() {
             setForm(initialForm);
             setSubmitted(false);
           }}
-          className="mt-2 text-sm font-medium text-blue-600 hover:text-blue-700 underline underline-offset-2"
+          className="mt-2 text-sm font-medium text-sky-400 hover:text-sky-300 underline underline-offset-2"
         >
           {t("sendAnother")}
         </button>
@@ -65,7 +65,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="name"
-            className="block text-sm font-medium text-slate-700 mb-1.5"
+            className="block text-sm font-medium text-zinc-300 mb-1.5"
           >
             {t("nameLabel")} <span className="text-red-500" aria-hidden="true">*</span>
           </label>
@@ -78,13 +78,13 @@ export function ContactForm() {
             value={form.name}
             onChange={handleChange}
             placeholder={t("namePlaceholder")}
-            className="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 bg-white text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition"
+            className="w-full px-4 py-3 text-sm rounded-xl border border-zinc-800 bg-zinc-900 text-zinc-50 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition"
           />
         </div>
         <div>
           <label
             htmlFor="email"
-            className="block text-sm font-medium text-slate-700 mb-1.5"
+            className="block text-sm font-medium text-zinc-300 mb-1.5"
           >
             {t("emailLabel")} <span className="text-red-500" aria-hidden="true">*</span>
           </label>
@@ -97,7 +97,7 @@ export function ContactForm() {
             value={form.email}
             onChange={handleChange}
             placeholder={t("emailPlaceholder")}
-            className="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 bg-white text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition"
+            className="w-full px-4 py-3 text-sm rounded-xl border border-zinc-800 bg-zinc-900 text-zinc-50 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition"
           />
         </div>
       </div>
@@ -105,7 +105,7 @@ export function ContactForm() {
       <div>
         <label
           htmlFor="subject"
-          className="block text-sm font-medium text-slate-700 mb-1.5"
+          className="block text-sm font-medium text-zinc-300 mb-1.5"
         >
           {t("subjectLabel")} <span className="text-red-500" aria-hidden="true">*</span>
         </label>
@@ -115,7 +115,7 @@ export function ContactForm() {
           required
           value={form.subject}
           onChange={handleChange}
-          className="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition"
+          className="w-full px-4 py-3 text-sm rounded-xl border border-zinc-800 bg-zinc-900 text-zinc-50 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition"
         >
           <option value="" disabled>
             {t("subjectPlaceholder")}
@@ -130,7 +130,7 @@ export function ContactForm() {
       <div>
         <label
           htmlFor="message"
-          className="block text-sm font-medium text-slate-700 mb-1.5"
+          className="block text-sm font-medium text-zinc-300 mb-1.5"
         >
           {t("messageLabel")} <span className="text-red-500" aria-hidden="true">*</span>
         </label>
@@ -142,11 +142,16 @@ export function ContactForm() {
           value={form.message}
           onChange={handleChange}
           placeholder={t("messagePlaceholder")}
-          className="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 bg-white text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition resize-none"
+          className="w-full px-4 py-3 text-sm rounded-xl border border-zinc-800 bg-zinc-900 text-zinc-50 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition resize-none"
         />
       </div>
 
-      <Button type="submit" size="lg" variant="default" className="w-full sm:w-auto">
+      <Button
+        type="submit"
+        size="lg"
+        variant="default"
+        className="w-full sm:w-auto bg-zinc-50 text-zinc-950 hover:bg-zinc-200 transition-colors"
+      >
         {t("submit")}
         <Send className="w-4 h-4" aria-hidden="true" />
       </Button>
