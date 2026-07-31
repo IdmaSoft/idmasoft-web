@@ -18,18 +18,7 @@
     "title": "Software que hemos construido",
     "description": "Idmasoft crea productos que resuelven problemas reales de negocio. Cada uno está diseñado para ser confiable, robusto y fácil de adoptar.",
     "viewAllCta": "Ver todos los productos",
-    "featuredBadge": "Producto Insignia",
-    "featuredBullets": [
-      "Respuestas automatizadas impulsadas por IA",
-      "Disponible en múltiples marketplaces",
-      "App para Android disponible en Google Play",
-      "Ahorra horas de trabajo manual cada semana"
-    ],
-    "featuredHighlights": {
-      "marketplace": { "label": "Integración con Marketplaces", "detail": "Conectá tus cuentas de vendedor" },
-      "ai": { "label": "Motor de Respuestas con IA", "detail": "Generá respuestas precisas y con tu estilo de marca" },
-      "mobile": { "label": "App Móvil", "detail": "Gestioná todo desde cualquier lugar en Android" }
-    }
+    "featuredBadge": "Producto Insignia"
   },
   "services": {
     "eyebrow": "Qué hacemos",

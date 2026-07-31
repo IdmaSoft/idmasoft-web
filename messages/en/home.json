@@ -18,18 +18,7 @@
     "title": "Software products we've built",
     "description": "Idmasoft ships products that solve real-world business problems. Each one is engineered to be reliable, scalable, and easy to adopt.",
     "viewAllCta": "View All Products",
-    "featuredBadge": "Flagship Product",
-    "featuredBullets": [
-      "Automated responses powered by AI",
-      "Available on multiple marketplaces",
-      "Android app available on Google Play",
-      "Saves hours of manual work weekly"
-    ],
-    "featuredHighlights": {
-      "marketplace": { "label": "Marketplace Integration", "detail": "Connect your seller accounts" },
-      "ai": { "label": "AI Response Engine", "detail": "Generate accurate, on-brand replies" },
-      "mobile": { "label": "Mobile App", "detail": "Manage from anywhere on Android" }
-    }
+    "featuredBadge": "Flagship Product"
   },
   "services": {
     "eyebrow": "What We Do",
