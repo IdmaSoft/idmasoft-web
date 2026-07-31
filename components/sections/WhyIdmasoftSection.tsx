@@ -26,7 +26,11 @@ export function WhyIdmasoftSection() {
   const features = useLocalizedFeatures();
 
   return (
-    <section className="py-24 bg-zinc-950 border-b border-zinc-900">
+    <section className="relative overflow-hidden py-24 bg-zinc-950 border-b border-zinc-900">
+      <div
+        className="pointer-events-none absolute left-[5%] bottom-0 h-[380px] w-[380px] translate-y-1/3 rounded-full bg-emerald-500/10 blur-[160px]"
+        aria-hidden="true"
+      />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center mb-14">
           <SectionTitle

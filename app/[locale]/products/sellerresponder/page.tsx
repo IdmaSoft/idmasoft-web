@@ -9,12 +9,12 @@ import {
   Clock,
   Star,
   CheckCircle,
-  ImageIcon,
 } from "lucide-react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { localeAlternates } from "@/lib/i18n/metadata";
 import { Reveal } from "@/components/ui/Reveal";
 import { ProductScreenshot } from "@/components/ui/ProductScreenshot";
+import { AppMockup } from "@/components/ui/AppMockup";
 import { SELLERRESPONDER_SCREENSHOT_URL } from "@/lib/constants/products";
 
 export async function generateMetadata({
@@ -101,7 +101,7 @@ export default async function SellerResponderPage({
                 src={SELLERRESPONDER_SCREENSHOT_URL}
                 alt={t("title")}
                 className="w-full max-w-sm"
-                fallbackIcon={<ImageIcon className="w-10 h-10" aria-hidden="true" />}
+                fallback={<AppMockup />}
               />
               <div className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-4 w-full max-w-sm">
                 <div className="flex items-center justify-between">

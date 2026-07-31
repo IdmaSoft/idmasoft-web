@@ -12,7 +12,11 @@ export function HomeFounderSection() {
   const tc = useTranslations("common");
 
   return (
-    <section className="py-24 bg-zinc-950 border-b border-zinc-900">
+    <section className="relative overflow-hidden py-24 bg-zinc-950 border-b border-zinc-900">
+      <div
+        className="pointer-events-none absolute left-[15%] top-1/2 h-[420px] w-[420px] -translate-y-1/2 rounded-full bg-sky-500/10 blur-[170px]"
+        aria-hidden="true"
+      />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Photo placeholder */}

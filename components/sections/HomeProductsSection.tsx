@@ -1,11 +1,14 @@
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { ProductCard } from "@/components/ui/ProductCard";
+import { ProductScreenshot } from "@/components/ui/ProductScreenshot";
+import { AppMockup } from "@/components/ui/AppMockup";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ShoppingBag, Bot, Smartphone, Check } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { useLocalizedProducts } from "@/lib/i18n/localize";
+import { SELLERRESPONDER_SCREENSHOT_URL } from "@/lib/constants/products";
 
 const FEATURED_PRODUCT_ID = "sellerresponder";
 
@@ -26,7 +29,11 @@ export function HomeProductsSection() {
   const bullets = t.raw("featuredBullets") as string[];
 
   return (
-    <section className="py-24 bg-zinc-950 border-b border-zinc-900">
+    <section className="relative overflow-hidden py-24 bg-zinc-950 border-b border-zinc-900">
+      <div
+        className="pointer-events-none absolute right-[10%] top-0 h-[400px] w-[400px] -translate-y-1/3 rounded-full bg-violet-500/10 blur-[160px]"
+        aria-hidden="true"
+      />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center mb-14">
           <SectionTitle
@@ -73,25 +80,27 @@ export function HomeProductsSection() {
                   </Link>
                 </div>
 
-                <div className="flex flex-col gap-3 lg:w-64 flex-shrink-0">
-                  {highlightIds.map((id) => (
-                    <div
-                      key={id}
-                      className="flex items-center gap-3 rounded-xl border border-zinc-800 bg-zinc-900/60 p-3"
-                    >
-                      <div className="w-9 h-9 rounded-lg bg-zinc-950 border border-zinc-800 flex items-center justify-center text-sky-300 flex-shrink-0">
-                        {highlightIcons[id]}
-                      </div>
-                      <div>
-                        <p className="text-xs font-semibold text-zinc-50">
+                <div className="flex flex-col gap-3 lg:w-80 flex-shrink-0">
+                  <ProductScreenshot
+                    src={SELLERRESPONDER_SCREENSHOT_URL}
+                    alt={featured.name}
+                    fallback={<AppMockup />}
+                  />
+                  <div className="grid grid-cols-3 gap-2">
+                    {highlightIds.map((id) => (
+                      <div
+                        key={id}
+                        className="flex flex-col items-center gap-1.5 rounded-xl border border-zinc-800 bg-zinc-900/60 p-2.5 text-center"
+                      >
+                        <div className="w-8 h-8 rounded-lg bg-zinc-950 border border-zinc-800 flex items-center justify-center text-sky-300">
+                          {highlightIcons[id]}
+                        </div>
+                        <p className="text-[11px] font-medium leading-tight text-zinc-300">
                           {t(`featuredHighlights.${id}.label`)}
                         </p>
-                        <p className="text-xs text-zinc-400 mt-0.5">
-                          {t(`featuredHighlights.${id}.detail`)}
-                        </p>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
             </Reveal>
