@@ -20,7 +20,7 @@ export function HeroSection() {
   });
 
   // Respect the OS-level "reduce motion" setting: skip the scroll-jacked
-  // 240vh journey entirely and show the hero settled at its opening frame
+  // journey entirely and show the hero settled at its opening frame
   // (title, buttons, closed cube) instead of animating through it.
   const staticProgress = useMotionValue(0);
 
@@ -37,7 +37,7 @@ export function HeroSection() {
   return (
     <section
       ref={heroRef}
-      className="relative h-[150vh] bg-zinc-950"
+      className="relative h-[120vh] bg-zinc-950"
     >
       <div className="sticky top-0 h-screen overflow-hidden">
         <HeroBackground />

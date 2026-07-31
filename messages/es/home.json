@@ -13,40 +13,28 @@
       "automation": { "title": "Automatización", "description": "Flujos y despliegues" }
     }
   },
-  "company": {
-    "eyebrow": "Qué hacemos",
-    "title": "Software pensado para durar",
-    "paragraph1": "Idmasoft es una empresa de software enfocada en construir productos y sistemas que perduran. Trabajamos en todo el stack — desde la concepción y arquitectura del producto hasta el despliegue y el soporte continuo.",
-    "paragraph2": "Nos especializamos en aplicaciones de negocio, plataformas de automatización y herramientas integradas con IA que ayudan a las empresas a operar de forma más efectiva. Cada sistema que construimos está diseñado para mantenerse, extenderse y evolucionar con el tiempo.",
-    "pillars": {
-      "softwareEngineering": {
-        "title": "Ingeniería de Software",
-        "description": "Código limpio y mantenible, construido sobre patrones de arquitectura probados. Diseñamos sistemas que tu equipo puede entender, extender y operar con confianza."
-      },
-      "cloudInfrastructure": {
-        "title": "Nube e Infraestructura",
-        "description": "Despliegues de nivel productivo en AWS y Azure. Infraestructura robusta, pipelines automatizados y operaciones confiables desde el primer día."
-      },
-      "aiAutomation": {
-        "title": "IA y Automatización",
-        "description": "Integraciones de IA prácticas que resuelven problemas reales de negocio. Desde flujos de trabajo inteligentes hasta funciones potenciadas por lenguaje en tus aplicaciones."
-      },
-      "scalableArchitecture": {
-        "title": "Arquitectura Escalable",
-        "description": "Sistemas diseñados para acompañar el crecimiento de tu negocio — preparados para la carga de hoy y listos para adaptarse a lo que venga."
-      }
-    }
-  },
   "products": {
     "eyebrow": "Productos",
     "title": "Software que hemos construido",
     "description": "Idmasoft crea productos que resuelven problemas reales de negocio. Cada uno está diseñado para ser confiable, robusto y fácil de adoptar.",
-    "viewAllCta": "Ver todos los productos"
+    "viewAllCta": "Ver todos los productos",
+    "featuredBadge": "Producto Insignia",
+    "featuredBullets": [
+      "Respuestas automatizadas impulsadas por IA",
+      "Disponible en múltiples marketplaces",
+      "App para Android disponible en Google Play",
+      "Ahorra horas de trabajo manual cada semana"
+    ],
+    "featuredHighlights": {
+      "marketplace": { "label": "Integración con Marketplaces", "detail": "Conectá tus cuentas de vendedor" },
+      "ai": { "label": "Motor de Respuestas con IA", "detail": "Generá respuestas precisas y con tu estilo de marca" },
+      "mobile": { "label": "App Móvil", "detail": "Gestioná todo desde cualquier lugar en Android" }
+    }
   },
   "services": {
-    "eyebrow": "Servicios",
-    "title": "Cómo trabajamos con nuestros clientes",
-    "description": "Desde proyectos desde cero hasta modernización de sistemas, aportamos la profundidad técnica para avanzar rápido y construir las cosas bien.",
+    "eyebrow": "Qué hacemos",
+    "title": "Software pensado para durar",
+    "description": "Idmasoft es una empresa de software enfocada en construir productos y sistemas que perduran. Trabajamos en todo el stack — desde la concepción y arquitectura del producto hasta el despliegue y el soporte continuo.",
     "viewAllCta": "Ver todos los servicios"
   },
   "why": {
@@ -63,22 +51,6 @@
     "eyebrow": "Stack",
     "title": "Tecnologías con las que trabajamos",
     "description": "Una selección curada de herramientas modernas y probadas, elegidas por su confiabilidad, rendimiento y experiencia de desarrollo."
-  },
-  "featuredProduct": {
-    "eyebrow": "Producto Destacado",
-    "bullets": [
-      "Respuestas automatizadas impulsadas por IA",
-      "Disponible en múltiples marketplaces",
-      "App para Android disponible en Google Play",
-      "Ahorra horas de trabajo manual cada semana"
-    ],
-    "highlights": {
-      "marketplace": { "label": "Integración con Marketplaces", "detail": "Conectá tus cuentas de vendedor" },
-      "ai": { "label": "Motor de Respuestas con IA", "detail": "Generá respuestas precisas y con tu estilo de marca" },
-      "mobile": { "label": "App Móvil", "detail": "Gestioná todo desde cualquier lugar en Android" }
-    },
-    "viewProductCta": "Ver Producto",
-    "allProductsCta": "Todos los Productos"
   },
   "founder": {
     "eyebrow": "El Fundador",

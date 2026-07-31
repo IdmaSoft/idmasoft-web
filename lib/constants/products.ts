@@ -7,3 +7,7 @@ export const PRODUCTS: Product[] = [
     href: "/products/sellerresponder",
   },
 ];
+
+// Set once a real app screenshot/mockup is available — picked up by
+// ProductScreenshot on the SellerResponder product page.
+export const SELLERRESPONDER_SCREENSHOT_URL: string | undefined = undefined;

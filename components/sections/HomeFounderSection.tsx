@@ -2,6 +2,7 @@ import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
 import { GitHubIcon, LinkedInIcon } from "@/components/ui/BrandIcons";
 import { Reveal } from "@/components/ui/Reveal";
+import { FounderPhoto } from "@/components/ui/FounderPhoto";
 import { SITE } from "@/lib/constants/site";
 import { FOUNDER } from "@/lib/constants/founder";
 import { useTranslations } from "next-intl";
@@ -17,11 +18,17 @@ export function HomeFounderSection() {
           {/* Photo placeholder */}
           <div className="flex justify-center lg:justify-start">
             <div className="relative">
-              <div className="w-64 h-64 rounded-3xl bg-gradient-to-br from-zinc-900 to-zinc-950 border border-zinc-800 flex items-center justify-center shadow-lg">
-                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-zinc-800 to-zinc-900 border border-zinc-700/50 flex items-center justify-center">
-                  <span className="font-mono text-zinc-400 text-3xl font-semibold">{FOUNDER.initials}</span>
-                </div>
-              </div>
+              <FounderPhoto
+                src={FOUNDER.photoUrl}
+                alt={FOUNDER.name}
+                size={256}
+                frameClassName="bg-gradient-to-br from-zinc-900 to-zinc-950 border border-zinc-800 shadow-lg"
+                fallback={
+                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-zinc-800 to-zinc-900 border border-zinc-700/50 flex items-center justify-center">
+                    <span className="font-mono text-zinc-400 text-3xl font-semibold">{FOUNDER.initials}</span>
+                  </div>
+                }
+              />
               {/* Decorative badge */}
               <div className="absolute -bottom-4 -right-4 bg-zinc-900/85 backdrop-blur-md border border-zinc-800 text-zinc-50 rounded-2xl shadow-lg px-4 py-3">
                 <p className="text-sm text-zinc-100 font-semibold">

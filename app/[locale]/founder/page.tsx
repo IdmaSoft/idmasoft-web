@@ -4,6 +4,7 @@ import { GitHubIcon, LinkedInIcon } from "@/components/ui/BrandIcons";
 import { TechnologyBadge } from "@/components/ui/TechnologyBadge";
 import { CTASection } from "@/components/layout/CTASection";
 import { Reveal } from "@/components/ui/Reveal";
+import { FounderPhoto } from "@/components/ui/FounderPhoto";
 import { SITE } from "@/lib/constants/site";
 import { FOUNDER } from "@/lib/constants/founder";
 import type { Technology } from "@/lib/types";
@@ -78,11 +79,17 @@ export default async function FounderPage({
             {/* Photo */}
             <div className="flex flex-col items-center lg:items-start gap-5">
               <div className="relative">
-                <div className="w-48 h-48 rounded-3xl bg-zinc-900 border border-zinc-800 flex items-center justify-center shadow-lg">
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
-                    <span className="text-white text-3xl font-bold">{FOUNDER.initials}</span>
-                  </div>
-                </div>
+                <FounderPhoto
+                  src={FOUNDER.photoUrl}
+                  alt={FOUNDER.name}
+                  size={192}
+                  frameClassName="bg-zinc-900 border border-zinc-800 shadow-lg"
+                  fallback={
+                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
+                      <span className="text-white text-3xl font-bold">{FOUNDER.initials}</span>
+                    </div>
+                  }
+                />
               </div>
               <div className="text-center lg:text-left">
                 <h1 className="text-2xl font-bold text-zinc-50">

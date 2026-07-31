@@ -9,10 +9,13 @@ import {
   Clock,
   Star,
   CheckCircle,
+  ImageIcon,
 } from "lucide-react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { localeAlternates } from "@/lib/i18n/metadata";
 import { Reveal } from "@/components/ui/Reveal";
+import { ProductScreenshot } from "@/components/ui/ProductScreenshot";
+import { SELLERRESPONDER_SCREENSHOT_URL } from "@/lib/constants/products";
 
 export async function generateMetadata({
   params,
@@ -92,8 +95,14 @@ export default async function SellerResponderPage({
               </div>
             </div>
 
-            {/* Status card */}
-            <div className="flex justify-center lg:justify-end">
+            {/* Screenshot + status card */}
+            <div className="flex flex-col items-center lg:items-end gap-4">
+              <ProductScreenshot
+                src={SELLERRESPONDER_SCREENSHOT_URL}
+                alt={t("title")}
+                className="w-full max-w-sm"
+                fallbackIcon={<ImageIcon className="w-10 h-10" aria-hidden="true" />}
+              />
               <div className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-4 w-full max-w-sm">
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-medium text-zinc-400">{t("statusCard.statusLabel")}</span>
