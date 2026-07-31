@@ -1,8 +1,18 @@
 import { SectionTitle } from "@/components/ui/SectionTitle";
-import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Reveal } from "@/components/ui/Reveal";
 import { useTranslations } from "next-intl";
 import { useLocalizedProcessSteps } from "@/lib/i18n/localize";
+
+// Cycled per step so the pipeline reads as distinct, scannable nodes instead
+// of a monochrome sequence — always visible (not hover-only), since hover
+// doesn't exist on the touch devices most visitors will use.
+const stepAccents = [
+  { ring: "border-sky-500/60", text: "text-sky-300" },
+  { ring: "border-violet-500/60", text: "text-violet-300" },
+  { ring: "border-emerald-500/60", text: "text-emerald-300" },
+  { ring: "border-rose-500/60", text: "text-rose-300" },
+  { ring: "border-orange-500/60", text: "text-orange-300" },
+];
 
 export function ProcessSection() {
   const t = useTranslations("home.process");
@@ -25,29 +35,68 @@ export function ProcessSection() {
           />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {steps.map((step, index) => (
-            <Reveal key={step.step} delay={Math.min(index, 6) * 0.07}>
-              <Card className="overflow-hidden hover:border-zinc-700 hover:bg-zinc-900/80 transition-all duration-300">
-                <CardHeader>
-                  <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center flex-shrink-0">
-                      <span className="text-sm font-bold text-zinc-50">
-                        {step.step}
-                      </span>
+        {/* Mobile: vertical connected-node pipeline */}
+        <div className="relative md:hidden">
+          <div
+            className="absolute left-5 top-0 bottom-0 w-px bg-zinc-800"
+            aria-hidden="true"
+          />
+          <div className="space-y-8">
+            {steps.map((step, index) => {
+              const accent = stepAccents[index % stepAccents.length];
+              return (
+                <Reveal key={step.step} delay={Math.min(index, 6) * 0.07}>
+                  <div className="relative flex gap-5">
+                    <div
+                      className={`relative z-10 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2 bg-zinc-950 ${accent.ring}`}
+                    >
+                      <span className={`text-sm font-bold ${accent.text}`}>{step.step}</span>
                     </div>
-                    <div className="h-px flex-1 bg-zinc-800" aria-hidden="true" />
+                    <div className="pt-1.5 pb-1">
+                      <h3 className="text-base font-semibold text-zinc-50">{step.title}</h3>
+                      <p className="mt-1 text-sm text-zinc-400 leading-relaxed">
+                        {step.description}
+                      </p>
+                    </div>
                   </div>
-                  <CardTitle className="text-lg text-zinc-50">
-                    {step.title}
-                  </CardTitle>
-                  <CardDescription className="text-sm text-zinc-400">
-                    {step.description}
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-            </Reveal>
-          ))}
+                </Reveal>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* md+: horizontal connected-node pipeline (n8n-inspired, adapted to our palette) */}
+        <div className="hidden md:block overflow-x-auto pb-2">
+          <div className="relative flex gap-6">
+            <div
+              className="pointer-events-none absolute left-0 right-0 top-5 h-px bg-zinc-800"
+              aria-hidden="true"
+            />
+            {steps.map((step, index) => {
+              const accent = stepAccents[index % stepAccents.length];
+              return (
+                <Reveal
+                  key={step.step}
+                  delay={Math.min(index, 6) * 0.07}
+                  className="min-w-[180px] flex-1"
+                >
+                  <div className="group flex flex-col items-center text-center">
+                    <div
+                      className={`relative z-10 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2 bg-zinc-950 transition-transform group-hover:scale-110 ${accent.ring}`}
+                    >
+                      <span className={`text-sm font-bold ${accent.text}`}>{step.step}</span>
+                    </div>
+                    <h3 className="mt-4 text-base font-semibold text-zinc-50">
+                      {step.title}
+                    </h3>
+                    <p className="mt-1.5 text-sm text-zinc-400 leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
