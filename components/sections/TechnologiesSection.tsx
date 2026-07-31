@@ -18,7 +18,7 @@ export function TechnologiesSection() {
   const tData = useTranslations("data.technologies");
 
   return (
-    <section className="relative overflow-hidden py-24 bg-zinc-950 border-b border-zinc-900">
+    <section className="relative overflow-hidden py-24 bg-zinc-900 border-b border-zinc-800">
       <div
         className="pointer-events-none absolute right-[10%] bottom-0 h-[380px] w-[380px] translate-y-1/3 rounded-full bg-sky-500/10 blur-[160px]"
         aria-hidden="true"

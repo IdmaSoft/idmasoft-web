@@ -145,7 +145,7 @@ export default async function FounderPage({
       </div>
 
       {/* Core Expertise */}
-      <section className="py-20 bg-zinc-950 border-t border-zinc-900">
+      <section className="py-20 bg-zinc-900 border-t border-zinc-800">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-zinc-50 mb-10">
             {t("expertiseHeading")}
@@ -185,21 +185,21 @@ export default async function FounderPage({
       </section>
 
       {/* Career Timeline */}
-      <section className="py-20 bg-zinc-950 border-t border-zinc-900">
+      <section className="py-20 bg-zinc-900 border-t border-zinc-800">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-zinc-50 mb-10">
             {t("timelineHeading")}
           </h2>
           <div className="relative">
             <div
-              className="absolute left-5 top-0 bottom-0 w-px bg-zinc-800"
+              className="absolute left-5 top-0 bottom-0 w-px bg-zinc-700"
               aria-hidden="true"
             />
             <ol className="space-y-10">
               {timelineIds.map((id) => (
                 <li key={id} className="relative flex gap-8 pl-14">
                   <div
-                    className="absolute left-0 top-1 w-10 h-10 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center shadow-sm z-10"
+                    className="absolute left-0 top-1 w-10 h-10 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center shadow-sm z-10"
                     aria-hidden="true"
                   >
                     <div className="w-2.5 h-2.5 rounded-full bg-sky-300" />

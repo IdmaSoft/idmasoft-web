@@ -130,7 +130,7 @@ export default async function SellerResponderPage({
       </div>
 
       {/* Overview */}
-      <section className="py-20 bg-zinc-950 border-t border-zinc-900">
+      <section className="py-20 bg-zinc-900 border-t border-zinc-800">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Problem */}
@@ -194,7 +194,7 @@ export default async function SellerResponderPage({
       </section>
 
       {/* Technology */}
-      <section className="py-20 bg-zinc-950 border-t border-zinc-900">
+      <section className="py-20 bg-zinc-900 border-t border-zinc-800">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
             {/* Tech stack */}
@@ -209,7 +209,7 @@ export default async function SellerResponderPage({
                 {techStack.map((tech) => (
                   <span
                     key={tech}
-                    className="text-sm font-medium px-3 py-1.5 rounded-full bg-zinc-900 text-zinc-300 border border-zinc-800"
+                    className="text-sm font-medium px-3 py-1.5 rounded-full bg-zinc-800 text-zinc-300 border border-zinc-700"
                   >
                     {tech}
                   </span>

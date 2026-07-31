@@ -58,7 +58,7 @@ export default async function ServicesPage({
       </div>
 
       {/* Services grid */}
-      <section id="services" className="py-16 bg-zinc-950 border-t border-zinc-900">
+      <section id="services" className="py-16 bg-zinc-900 border-t border-zinc-800">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {services.map((service, index) => (

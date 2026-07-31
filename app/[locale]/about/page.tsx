@@ -91,7 +91,7 @@ export default async function AboutPage({
       </section>
 
       {/* Values */}
-      <section className="py-20 bg-zinc-950 border-t border-zinc-900">
+      <section className="py-20 bg-zinc-900 border-t border-zinc-800">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center mb-14">
             <SectionTitle
